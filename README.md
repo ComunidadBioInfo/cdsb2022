@@ -54,10 +54,10 @@ Consulta el calendario de este curso en: <http://bit.ly/calendarcdsb2022>
 | Horario     | Tema                                              | Instructor                        |
 |-------------|---------------------------------------------------|-----------------------------------|
 | 9:00-10:00  | Talk: Convertir tu flujo de análisis en un paquete R/Bioconductor.        | Leonardo Collado         |
-| 10:00-11:00 | Generando un proyecto colaborativo con Git/GitHub | Aurora Labastida                  |
-| 11:30-12:00 | Keynote: La comunidad R-Ladies                    | Ana Beatriz Villaseñor Altamirano |
-| 12:00-14:00 | Git y GitHub con RStudio                          | Erick Cuevas Fernández            |
-| 15:30-17:30 | Merge y conflictos de versiones en Git y GitHub   | Alejandra Medina Rivera           |
+| 10:00-11:00 | Talk: Paquetes de bioconductor relacionados con la metagenómica. |                  |
+| 11:30-12:00 |                    |  |
+| 12:00-14:00 |                           |             |
+| 15:30-17:30 |   |           |
 
 ### Miércoles 03 de agosto. Reconstrucción metabólica e inferencia filogenética
 
