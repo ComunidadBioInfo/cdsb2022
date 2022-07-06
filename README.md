@@ -63,10 +63,10 @@ Consulta el calendario de este curso en: <http://bit.ly/calendarcdsb2022>
 
 | Horario     | Tema                                                | Instructor              |
 |-------------|-----------------------------------------------------|-------------------------|
-| 9:00-10:30  | Modificando los archivos de inicio de R             | Joselyn Chávez          |
-| 11:30-12:30 | Keynote Código legible con R: buenas prácticas de escritura | Ángel Escalante         |
-| 15:30-16:30 | Mantenimiento del espacio de trabajo                | Joselyn Chávez          |
-| 16:30-17:30 | Instalación de paqueterías desde código fuente      | Joselyn Chávez          |
+| 9:00-10:30  | Asignación taxonómica            |           |
+| 11:30-12:30 | Análisis de vías metabólicas |          |
+| 15:30-16:30 | MEBs (Multigenomic Entropy Based Score pipeline )               |           |
+| 16:30-17:30 | Sesión social: Conociendo a la comunidad.   |           |
 
 ### Jueves 04 de agosto. Proyectos colaborativos de metagenomas.
 
@@ -86,8 +86,6 @@ Consulta el calendario de este curso en: <http://bit.ly/calendarcdsb2022>
 # Patrocinadores
 
 Agradecemos a nuestros patrocinadores:
-
-<a href="https://comunidadbioinfo.github.io/es/post/cs_and_s_event_fund_award/#.YJH-wbVKj8A"><img src="https://comunidadbioinfo.github.io/post/2021-01-27-cs_and_s_event_fund_award/spanish_cs_and_s_award.jpeg" width="400px" align="center"/></a>
 
 <a href="https://www.r-consortium.org/"><img src="https://www.r-consortium.org/wp-content/uploads/sites/13/2016/09/RConsortium_Horizontal_Pantone.png" width="400px" align="center"/></a>
 
