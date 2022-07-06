@@ -44,44 +44,44 @@ Consulta el calendario de este curso en: <http://bit.ly/calendarcdsb2022>
 
 | Horario     | Tema                                      | Instructor             |
 |-------------|-------------------------------------------|------------------------|
+| 09:00-10:00 | Bienvenida                                | CDSB                   | 
 | 10:00-11:00 | Presentación CDSB                         | Joselyn Chávez, Erick Cuevas |
-| 11:30-13:00 | Talk: La última versión del árbol de la vida | Mirna Vásquez         |
-| 13:00-14:00 | Control de versiones con GitHub y RStudio   | Alejandra Medina        |
-| 15:30-16:30 | Generación de Reportes con R markdown              | Erick Cuevas |
+| 11:00-12:00 | Keynote: La última versión del árbol de la vida | Mirna Vásquez         |
+| 12:00-14:00 | Control de versiones con GitHub y RStudio   | Alejandra Medina        |
+| 15:00-17:00 | Generación de Reportes con R markdown              | Joselyn Chávez, Erick Cuevas |
 
 ### Martes 02 de agosto. Reconstrucción de Genomas.
 
 | Horario     | Tema                                              | Instructor                        |
 |-------------|---------------------------------------------------|-----------------------------------|
-| 9:00-10:00  | Talk: Convertir tu flujo de análisis en un paquete R/Bioconductor.        | Leonardo Collado         |
-| 10:00-11:00 | Talk: Paquetes de bioconductor relacionados con la metagenómica. |                  |
-| 11:30-12:00 |                    |  |
-| 12:00-14:00 |                           |             |
-| 15:30-17:30 |   |           |
+| 9:00-10:00  | Keynote: Convertir tu flujo de análisis en un paquete R/Bioconductor.| Leonardo Collado         |
+| 10:00-13:00 | Reconstrucción de genomas. Parte I                |   Yalbi Balderas       |
+| 13:00-14:00 | Keynote: Paquetes de bioconductor relacionados con la metagenómica.  |     |
+| 17:00-14:00 | Reconstrucción de genomas. Parte II               |   Yalbi Balderas       |
 
 ### Miércoles 03 de agosto. Reconstrucción metabólica e inferencia filogenética
 
 | Horario     | Tema                                                | Instructor              |
 |-------------|-----------------------------------------------------|-------------------------|
-| 9:00-10:30  | Asignación taxonómica            |           |
-| 11:30-12:30 | Análisis de vías metabólicas |          |
-| 15:30-16:30 | MEBs (Multigenomic Entropy Based Score pipeline )               |           |
-| 16:30-17:30 | Sesión social: Conociendo a la comunidad.   |           |
+| 9:00-10:30  | Asignación taxonómica                               |      Mirna Vásquez      |
+| 11:30-13:30 | Análisis de vías metabólicas                        |     Mirna Vásquez       |
+| 13:30-14:00 |      Construyendo Comunidad                         |    CDSB                 |
+| 15:00-17:00 | MEBs (Multigenomic Entropy Based Score pipeline )   |     Valerie de Anda     |
 
 ### Jueves 04 de agosto. Proyectos colaborativos de metagenomas.
 
 | Horario     | Tema                                            | Instructor                                              |
 |-------------|-------------------------------------------------|---------------------------------------------------------|
-| 9:00-10:00  | Organización de equipos colaborativos                            |  |
-| 10:30-17:00 | Proyectos colaborativos de metagenomas          |  |
+| 9:00-14:00  | Proyecto colaborativo. Parte I                  |  |
+| 15:00-17:00 | Proyecto colaborativo. Parte II                 |  |
 
 ### Viernes 05 de agosto. Proyectos colaborativos de metagenomas.
 
 | Horario     | Tema                                            | Instructor                                              |
 |-------------|-------------------------------------------------|---------------------------------------------------------|
-| 9:00-11:00  | Proyecto colaborativo                           |  | |
-| 12:30-14:00 | Presentacion Proyecto colaborativo                           |  |
-| 15:30-17:00 | Clausura                       |  |
+| 9:00-11:00  | Proyecto colaborativo. Parte III                |  | 
+| 11:30-13:30 | Presentacion Proyecto colaborativo              |  |
+| 13:30-14:00 | Clausura                                        |  |
 
 # Patrocinadores
 
