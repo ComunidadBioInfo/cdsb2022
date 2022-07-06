@@ -46,7 +46,7 @@ Consulta el calendario de este curso en: <http://bit.ly/calendarcdsb2022>
 |-------------|-------------------------------------------|------------------------|
 | 09:00-10:00 | Bienvenida                                | CDSB                   | 
 | 10:00-11:00 | Presentación CDSB                         | Joselyn Chávez, Erick Cuevas |
-| 11:00-12:00 | Keynote: La última versión del árbol de la vida | Mirna Vásquez         |
+| 11:00-12:00 | Keynote: La última versión del árbol de la vida | Mirna Vázquez         |
 | 12:00-14:00 | Control de versiones con GitHub y RStudio   | Alejandra Medina        |
 | 15:00-17:00 | Generación de Reportes con R markdown              | Joselyn Chávez, Erick Cuevas |
 
@@ -56,15 +56,15 @@ Consulta el calendario de este curso en: <http://bit.ly/calendarcdsb2022>
 |-------------|---------------------------------------------------|-----------------------------------|
 | 9:00-10:00  | Keynote: Convertir tu flujo de análisis en un paquete R/Bioconductor.| Leonardo Collado         |
 | 10:00-13:00 | Reconstrucción de genomas. Parte I                |   Yalbi Balderas       |
-| 13:00-14:00 | Keynote: Paquetes de bioconductor relacionados con la metagenómica.  |     |
+| 13:00-14:00 | Keynote: Paquetes de bioconductor relacionados con la metagenómica.  |  Brett Baker   |
 | 17:00-14:00 | Reconstrucción de genomas. Parte II               |   Yalbi Balderas       |
 
 ### Miércoles 03 de agosto. Reconstrucción metabólica e inferencia filogenética
 
 | Horario     | Tema                                                | Instructor              |
 |-------------|-----------------------------------------------------|-------------------------|
-| 9:00-10:30  | Asignación taxonómica                               |      Mirna Vásquez      |
-| 11:30-13:30 | Análisis de vías metabólicas                        |     Mirna Vásquez       |
+| 9:00-10:30  | Asignación taxonómica                               |      Mirna Vázquez      |
+| 11:30-13:30 | Análisis de vías metabólicas                        |     Mirna Vázquez       |
 | 13:30-14:00 |      Construyendo Comunidad                         |    CDSB                 |
 | 15:00-17:00 | MEBs (Multigenomic Entropy Based Score pipeline )   |     Valerie de Anda     |
 
