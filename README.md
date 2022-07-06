@@ -34,7 +34,7 @@ Todas las sesiones serán teóricas y prácticas. Nos enfocaremos en tres temas 
 
 - [Dr. Leonardo Collado](https://lcolladotor.github.io/es/)
 - [Dr. Brett Baker](https://comunidadbioinfo.github.io/es/authors/brettbaker/)
-- [Dr. Valerie de Anda](https://comunidadbioinfo.github.io/es/authors/valeriedeanda/)
+- [Dra. Valerie de Anda](https://comunidadbioinfo.github.io/es/authors/valeriedeanda/)
 
 ## Temario 
 
