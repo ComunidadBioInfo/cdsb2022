@@ -18,7 +18,6 @@ Todas las sesiones serán teóricas y prácticas. Nos enfocaremos en tres temas 
 
 [**¡Registrate aquí!**](https://www.nnb.unam.mx/EBM2022/registro/)
 
-<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Do you want to improve your coding skills with R and git?<br><br>Learn with <a href="https://twitter.com/josschavezf1?ref_src=twsrc%5Etfw">@josschavezf1</a> <a href="https://twitter.com/ErickCuevasF?ref_src=twsrc%5Etfw">@ErickCuevasF</a> <a href="https://twitter.com/areyesq?ref_src=twsrc%5Etfw">@areyesq</a> <a href="https://twitter.com/AleMedinaRivera?ref_src=twsrc%5Etfw">@AleMedinaRivera</a> <a href="https://twitter.com/TeresaOM?ref_src=twsrc%5Etfw">@TeresaOM</a> <a href="https://twitter.com/MirnaVRL?ref_src=twsrc%5Etfw">@MirnaVRL</a> Aurora <a href="https://twitter.com/AnaBetty2304?ref_src=twsrc%5Etfw">@AnaBetty2304</a> <a href="https://twitter.com/Aleponcem?ref_src=twsrc%5Etfw">@Aleponcem</a> &amp; Angel<br><br>With material adapted from <a href="https://twitter.com/JennyBryan?ref_src=twsrc%5Etfw">@JennyBryan</a> et al<a href="https://twitter.com/hashtag/rstats?src=hash&amp;ref_src=twsrc%5Etfw">#rstats</a> <a href="https://twitter.com/rstudio?ref_src=twsrc%5Etfw">@rstudio</a><a href="https://t.co/JNKmZFVVtL">https://t.co/JNKmZFVVtL</a> <a href="https://t.co/2Prd22fkHd">pic.twitter.com/2Prd22fkHd</a></p>&mdash; ComunidadBioInfo (@CDSBMexico) <a href="https://twitter.com/CDSBMexico/status/1411091193396596737?ref_src=twsrc%5Etfw">July 2, 2021</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 ## Instructores
 
@@ -45,23 +44,22 @@ Consulta el calendario de este curso en: <http://bit.ly/calendarcdsb2022>
 
 | Horario     | Tema                                      | Instructor             |
 |-------------|-------------------------------------------|------------------------|
-| 10:00-11:00 | Presentación CDSB                         | Joselyn Chávez, Erick Cuevas Fernández |
-| 11:30-13:00 | Flujo de trabajo con proyectos de RStudio | Joselyn Chávez         |
-| 13:00-14:00 | Generando mi primer proyecto de RStudio   | Joselyn Chávez         |
-| 15:30-16:30 | Trabajando con paths seguros              | María Teresa Ortiz     |
-| 16:30-17:30 | Buenas prácticas para nombrar archivos    | María Teresa Ortiz     |
+| 10:00-11:00 | Presentación CDSB                         | Joselyn Chávez, Erick Cuevas |
+| 11:30-13:00 | Talk: La última versión del árbol de la vida | Mirna Vásquez         |
+| 13:00-14:00 | Control de versiones con GitHub y RStudio   | Alejandra Medina        |
+| 15:30-16:30 | Generación de Reportes con R markdown              | Erick Cuevas |
 
-### Martes 02 de agosto
+### Martes 02 de agosto. Reconstrucción de Genomas.
 
 | Horario     | Tema                                              | Instructor                        |
 |-------------|---------------------------------------------------|-----------------------------------|
-| 9:00-10:00  | Introducción a Git y GitHub desde terminal        | Mirna Vázquez Rosas-Landa         |
+| 9:00-10:00  | Talk: Convertir tu flujo de análisis en un paquete R/Bioconductor.        | Leonardo Collado         |
 | 10:00-11:00 | Generando un proyecto colaborativo con Git/GitHub | Aurora Labastida                  |
 | 11:30-12:00 | Keynote: La comunidad R-Ladies                    | Ana Beatriz Villaseñor Altamirano |
 | 12:00-14:00 | Git y GitHub con RStudio                          | Erick Cuevas Fernández            |
 | 15:30-17:30 | Merge y conflictos de versiones en Git y GitHub   | Alejandra Medina Rivera           |
 
-### Miércoles 03 de agosto
+### Miércoles 03 de agosto. Reconstrucción metabólica e inferencia filogenética
 
 | Horario     | Tema                                                | Instructor              |
 |-------------|-----------------------------------------------------|-------------------------|
@@ -70,22 +68,20 @@ Consulta el calendario de este curso en: <http://bit.ly/calendarcdsb2022>
 | 15:30-16:30 | Mantenimiento del espacio de trabajo                | Joselyn Chávez          |
 | 16:30-17:30 | Instalación de paqueterías desde código fuente      | Joselyn Chávez          |
 
-### Jueves 04 de agosto
+### Jueves 04 de agosto. Proyectos colaborativos de metagenomas.
 
 | Horario     | Tema                                            | Instructor                                              |
 |-------------|-------------------------------------------------|---------------------------------------------------------|
-| 9:00-11:00  | Introducción a Shiny                            | Erick Cuevas Fernández                                  |
-| 11:30-14:00 | Creando mi primera aplicación de Shiny          | Alejandro Reyes                                         |
-| 15:30-17:30 | Proyecto colaborativo                           | Alejandro Reyes, Erick Cuevas Fernández, Joselyn Chávez |
+| 9:00-10:00  | Organización de equipos colaborativos                            |  |
+| 10:30-17:00 | Proyectos colaborativos de metagenomas          |  |
 
-### Viernes 05 de agosto
+### Viernes 05 de agosto. Proyectos colaborativos de metagenomas.
 
 | Horario     | Tema                                            | Instructor                                              |
 |-------------|-------------------------------------------------|---------------------------------------------------------|
-| 9:00-11:00  | Proyecto colaborativo                           | Alejandro Reyes, Erick Cuevas Fernández, Joselyn Chávez |
-| 11:30-12:30 | Keynote: Aplicaciones ShinyR en la vida diaria  | Alejandro Ponce                                         |
-| 12:30-14:00 | Proyecto colaborativo                           | Alejandro Reyes, Erick Cuevas Fernández, Joselyn Chávez |
-| 15:30-17:00 | Presentación de proyectos                       | Alejandro Reyes, Erick Cuevas Fernández, Joselyn Chávez |
+| 9:00-11:00  | Proyecto colaborativo                           |  | |
+| 12:30-14:00 | Presentacion Proyecto colaborativo                           |  |
+| 15:30-17:00 | Clausura                       |  |
 
 # Patrocinadores
 
