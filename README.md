@@ -46,7 +46,7 @@ Consulta el calendario de este curso en: <http://bit.ly/calendarcdsb2022>
 |-------------|-------------------------------------------|------------------------|
 | 09:00-10:00 | Bienvenida                                | CDSB                   | 
 | 10:00-11:00 | Presentación CDSB                         | Joselyn Chávez, Erick Cuevas |
-| 11:00-12:00 | Keynote: La última versión del árbol de la vida | Mirna Vázquez         |
+| 11:00-12:00 | Keynote: La última versión del árbol de la vida | Brett Baker         |
 | 12:00-14:00 | Control de versiones con GitHub y RStudio   | Alejandra Medina        |
 | 15:00-17:00 | Generación de Reportes con R markdown              | Joselyn Chávez, Erick Cuevas |
 
