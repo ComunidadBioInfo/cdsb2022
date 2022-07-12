@@ -56,7 +56,7 @@ Consulta el calendario de este curso en: <http://bit.ly/calendarcdsb2022>
 |-------------|---------------------------------------------------|-----------------------------------|
 | 9:00-10:00  | Keynote: Convertir tu flujo de análisis en un paquete R/Bioconductor.| Leonardo Collado         |
 | 10:00-13:00 | Reconstrucción de genomas. Parte I                |   Yalbi Balderas       |
-| 13:00-14:00 | Keynote: Paquetes de bioconductor relacionados con la metagenómica.  |  Brett Baker   |
+| 13:00-14:00 | Keynote: Paquetes de bioconductor relacionados con la metagenómica.  |  Yalbi Balderas   |
 | 17:00-14:00 | Reconstrucción de genomas. Parte II               |   Yalbi Balderas       |
 
 ### Miércoles 03 de agosto. Reconstrucción metabólica e inferencia filogenética
