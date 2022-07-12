@@ -55,16 +55,16 @@ Consulta el calendario de este curso en: <http://bit.ly/calendarcdsb2022>
 | Horario     | Tema                                              | Instructor                        |
 |-------------|---------------------------------------------------|-----------------------------------|
 | 9:00-10:00  | Keynote: Convertir tu flujo de análisis en un paquete R/Bioconductor.| Leonardo Collado         |
-| 10:00-13:00 | Reconstrucción de genomas. Parte I                |   Yalbi Balderas       |
+| 10:00-13:00 | Reconstrucción de genomas. Parte I                |   Yalbi Balderas y Mirna Vázquez       |
 | 13:00-14:00 | Keynote: Paquetes de bioconductor relacionados con la metagenómica.  |  Yalbi Balderas   |
-| 17:00-14:00 | Reconstrucción de genomas. Parte II               |   Yalbi Balderas       |
+| 17:00-14:00 | Reconstrucción de genomas. Parte II               |   Yalbi Balderas y Mirna Vázquez      |
 
 ### Miércoles 03 de agosto. Reconstrucción metabólica e inferencia filogenética
 
 | Horario     | Tema                                                | Instructor              |
 |-------------|-----------------------------------------------------|-------------------------|
-| 9:00-10:30  | Asignación taxonómica                               |      Mirna Vázquez      |
-| 11:30-13:30 | Análisis de vías metabólicas                        |     Mirna Vázquez       |
+| 9:00-10:30  | Asignación taxonómica                               |     Yalbi Balderas y Mirna Vázquez      |
+| 11:30-13:30 | Análisis de vías metabólicas                        |    Yalbi Balderas y Mirna Vázquez       |
 | 13:30-14:00 |      Construyendo Comunidad                         |    CDSB                 |
 | 15:00-17:00 | MEBs (Multigenomic Entropy Based Score pipeline )   |     Valerie de Anda     |
 
