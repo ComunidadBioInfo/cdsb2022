@@ -36,10 +36,10 @@ mis-bins
 keynote-paquetes-de-bioconductor-relacionados-con-la-metagenómica
 control-de-calidad-y-ensamble
 preprocesamiento
-taxonomia
+taxonomía
 leamos-los-datos
 inferencia-metabólica
 keeg
 explorando-el-metabolismo-con-rbims.
-anotacion-con-interproscan
+anotación-con-interproscan
 mebs

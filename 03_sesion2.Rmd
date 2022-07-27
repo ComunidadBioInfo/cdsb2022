@@ -19,23 +19,23 @@ grep ">" *.faa
 
 ## KEEG
 
-Okay, ahora vamos a utilizar kofam_scan para anotar las proteinas.
+Okay, ahora vamos a utilizar kofam_scan para anotar las proteínas.
 
-Vamos a dividirnos en equipos para hacer la anotacion de los bins!
+Vamos a dividirnos en equipos para hacer la anotación de los bins!
 
-Esto es como lo hariamos para uno:
+Esto es como lo haríamos para uno:
 
 ```{bash, eval=FALSE}
 /home/programs/DB/kofam/kofam_scan-1.3.0/exec_annotation -o /home/mirna/08.Kofamscan/htn_bins_63.fa.faa.txt /home/mirna/07.Bins/Proteoma/htn_bins_63.fa.faa  --report-unannotated  --cpu 4
 ```
 
-En un loop lo podriamos hacer asi: 
+En un loop lo podríamos hacer así: 
 
 ```{bash, eval=FALSE}
 for i in *.faa ; do  /home/programs/DB/kofam/kofam_scan-1.3.0/exec_annotation -o /home/mirna/08.Kofamscan/$i.txt $i  --report-unannotated  --cpu 4; done
 ```
 
-Okay antes de correrlo, vamos a crear dos carpetas nuevas y unas ligas simbolicas.
+Okay antes de correrlo, vamos a crear dos carpetas nuevas y unas ligas simbólicas.
 
 ```{bash, eval=F}
 mkdir -p 08.Kofamscan/{01.Proteomas,02.KO_results}
@@ -47,15 +47,15 @@ Ajusta el loop para correr KofamScan con los genomas que te tocan :)
 
 ## Explorando el metabolismo con rbims.
 
-Vamos a hacer una exploracion rapida del metabolosmo con [rbims](https://mirnavazquez.github.io/RbiMs/index.html).
+Vamos a hacer una exploración rápida del metabolismo con [rbims](https://mirnavazquez.github.io/RbiMs/index.html).
 
-Okay iniciamos con la libreria de Rbims
+Okay iniciamos con la librería de Rbims
 
 ```{r, eval=F}
 library(rbims)
 ```
 
-Ahora vamos a leer los resulados de KEEG
+Ahora, vamos a leer los resultados de KEEG
 
 ```{r, eval=F}
 htn<-read_ko("08.Kofamscan/02.KO_results/")
@@ -67,7 +67,7 @@ Vamos a mapear con el resto de la base de datos de KEEG
 htn_mapp<-mapping_ko(htn)
 ```
 
-Okay, vamos a enfocarnos en los metabolismos encargados de la obtencion de energia. 
+Okay, vamos a enfocarnos en los metabolismos encargados de la obtención de energía. 
 
 ```{r, eval=F}
 Overview<-c("Central Metabolism", "Carbon Fixation", 
@@ -91,7 +91,7 @@ plot_bubble(tibble_ko = Energy_metabolisms_GOM,
             x_labs=FALSE)  
 ```
 
-Okay, incorporemos metadatos, como por ejemplo la taxonomia. 
+Okay, incorporemos metadatos, por ejemplo la taxonomía. 
 
 ```{r, eval=F}
 Metadatos<-read_delim("11.GTDBTK/Metadatos.txt", delim="\t")
@@ -112,7 +112,7 @@ plot_bubble(tibble_ko = Energy_metabolisms_GOM,
             x_labs=FALSE) 
 ```
 
-Ahora, vamos a explorar una sola via
+Ahora, vamos a explorar una sola vía
 
 ```{r, eval=F}
 Methane_metabolisms_GOM<-htn_mapp %>%
@@ -129,7 +129,7 @@ plot_heatmap(tibble_ko=Methane_metabolisms_GOM,
              calc="Binary")
 ```
 
-Ahora agregemos metadatos
+Ahora agreguemos metadatos
 
 ```{r, eval=F}
 plot_heatmap(tibble_ko=Methane_metabolisms_GOM, 
@@ -150,7 +150,7 @@ plot_heatmap(tibble_ko=Methane_metabolisms_GOM,
              calc="Binary")
 ```
 
-## Anotacion con InterproScan
+## Anotación con InterproScan
 
 ```{bash, eval=FALSE}
 for i in $(ls *.faa); do sed -i "s/\*//g" $i; done

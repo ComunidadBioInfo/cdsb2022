@@ -1,11 +1,11 @@
-# Taxonomia
+# Taxonomía
 
 Dra. Mirna Vazquez Rosas Landa
 
 03 de agosto de 2022
 
 
-Vamos a explorar la taxonomia de estos bins con [GTDB-tk](https://github.com/Ecogenomics/GTDBTk).
+Vamos a explorar la taxonomía de estos bins con [GTDB-tk](https://github.com/Ecogenomics/GTDBTk).
 
 ```{bash eval=F}
 mkdir 11.GTDBTK
@@ -17,7 +17,7 @@ Activemos el ambiente
 conda activate gtdbtk-2.1.0
 ```
 
-Indiquemos donde esta la base de datos:
+Indiquemos dónde está la base de datos:
 
 ```{bash  eval=F}
 export GTDBTK_DATA_PATH=/home/programs/DB/release207_v2 
@@ -59,7 +59,7 @@ htn_gtdbtk<-GTDBK %>%
          Species)
 ```
 
-Parentesis, vamos a imprimir esta tabla para convertirla en metadatos.
+Paréntesis, vamos a imprimir esta tabla para convertirla en metadatos.
 
 ```{r eval=FALSE}
 write.table(htn_gtdbtk, file = "11.GTDBTK/Metadatos.txt", sep="\t", quote = F,
@@ -78,7 +78,7 @@ GTDBtk<-htn_gtdbtk %>%
   theme_minimal()
 ```
 
-Puede ser interactivo tambien.
+Puede ser interactivo también.
 
 ```{r, eval=FALSE}
 library(plotly)

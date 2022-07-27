@@ -23,7 +23,7 @@ bash src/change_name_extension.sh
 bash src/02.assembly.sh
 ```
 
-Nota: Para las muestras de biogas y sedimento, los autores de los datos depositaron también el co-ensable por lo que este ya no fue generado. Sin embargo, se realizó un filtrado por longitud de los contigs, mediante la herramienta **reformat** del programa **[BBtools](https://jgi.doe.gov/data-and-tools/software-tools/bbtools/)**.
+Nota: Para las muestras de biogas y sedimento, los autores de los datos depositaron también el co-ensamble por lo que éste ya no fue generado. Sin embargo, se realizó un filtrado por longitud de los contigs, mediante la herramienta **reformat** del programa **[BBtools](https://jgi.doe.gov/data-and-tools/software-tools/bbtools/)**.
 
 ```{bash, eval=FALSE}
 ## activar el ambiente de bbmap

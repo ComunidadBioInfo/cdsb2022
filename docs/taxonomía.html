@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>5 Introducción a Conda. | Workshop CDSB 2022: Análisis avanzado de metagenomas. Creando tus flujos de análisis con R/Bioconductor.</title>
-  <meta name="description" content="5 Introducción a Conda. | Workshop CDSB 2022: Análisis avanzado de metagenomas. Creando tus flujos de análisis con R/Bioconductor." />
+  <title>10 Taxonomía | Workshop CDSB 2022: Análisis avanzado de metagenomas. Creando tus flujos de análisis con R/Bioconductor.</title>
+  <meta name="description" content="10 Taxonomía | Workshop CDSB 2022: Análisis avanzado de metagenomas. Creando tus flujos de análisis con R/Bioconductor." />
   <meta name="generator" content="bookdown 0.27 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="5 Introducción a Conda. | Workshop CDSB 2022: Análisis avanzado de metagenomas. Creando tus flujos de análisis con R/Bioconductor." />
+  <meta property="og:title" content="10 Taxonomía | Workshop CDSB 2022: Análisis avanzado de metagenomas. Creando tus flujos de análisis con R/Bioconductor." />
   <meta property="og:type" content="book" />
   
   
   <meta name="github-repo" content="comunidadbioinfo/cdsb2022" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="5 Introducción a Conda. | Workshop CDSB 2022: Análisis avanzado de metagenomas. Creando tus flujos de análisis con R/Bioconductor." />
+  <meta name="twitter:title" content="10 Taxonomía | Workshop CDSB 2022: Análisis avanzado de metagenomas. Creando tus flujos de análisis con R/Bioconductor." />
   
   
   
@@ -29,8 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="keynote-convirtiendo-tu-flujo-de-análisis-en-un-paquete-de-rbioconductor..html"/>
-<link rel="next" href="el-grupo-de-datos.html"/>
+<link rel="prev" href="control-de-calidad-y-ensamble.html"/>
+<link rel="next" href="inferencia-metabólica.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -212,19 +212,60 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="introducción-a-conda." class="section level1 hasAnchor" number="5">
-<h1><span class="header-section-number">5</span> Introducción a Conda.<a href="introducción-a-conda..html#introducción-a-conda." class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>Por definir</p>
-<p>02 de agosto de 2022</p>
+<div id="taxonomía" class="section level1 hasAnchor" number="10">
+<h1><span class="header-section-number">10</span> Taxonomía<a href="taxonomía.html#taxonomía" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Dra. Mirna Vazquez Rosas Landa</p>
+<p>03 de agosto de 2022</p>
+<p>Vamos a explorar la taxonomía de estos bins con <a href="https://github.com/Ecogenomics/GTDBTk">GTDB-tk</a>.</p>
+<div class="sourceCode" id="cb43"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb43-1"><a href="taxonomía.html#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> 11.GTDBTK</span></code></pre></div>
+<p>Activemos el ambiente</p>
+<div class="sourceCode" id="cb44"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb44-1"><a href="taxonomía.html#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> activate gtdbtk-2.1.0</span></code></pre></div>
+<p>Indiquemos dónde está la base de datos:</p>
+<div class="sourceCode" id="cb45"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb45-1"><a href="taxonomía.html#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">GTDBTK_DATA_PATH</span><span class="op">=</span>/home/programs/DB/release207_v2 </span></code></pre></div>
+<p>Explora la ayuda de GTDB-tk</p>
+<p>Discutamos: <a href="https://docs.google.com/document/d/1iiw-q-90nATg-RNTd9nU8L1XE5xoDRC6j19JC1GiPIk/edit?usp=sharing" class="uri">https://docs.google.com/document/d/1iiw-q-90nATg-RNTd9nU8L1XE5xoDRC6j19JC1GiPIk/edit?usp=sharing</a></p>
+<p>Excelente, ahora en equipos vamos a correr GTDB-tk.</p>
+<div class="sourceCode" id="cb46"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb46-1"><a href="taxonomía.html#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="ex">gtdbtk</span> classify_wf <span class="at">--genome_dir</span> /home/mirna/07.Bins/Genoma/01.Bins_named <span class="at">--out_dir</span> /home/mirna/11.GTDBTK <span class="at">--cpus</span> 4 <span class="at">-x</span> fa </span></code></pre></div>
+<p>Vamos a visualizar los datos. Todos a R!!</p>
+<div id="leamos-los-datos" class="section level2 hasAnchor" number="10.1">
+<h2><span class="header-section-number">10.1</span> Leamos los datos<a href="taxonomía.html#leamos-los-datos" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="taxonomía.html#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="taxonomía.html#cb48-1" aria-hidden="true" tabindex="-1"></a>GTDBK<span class="ot">&lt;-</span><span class="fu">read.table</span>(<span class="st">&quot;11.GTDBTK/gtdbtk.bac120.summary.tsv&quot;</span>, </span>
+<span id="cb48-2"><a href="taxonomía.html#cb48-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">sep =</span> <span class="st">&quot;</span><span class="sc">\t</span><span class="st">&quot;</span>, <span class="at">header =</span> T, </span>
+<span id="cb48-3"><a href="taxonomía.html#cb48-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">na.strings =</span><span class="st">&quot;&quot;</span>, <span class="at">stringsAsFactors=</span> F)<span class="sc">%&gt;%</span></span>
+<span id="cb48-4"><a href="taxonomía.html#cb48-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as_tibble</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="taxonomía.html#cb49-1" aria-hidden="true" tabindex="-1"></a>htn_gtdbtk<span class="ot">&lt;-</span>GTDBK <span class="sc">%&gt;%</span></span>
+<span id="cb49-2"><a href="taxonomía.html#cb49-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(user_genome, classification) <span class="sc">%&gt;%</span></span>
+<span id="cb49-3"><a href="taxonomía.html#cb49-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">separate</span>(classification, <span class="fu">c</span>(<span class="st">&quot;Domain&quot;</span>, <span class="st">&quot;Phylum&quot;</span>, <span class="st">&quot;Class&quot;</span>, <span class="st">&quot;Order&quot;</span>,</span>
+<span id="cb49-4"><a href="taxonomía.html#cb49-4" aria-hidden="true" tabindex="-1"></a>                             <span class="st">&quot;Family&quot;</span>, <span class="st">&quot;Genus&quot;</span>, <span class="st">&quot;Species&quot;</span>), <span class="at">sep=</span> <span class="st">&quot;;&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb49-5"><a href="taxonomía.html#cb49-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">Bin_name=</span>user_genome)  <span class="sc">%&gt;%</span></span>
+<span id="cb49-6"><a href="taxonomía.html#cb49-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unite</span>(Bin_name_2, <span class="fu">c</span>(<span class="st">&quot;Bin_name&quot;</span>, <span class="st">&quot;Phylum&quot;</span>), <span class="at">remove =</span> <span class="cn">FALSE</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb49-7"><a href="taxonomía.html#cb49-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Bin_name, Domain, Phylum, Class, Order, Family, Genus, </span>
+<span id="cb49-8"><a href="taxonomía.html#cb49-8" aria-hidden="true" tabindex="-1"></a>         Species)</span></code></pre></div>
+<p>Paréntesis, vamos a imprimir esta tabla para convertirla en metadatos.</p>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="taxonomía.html#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="fu">write.table</span>(htn_gtdbtk, <span class="at">file =</span> <span class="st">&quot;11.GTDBTK/Metadatos.txt&quot;</span>, <span class="at">sep=</span><span class="st">&quot;</span><span class="sc">\t</span><span class="st">&quot;</span>, <span class="at">quote =</span> F,</span>
+<span id="cb50-2"><a href="taxonomía.html#cb50-2" aria-hidden="true" tabindex="-1"></a>            <span class="at">row.names =</span> F, <span class="at">col.names =</span> T)</span></code></pre></div>
+<p>Vamos a hacer un plot</p>
+<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="taxonomía.html#cb51-1" aria-hidden="true" tabindex="-1"></a>GTDBtk<span class="ot">&lt;-</span>htn_gtdbtk <span class="sc">%&gt;%</span></span>
+<span id="cb51-2"><a href="taxonomía.html#cb51-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(Domain, Phylum) <span class="sc">%&gt;%</span></span>
+<span id="cb51-3"><a href="taxonomía.html#cb51-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">Number_of_MAGs =</span> n) <span class="sc">%&gt;%</span></span>
+<span id="cb51-4"><a href="taxonomía.html#cb51-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Domain, </span>
+<span id="cb51-5"><a href="taxonomía.html#cb51-5" aria-hidden="true" tabindex="-1"></a>             <span class="at">y =</span> Number_of_MAGs, <span class="at">fill =</span> Phylum)) <span class="sc">+</span> </span>
+<span id="cb51-6"><a href="taxonomía.html#cb51-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">&quot;identity&quot;</span>, <span class="at">position=</span><span class="fu">position_dodge</span>())<span class="sc">+</span></span>
+<span id="cb51-7"><a href="taxonomía.html#cb51-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
+<p>Puede ser interactivo también.</p>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="taxonomía.html#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(plotly)</span>
+<span id="cb52-2"><a href="taxonomía.html#cb52-2" aria-hidden="true" tabindex="-1"></a>GTDBtk_p_fig <span class="ot">&lt;-</span> <span class="fu">ggplotly</span>(GTDBtk)</span></code></pre></div>
 
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="keynote-convirtiendo-tu-flujo-de-análisis-en-un-paquete-de-rbioconductor..html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="el-grupo-de-datos.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="control-de-calidad-y-ensamble.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="inferencia-metabólica.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

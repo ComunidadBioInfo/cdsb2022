@@ -27,13 +27,13 @@ ln -s /home/diana/samples/htn/data/htn.fasta data/
 ln -s /home/mirna/03.Mapeo/01.Trimm_reads/htn*.fastq  data/ 
 ```
 
-Primero que nada activa tu ambiente de conda.
+Primero, activa tu ambiente de conda.
 
 ```{bash, eval=F}
 conda activate bbmap_env
 ```
 
-Ahora ¡sí! explora las opciones de bbmap, y vamos a hacer nuestro primer mapeo.
+¡Ahora sí! Explora las opciones de bbmap, y vamos a hacer nuestro primer mapeo.
 
 ```{bash mapeando, eval=F}
 bbmap.sh ref=data/htn.fasta in1=data/htn_1-short.fastq in2=data/htn_2-short.fastq out=results/htn.sam kfilter=22 subfilter=15 maxindel=80 
@@ -74,7 +74,7 @@ Okay, ahora activa tu ambiente.
 conda activate maxbin_env
 ```
 
-Explora las opciones y ahora si, a calcular bins. 
+Explora las opciones y ahora sí, a calcular bins. 
 
 ```{bash run_MaxBin2, eval=FALSE}
 run_MaxBin.pl -contig data/htn.fasta -out results/maxbin -abund data/htn-depth.txt -max_iteration 2
@@ -82,7 +82,7 @@ run_MaxBin.pl -contig data/htn.fasta -out results/maxbin -abund data/htn-depth.t
 
 ### [MetaBat](https://bitbucket.org/berkeleylab/metabat/src/master/)
 
-Okay vamos a utilizar otro progama. Crea tus ligas simbolicas :)
+Okay vamos a utilizar otro progama. Crea tus ligas simbólicas :)
 
 ```{bash, eval=F}
 mkdir -p 03.Metabat/{data,results}
@@ -93,7 +93,7 @@ ln -s /home/diana/samples/htn/data/htn_sorted.bam  data/
 
 Para MetaBat lo primero que tenemos que hacer es crear un archivo de profundidad utilizando el script **jgi_summarize_bam_contig_depths**.
 
-Entonces primero activamos el ambiente.
+Entonces, primero activamos el ambiente.
 
 ```{bash, eval=FALSE}
 conda activate metabat_env
@@ -111,7 +111,7 @@ Okay... exploremos el archivo con **head**
 head data/htn-depth.txt
 ```
 
-Para metabat solo necesitamos dos archivos principales:
+Para metabat sólo necesitamos dos archivos principales:
 
 - El ensamble
 - El archivo de profundidad
@@ -122,7 +122,7 @@ metabat -i data/htn.fasta -a data/htn-depth.txt -o results/bins -t 4 --minCVSum 
 
 ### [CONCOCT](https://concoct.readthedocs.io/en/latest/)
 
-Okay vamos a utilizar otro programa. Crea tus ligas simbolicas :)
+Okay, vamos a utilizar otro programa. Crea tus ligas simbólicas :)
 
 ```{bash, eval=F}
 mkdir -p 04.Concoct/{data,results}
@@ -131,13 +131,13 @@ ln -s /home/diana/samples/htn/data/htn.fasta data/
 ln -s /home/diana/samples/htn/data/htn_sorted.bam  data/ 
 ```
 
-Primero activemos el ambiente
+Primero, activemos el ambiente
 
 ```{bash, eval=FALSE}
 conda activate concoct_env
 ```
 
-Primero los contigs se tienen que partir en pedazos mas pequeños
+Primero, los contigs se tienen que partir en pedazos más pequeños
 
 ```{bash split_assembly, eval=FALSE}
 cut_up_fasta.py data/htn.fasta -c 10000 -o 0 --merge_last -b results/SplitAssembly-htn.bed > results/htn.fasta-split10K.fa
@@ -153,9 +153,9 @@ samtools index data/htn_sorted.bam
 concoct_coverage_table.py results/SplitAssembly-htn.bed data/htn_sorted.bam > results/concoct_coverage_table_htn.tsv
 ```
 
-Ahora si!! a correr concoct.
+¡Ahora sí! A correr concoct.
 
-Normalmente correriamos 500 iteraciones, pero esta vez solo haremos una.
+Normalmente correríamos 500 iteraciones, pero esta vez sólo haremos una.
 
 ```{bash run_concot, eval=FALSE}
 concoct --coverage_file results/concoct_coverage_table_htn.tsv --composition_file results/htn.fasta-split10K.fa --clusters 400 --kmer_length 4 --threads 4 --length_threshold 3000 --basename concot --seed 4 --iterations 1
@@ -217,7 +217,7 @@ checkm  lineage_wf -t 4 -x fa /home/mirna/05.DAS_tool/results/htn_bins_DASTool_b
 
 Vamos a explorar la salida de checkM
 
-Primero me puedes decir ¿cuántas lineas tiene tu archivo?
+Primero me puedes decir ¿Cuántas lineas tiene tu archivo?
 
 Okay... ahora vamos a remover esas lineas feas. 
 
@@ -277,7 +277,7 @@ Ahora un ejercicio.
 grep ">" *.fa
 ```
 
-Cuál es el problema?
+¿Cuál es el problema?
 
 ```{r, eval=FALSE}
 change_bin_name<-function(ruta, ambiente){
@@ -326,7 +326,7 @@ Veamos si funcionó
 grep ">" *.fa
 ```
 
-Muy bien, pongamos eso en una nueva carpeta y esperemos lo mejor jaja, no es cierto, si movámoslo a otra carpeta, pero quitemos el renamed.
+Muy bien, pongamos eso en una nueva carpeta y esperemos lo mejor jaja. No es cierto, sí movámoslo a otra carpeta, pero quitemos el renamed.
 
 ```{r, eval=FALSE}
 change_bin_name<-function(ruta){
@@ -342,5 +342,5 @@ setwd(ruta_original)
 change_bin_name("/home/mirna/07.Bins/Genoma/01.Bins_named")
 ```
 
-Creen que puedan optimizar esos scripts? discute en tu equipo si tienes una mejor idea!
+¿Creen que puedan optimizar esos scripts? ¡Discute en tu equipo si tienes una mejor idea!
 
