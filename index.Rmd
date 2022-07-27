@@ -86,7 +86,7 @@ Consulta el calendario de este curso en: <https://bit.ly/calendarcdsb2022>
 
 | Horario     | Tema                            | Instructor                                                  |
 |-------------|---------------------------------|-------------------------------------------------------------|
-| 9:00-11:00  | MEBs.                           | Dra. Valerie de Anda                                        |
+| 9:00-11:00  | Un vistazo a la creación de paquetes de R/Bioconductor | Dra. Joselyn Chávez                                      |
 | 11:30-14:00 | Proyecto colaborativo. Parte I  | Dra. Mirna Vázquez, Dra. Yalbi Balderas, Dra. Joselyn Chávez, M.C. Erick Cuevas |
 | 15:00-17:00 | Proyecto colaborativo. Parte II | Dra. Mirna Vázquez, Dra. Yalbi Balderas, Dra. Joselyn Chávez, M.C. Erick Cuevas |
 
