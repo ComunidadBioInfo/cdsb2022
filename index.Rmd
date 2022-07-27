@@ -48,7 +48,7 @@ Durante este taller aprenderás a reconstruir genomas a partir de metagenomas ut
 - M.C. Diana Oaxaca
 - M.C. Marisol Navarro
 - M.C. José Antonio Ovando
-
+- Dr. Otoniel Maya Lucas
 
 ## Temario 
 
@@ -69,7 +69,7 @@ Consulta el calendario de este curso en: <https://bit.ly/calendarcdsb2022>
 | Horario     | Tema                                              | Instructor                        |
 |-------------|---------------------------------------------------|-----------------------------------|
 | 9:00-10:00  | Plática: Convirtiendo tu flujo de análisis en un paquete de R/Bioconductor. | Dr. Leonardo Collado Torres |
-| 10:00-11:00 | Introducción a Conda                              | Por definir                       |
+| 10:00-11:00 | Introducción a Conda                              | Dr. Otoniel Maya Lucas                       |
 | 11:30-13:00 | Reconstrucción de genomas. Parte I Binning               | M.C. Diana Oaxaca y Dra. Mirna Vazquez Rosas Landa                 |
 | 13:00-14:00 | Plática: Paquetes de bioconductor relacionados con la metagenómica. |  Dra. Yalbi Balderas  |
 | 15:00-17:00 | Reconstrucción de genomas. Parte II               | Dra. Yalbi Balderas               |

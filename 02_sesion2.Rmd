@@ -1,6 +1,6 @@
 #  Introducción a Conda.
 
-Por definir
+Dr. Otoniel Maya Lucas
 
 02 de agosto de 2022
 
