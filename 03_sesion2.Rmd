@@ -53,18 +53,14 @@ Okay iniciamos con la librería de Rbims
 
 ```{r, eval=F}
 library(rbims)
+library(tidyverse)
 ```
 
-Ahora, vamos a leer los resultados de KEEG
+Ahora, vamos a leer los resultados de KEEG y mapearlos con el resto de la base de datos de KEEG
 
 ```{r, eval=F}
-htn<-read_ko("08.Kofamscan/02.KO_results/")
-```
-
-Vamos a mapear con el resto de la base de datos de KEEG
-
-```{r, eval=F}
-htn_mapp<-mapping_ko(htn)
+htn_mapp<-read_ko("08.Kofamscan/02.KO_results/") %>%
+    mapping_ko()
 ```
 
 Okay, vamos a enfocarnos en los metabolismos encargados de la obtención de energía. 
@@ -73,7 +69,7 @@ Okay, vamos a enfocarnos en los metabolismos encargados de la obtención de ener
 Overview<-c("Central Metabolism", "Carbon Fixation", 
             "Nitrogen Metabolism", "Sulfur Metabolism", "Fermentation", 
             "Methane Metabolism")
-Energy_metabolisms_GOM<-htn_mapp %>%
+Energy_metabolisms_htn<-htn_mapp %>%
   drop_na(Cycle) %>%
   get_subset_pathway(rbims_pathway, Overview) 
 ```
@@ -81,7 +77,7 @@ Energy_metabolisms_GOM<-htn_mapp %>%
 Vamos a visualizar los datos.
 
 ```{r, eval=F}
-plot_bubble(tibble_ko = Energy_metabolisms_GOM,
+plot_bubble(tibble_ko = Energy_metabolisms_htn,
             x_axis = Bin_name, 
             y_axis = Pathway_cycle,
             analysis="KEGG",
@@ -100,7 +96,7 @@ Metadatos<-read_delim("11.GTDBTK/Metadatos.txt", delim="\t")
 Hagamos un plot
 
 ```{r, eval=F}
-plot_bubble(tibble_ko = Energy_metabolisms_GOM,
+plot_bubble(tibble_ko = Energy_metabolisms_htn,
             x_axis = Bin_name, 
             y_axis = Pathway_cycle,
             analysis="KEGG",
@@ -115,15 +111,15 @@ plot_bubble(tibble_ko = Energy_metabolisms_GOM,
 Ahora, vamos a explorar una sola vía
 
 ```{r, eval=F}
-Methane_metabolisms_GOM<-htn_mapp %>%
+Secretion_system_htn<-htn_mapp %>%
   drop_na(Cycle) %>%
-  get_subset_pathway(Cycle, Methane_meta)
+  get_subset_pathway(Cycle, "Secretion system")
 ```
 
 Y hagamos un heatmap
 
 ```{r, eval=F}
-plot_heatmap(tibble_ko=Methane_metabolisms_GOM, 
+plot_heatmap(tibble_ko=Secretion_system_htn, 
              y_axis=Genes,
              analysis = "KEGG",
              calc="Binary")
@@ -132,7 +128,7 @@ plot_heatmap(tibble_ko=Methane_metabolisms_GOM,
 Ahora agreguemos metadatos
 
 ```{r, eval=F}
-plot_heatmap(tibble_ko=Methane_metabolisms_GOM, 
+plot_heatmap(tibble_ko=Secretion_system_htn, 
              y_axis=Genes,
              data_experiment = Metadatos,
              order_x = Phylum,
@@ -141,10 +137,10 @@ plot_heatmap(tibble_ko=Methane_metabolisms_GOM,
 ```
 
 ```{r, eval=F}
-plot_heatmap(tibble_ko=Methane_metabolisms_GOM, 
+plot_heatmap(tibble_ko=Secretion_system_htn, 
              y_axis=Genes,
              data_experiment = Metadatos,
-             #order_y = Pathway_cycle,
+             order_y = Pathway_cycle,
              order_x = Phylum,
              analysis = "KEGG",
              calc="Binary")
@@ -171,28 +167,32 @@ library(tidyverse)
 ```
 
 ```{r, eval=FALSE}
-interpro_pfam_long<-read_interpro(
-  data_interpro = "09.Interpro/01.Proteomas/htn_interpro.tsv", 
-  database="INTERPRO", profile = F)
-interpro_pfam_profile<-read_interpro(
+interpro_Interpro_profile<-read_interpro(
   data_interpro = "09.Interpro/01.Proteomas/htn_interpro.tsv", 
   database="INTERPRO", profile = T) %>%
   filter(!str_detect(INTERPRO, "-"))
 ```
 
 ```{r, eval=FALSE}
-important_PFAMs<-get_subset_pca(tibble_rbims=interpro_pfam_profile, 
+important_INTERPRO<-get_subset_pca(tibble_rbims=interpro_Interpro_profile, 
                                 cos2_val=0.95,
                                 analysis="INTERPRO")
 ```
 
 ```{r, eval=FALSE}
-plot_heatmap(important_PFAMs, y_axis=INTERPRO, analysis = "INTERPRO", distance = T)
+plot_heatmap(important_INTERPRO, y_axis=INTERPRO, analysis = "INTERPRO", distance = T)
 
 ```
 
 ```{r, eval=FALSE}
-plot_heatmap(important_PFAMs, y_axis=INTERPRO, analysis = "INTERPRO", distance = F)
+plot_heatmap(important_INTERPRO, y_axis=INTERPRO, analysis = "INTERPRO", distance = F)
+```
+
+### Finalmente podemos escribir esto en una tabla.
+
+```{r, eval=FALSE}
+write_metabolism("09.Interpro/01.Proteomas/htn_interpro.tsv", 
+                 "08.Kofamscan/02.KO_results/")
 ```
 
 
