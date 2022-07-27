@@ -1,6 +1,14 @@
-# RStudio hacks
+# Keynote: La última versión del árbol de la vida y la metagenómica 
 
-Erick Cuevas Fernández
+Dr. Brett Baker
 
-9 de agosto de 2021
+01 de agosto de 2022
 
+## Diapositivas
+
+[
+```{r,echo=FALSE}
+knitr::include_url("https://codigo-legible-deck.netlify.app/", 
+                   height = "380px")
+```
+]()

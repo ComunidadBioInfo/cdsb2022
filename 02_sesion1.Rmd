@@ -1,0 +1,6 @@
+#  Keynote: Convirtiendo tu flujo de análisis en un paquete de R/Bioconductor.
+
+Dr. Leonardo Collado Torres
+
+02 de agosto de 2022
+

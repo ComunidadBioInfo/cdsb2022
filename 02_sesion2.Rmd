@@ -1,6 +1,6 @@
-# RStudio hacks 2
+#  Introducción a Conda.
 
-Erick Cuevas Fernández
+Por definir
 
-9 de agosto de 2021
+02 de agosto de 2022
 
