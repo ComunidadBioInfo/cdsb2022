@@ -1,0 +1,6 @@
+#  Control de versiones con GitHub y RStudio.
+
+Dra. Alejandra Medina
+
+01 de agosto de 2022
+

@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Page not found | Workshop CDSB 2022: Análisis avanzado de metagenomas. Creando tus flujos de análisis con R/Bioconductor.</title>
-  <meta name="description" content="Page not found | Workshop CDSB 2022: Análisis avanzado de metagenomas. Creando tus flujos de análisis con R/Bioconductor." />
+  <title>6 El grupo de datos | Workshop CDSB 2022: Análisis avanzado de metagenomas. Creando tus flujos de análisis con R/Bioconductor.</title>
+  <meta name="description" content="6 El grupo de datos | Workshop CDSB 2022: Análisis avanzado de metagenomas. Creando tus flujos de análisis con R/Bioconductor." />
   <meta name="generator" content="bookdown 0.27 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Page not found | Workshop CDSB 2022: Análisis avanzado de metagenomas. Creando tus flujos de análisis con R/Bioconductor." />
+  <meta property="og:title" content="6 El grupo de datos | Workshop CDSB 2022: Análisis avanzado de metagenomas. Creando tus flujos de análisis con R/Bioconductor." />
   <meta property="og:type" content="book" />
   
   
   <meta name="github-repo" content="comunidadbioinfo/cdsb2022" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Page not found | Workshop CDSB 2022: Análisis avanzado de metagenomas. Creando tus flujos de análisis con R/Bioconductor." />
+  <meta name="twitter:title" content="6 El grupo de datos | Workshop CDSB 2022: Análisis avanzado de metagenomas. Creando tus flujos de análisis con R/Bioconductor." />
   
   
   
@@ -29,8 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-
+<link rel="prev" href="introducción-a-conda..html"/>
+<link rel="next" href="binning.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -206,19 +206,101 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="page-not-found" class="section level1">
-<h1>Page not found</h1>
-<p>The page you requested cannot be found (perhaps it was moved or renamed).</p>
-<p>You may want to try searching to find the page's new location, or use
-the table of contents to find the page you are looking for.</p>
+<div id="el-grupo-de-datos" class="section level1 hasAnchor" number="6">
+<h1><span class="header-section-number">6</span> El grupo de datos<a href="el-grupo-de-datos.html#el-grupo-de-datos" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>M.C. Diana Oaxaca y Dra. Mirna Vazquez Rosas Landa</p>
+<p>02 de agosto de 2022</p>
+<div id="datos" class="section level3 hasAnchor" number="6.0.1">
+<h3><span class="header-section-number">6.0.1</span> Datos<a href="el-grupo-de-datos.html#datos" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Los datos con los que trabajaremos se enlistan en la siguiente tabla.</p>
+<table>
+<colgroup>
+<col width="6%" />
+<col width="46%" />
+<col width="46%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>samples</th>
+<th>BioProject</th>
+<th>Article</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>htn</td>
+<td><a href="https://www.ebi.ac.uk/ena/browser/view/PRJEB13870?show=reads">PRJEB13870</a></td>
+<td><strong><a href="https://link.springer.com/article/10.1186/s40168-016-0222-x#Ack1">Gut microbiota dysbiosis contributes to …</a></strong></td>
+</tr>
+<tr class="even">
+<td>biogas</td>
+<td><a href="https://www.ebi.ac.uk/ena/browser/view/PRJEB21678">PRJEB21678</a></td>
+<td><a href="https://biotechnologyforbiofuels.biomedcentral.com/articles/10.1186/s13068-018-1258-x"><strong>Genetic repertoires of anaerobic microbiomes …</strong></a>.</td>
+</tr>
+<tr class="odd">
+<td>pulque</td>
+<td><a href="https://www.ebi.ac.uk/ena/browser/view/PRJNA603591">PRJNA603591</a></td>
+<td><a href="https://www.nature.com/articles/s41598-020-71864-4"><strong>Genomic profiling of bacterial and fungal …</strong></a></td>
+</tr>
+<tr class="even">
+<td>sedimento</td>
+<td><a href="https://www.ebi.ac.uk/ena/browser/view/PRJNA364776">PRJNA364776</a></td>
+<td><a href="https://www.osti.gov/award-doi-service/biblio/10.46936/10.25585/60000876"><strong>Microbial Dark Matter project phase II</strong></a> *</td>
+</tr>
+<tr class="odd">
+<td>tea</td>
+<td><a href="https://www.ebi.ac.uk/ena/browser/view/PRJNA698063">PRJNA698063</a></td>
+<td><a href="https://www.researchsquare.com/article/rs-347764/v1"><strong>Niche differentiation of microbes……</strong>)</a></td>
+</tr>
+</tbody>
+</table>
+<div id="htn" class="section level4 hasAnchor" number="6.0.1.1">
+<h4><span class="header-section-number">6.0.1.1</span> htn<a href="el-grupo-de-datos.html#htn" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p><strong>Sinopsis</strong>: Se realizó secuenciación metagenómica de heces de pacientes sanos (<strong>control</strong>), con pre-hipertensión (<strong>pHTN</strong>) y con hipertensión (<strong>HTN</strong>). Los pacientes con enfermedad presentaron niveles de diversidad drásticamente más bajos en comparación con el grupo control. También hicieron trasplantes fecales de pacientes enfermos a ratones axénicos, el efecto del trasplante demostró que la hipertensión observada en los ratones era derivada de la microbiota trasplantada.</p>
+<p>Los datos crudos: PRJEB13870
+<a href="https://www.ebi.ac.uk/ena/browser/view/PRJEB13870?show=reads" class="uri">https://www.ebi.ac.uk/ena/browser/view/PRJEB13870?show=reads</a></p>
+<p>El artículo: Gut microbiota dysbiosis contributes to the development of hypertension sobre microbioma e hipertensión
+<a href="https://link.springer.com/article/10.1186/s40168-016-0222-x#Ack1" class="uri">https://link.springer.com/article/10.1186/s40168-016-0222-x#Ack1</a></p>
+<p>Li, J., Zhao, F., Wang, Y. et al. Gut microbiota dysbiosis contributes to the development of hypertension. Microbiome 5, 14 (2017). <a href="https://doi.org/10.1186/s40168-016-0222-x" class="uri">https://doi.org/10.1186/s40168-016-0222-x</a></p>
+</div>
+<div id="pulque." class="section level4 hasAnchor" number="6.0.1.2">
+<h4><span class="header-section-number">6.0.1.2</span> pulque.<a href="el-grupo-de-datos.html#pulque." class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p><strong>Sinopsis</strong>: En este trabajo se secuenciaron librerias de Illumina MiSeq de muestras a diferentes tiempos de fermentación: 0 hrs (aguamiel), 3, 6 y 12 horas. En general observaron que la abundancia de los géneros cambió durante la fermentación y se asoció con una disminución de sacarosa, aumento de etanol y ácido láctico (Medidos por HPLC). Predijeron, entre otros, la biosíntesis de folato y vitamina B. Uno de los MAG obtenidos correspondió a Saccharomyces cereviseae relacionado filogenéticamente con S. cerevisiae aislado de sake y bioetanol y otro correspondió a Zymomonas mobilis que propusieron como un nuevo linaje.</p>
+<p>Los datos crudos: PRJNA603591
+<a href="https://www.ebi.ac.uk/ena/browser/view/PRJNA603591" class="uri">https://www.ebi.ac.uk/ena/browser/view/PRJNA603591</a></p>
+<p>El articulo: Genomic profiling of bacterial and fungal communities and their predictive functionality during pulque fermentation by whole-genome shotgun sequencing
+<a href="https://www.nature.com/articles/s41598-020-71864-4" class="uri">https://www.nature.com/articles/s41598-020-71864-4</a></p>
+<p>Chacón-Vargas, K., Torres, J., Giles-Gómez, M. et al. Genomic profiling of bacterial and fungal communities and their predictive functionality during pulque fermentation by whole-genome shotgun sequencing. Sci Rep 10, 15115 (2020). <a href="https://doi.org/10.1038/s41598-020-71864-4" class="uri">https://doi.org/10.1038/s41598-020-71864-4</a></p>
+</div>
+<div id="sedimento" class="section level4 hasAnchor" number="6.0.1.3">
+<h4><span class="header-section-number">6.0.1.3</span> sedimento<a href="el-grupo-de-datos.html#sedimento" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Microbioma de sedimento del Microbial Dark Matter project (MDMP)</p>
+<p><strong>Sinopsis</strong>: El MDMP es realizado por el Departamento de Energía del JGI, se enfoca en resolver nuevos superphyla de bacterias y arqueas, en la fase uno se secuenciaron 201 linajes enriquecidos no cultivados, mediante single cell sequencing. En esta segunda fase se utilizaron datos públicos de diferentes muestras y regiones del mundo. Aún se siguen procesando datos y hasta el momento han encontrado prometedores SAGs incluído un phylum novedoso en Deward Creek.</p>
+<p>Los datos: PRJNA364776
+<a href="https://www.ebi.ac.uk/ena/browser/view/PRJNA364776" class="uri">https://www.ebi.ac.uk/ena/browser/view/PRJNA364776</a></p>
+<p>El proyecto: Microbial Dark Matter project phaseII <a href="https://www.osti.gov/award-doi-service/biblio/10.46936/10.25585/60000876" class="uri">https://www.osti.gov/award-doi-service/biblio/10.46936/10.25585/60000876</a></p>
+<p>Hedlund, Brian ORCID [1] Woyke, Tanja ORCID [2] Pester, Michael ORCID [3] Spear, John ORCID [4] Hallam, Steven ORCID [5] Eisen, Jonathan [6] Elshahed, Mostafa ORCID [7] Becraft, Eric [8] Dunfield, Peter [9] Teske, Andreas [10] van Heerden, et al. Joint Genome Institute Award.</p>
+</div>
+<div id="tea" class="section level4 hasAnchor" number="6.0.1.4">
+<h4><span class="header-section-number">6.0.1.4</span> tea<a href="el-grupo-de-datos.html#tea" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Microbioma de Camellia sinensis (la planta del té verde y negro)</p>
+<p><strong>Sinopsis</strong>: En este trabajo se secuenciaron librerias de Illumina de muestras rizosféricas y endofíticas de <em>C. sinensis</em>, el estudio hace una descripción general de la taxonomía y predicción funcional del microbioma, hace énfasis en las diferencias encontradas en la parte endofítica y rizosféricas.</p>
+<p>Los datos: PRJNA698063
+<a href="https://www.ebi.ac.uk/ena/browser/view/PRJNA698063" class="uri">https://www.ebi.ac.uk/ena/browser/view/PRJNA698063</a></p>
+<p>El artículo: Niche differentiation of microbes and their functional signatures in Assam type tea (Camellia sinensis var. assamica)
+<a href="https://www.researchsquare.com/article/rs-347764/v1" class="uri">https://www.researchsquare.com/article/rs-347764/v1</a></p>
+<p>Bora, S. S., Dey, K. K., Borah, M., Rahman, M., Gogoi, M., Modi, M. K., &amp; Barooah, M. (2021). Niche differentiation of microbes and their functional signatures in Assam type tea (Camellia sinensis var. assamica).</p>
+
+</div>
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-
-
+<a href="introducción-a-conda..html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="binning.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

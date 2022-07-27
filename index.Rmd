@@ -45,9 +45,9 @@ Durante este taller aprenderás a reconstruir genomas a partir de metagenomas ut
 
 ## Ayudantes
 
-M.C. Diana Oaxaca
-M.C. Marisol Navarro
-M.C. José Antonio Ovando
+- M.C. Diana Oaxaca
+- M.C. Marisol Navarro
+- M.C. José Antonio Ovando
 
 
 ## Temario 

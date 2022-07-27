@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>13 Inferencia metabólica | Workshop CDSB 2022: Análisis avanzado de metagenomas. Creando tus flujos de análisis con R/Bioconductor.</title>
+  <meta name="description" content="13 Inferencia metabólica | Workshop CDSB 2022: Análisis avanzado de metagenomas. Creando tus flujos de análisis con R/Bioconductor." />
+  <meta name="generator" content="bookdown 0.27 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="13 Inferencia metabólica | Workshop CDSB 2022: Análisis avanzado de metagenomas. Creando tus flujos de análisis con R/Bioconductor." />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta name="github-repo" content="comunidadbioinfo/cdsb2022" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="13 Inferencia metabólica | Workshop CDSB 2022: Análisis avanzado de metagenomas. Creando tus flujos de análisis con R/Bioconductor." />
+  
+  
+  
+
+<meta name="author" content="Dra. Mirna Vázquez Rosas-Landa, Dra. Yalbi Balderas-Martínez, Dra. Joselyn Chávez, M.C. Erick Cuevas-Fernández, Dra. Alejandra Medina-Rivera, Dr. Leonardo Collado-Torres, Dr. Brett Baker, Dra. Valerie de Anda" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="taxonomia.html"/>
+<link rel="next" href="mebs.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Bienvenida</a>
+<ul>
+<li class="chapter" data-level="0.1" data-path="index.html"><a href="index.html#instructores"><i class="fa fa-check"></i><b>0.1</b> Instructores</a></li>
+<li class="chapter" data-level="0.2" data-path="index.html"><a href="index.html#ponentes-invitados"><i class="fa fa-check"></i><b>0.2</b> Ponentes invitados</a></li>
+<li class="chapter" data-level="0.3" data-path="index.html"><a href="index.html#ayudantes"><i class="fa fa-check"></i><b>0.3</b> Ayudantes</a></li>
+<li class="chapter" data-level="0.4" data-path="index.html"><a href="index.html#temario"><i class="fa fa-check"></i><b>0.4</b> Temario</a>
+<ul>
+<li class="chapter" data-level="0.4.1" data-path="index.html"><a href="index.html#lunes-01-de-agosto"><i class="fa fa-check"></i><b>0.4.1</b> Lunes 01 de agosto</a></li>
+<li class="chapter" data-level="0.4.2" data-path="index.html"><a href="index.html#martes-02-de-agosto"><i class="fa fa-check"></i><b>0.4.2</b> Martes 02 de agosto</a></li>
+<li class="chapter" data-level="0.4.3" data-path="index.html"><a href="index.html#miércoles-03-de-agosto"><i class="fa fa-check"></i><b>0.4.3</b> Miércoles 03 de agosto</a></li>
+<li class="chapter" data-level="0.4.4" data-path="index.html"><a href="index.html#jueves-04-de-agosto"><i class="fa fa-check"></i><b>0.4.4</b> Jueves 04 de agosto</a></li>
+<li class="chapter" data-level="0.4.5" data-path="index.html"><a href="index.html#viernes-05-de-agosto"><i class="fa fa-check"></i><b>0.4.5</b> Viernes 05 de agosto</a></li>
+</ul></li>
+<li class="chapter" data-level="0.5" data-path="index.html"><a href="index.html#patrocinadores"><i class="fa fa-check"></i><b>0.5</b> Patrocinadores</a></li>
+<li class="chapter" data-level="0.6" data-path="index.html"><a href="index.html#licencia"><i class="fa fa-check"></i><b>0.6</b> Licencia</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="keynote-la-última-versión-del-árbol-de-la-vida-y-la-metagenómica.html"><a href="keynote-la-última-versión-del-árbol-de-la-vida-y-la-metagenómica.html"><i class="fa fa-check"></i><b>1</b> Keynote: La última versión del árbol de la vida y la metagenómica</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="keynote-la-última-versión-del-árbol-de-la-vida-y-la-metagenómica.html"><a href="keynote-la-última-versión-del-árbol-de-la-vida-y-la-metagenómica.html#diapositivas"><i class="fa fa-check"></i><b>1.1</b> Diapositivas</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="control-de-versiones-con-github-y-rstudio..html"><a href="control-de-versiones-con-github-y-rstudio..html"><i class="fa fa-check"></i><b>2</b> Control de versiones con GitHub y RStudio.</a></li>
+<li class="chapter" data-level="3" data-path="generación-de-reportes-con-r-markdown..html"><a href="generación-de-reportes-con-r-markdown..html"><i class="fa fa-check"></i><b>3</b> Generación de Reportes con R markdown.</a></li>
+<li class="chapter" data-level="4" data-path="keynote-convirtiendo-tu-flujo-de-análisis-en-un-paquete-de-rbioconductor..html"><a href="keynote-convirtiendo-tu-flujo-de-análisis-en-un-paquete-de-rbioconductor..html"><i class="fa fa-check"></i><b>4</b> Keynote: Convirtiendo tu flujo de análisis en un paquete de R/Bioconductor.</a></li>
+<li class="chapter" data-level="5" data-path="introducción-a-conda..html"><a href="introducción-a-conda..html"><i class="fa fa-check"></i><b>5</b> Introducción a Conda.</a></li>
+<li class="chapter" data-level="6" data-path="el-grupo-de-datos.html"><a href="el-grupo-de-datos.html"><i class="fa fa-check"></i><b>6</b> El grupo de datos</a>
+<ul>
+<li class="chapter" data-level="6.0.1" data-path="el-grupo-de-datos.html"><a href="el-grupo-de-datos.html#datos"><i class="fa fa-check"></i><b>6.0.1</b> Datos</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="binning.html"><a href="binning.html"><i class="fa fa-check"></i><b>7</b> Binning</a>
+<ul>
+<li class="chapter" data-level="7.0.1" data-path="binning.html"><a href="binning.html#mapeo"><i class="fa fa-check"></i><b>7.0.1</b> Mapeo</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="discutamos.html"><a href="discutamos.html"><i class="fa fa-check"></i><b>8</b> Discutamos</a>
+<ul>
+<li class="chapter" data-level="8.0.1" data-path="discutamos.html"><a href="discutamos.html#binning-1"><i class="fa fa-check"></i><b>8.0.1</b> Binning</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="discutamos-1.html"><a href="discutamos-1.html"><i class="fa fa-check"></i><b>9</b> Discutamos</a>
+<ul>
+<li class="chapter" data-level="9.0.1" data-path="discutamos-1.html"><a href="discutamos-1.html#refinamiento"><i class="fa fa-check"></i><b>9.0.1</b> Refinamiento</a></li>
+<li class="chapter" data-level="9.0.2" data-path="discutamos-1.html"><a href="discutamos-1.html#checkm"><i class="fa fa-check"></i><b>9.0.2</b> <span>CheckM</span></a></li>
+<li class="chapter" data-level="9.0.3" data-path="discutamos-1.html"><a href="discutamos-1.html#mis-bins"><i class="fa fa-check"></i><b>9.0.3</b> Mis Bins</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="keynote-paquetes-de-bioconductor-relacionados-con-la-metagenómica.html"><a href="keynote-paquetes-de-bioconductor-relacionados-con-la-metagenómica.html"><i class="fa fa-check"></i><b>10</b> Keynote: Paquetes de bioconductor relacionados con la metagenómica</a></li>
+<li class="chapter" data-level="11" data-path="control-de-calidad-y-ensamble.html"><a href="control-de-calidad-y-ensamble.html"><i class="fa fa-check"></i><b>11</b> Control de Calidad y Ensamble</a>
+<ul>
+<li class="chapter" data-level="11.0.1" data-path="control-de-calidad-y-ensamble.html"><a href="control-de-calidad-y-ensamble.html#preprocesamiento"><i class="fa fa-check"></i><b>11.0.1</b> Preprocesamiento</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="taxonomia.html"><a href="taxonomia.html"><i class="fa fa-check"></i><b>12</b> Taxonomia</a>
+<ul>
+<li class="chapter" data-level="12.0.1" data-path="taxonomia.html"><a href="taxonomia.html#leamos-los-datos"><i class="fa fa-check"></i><b>12.0.1</b> Leamos los datos</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="inferencia-metabólica.html"><a href="inferencia-metabólica.html"><i class="fa fa-check"></i><b>13</b> Inferencia metabólica</a>
+<ul>
+<li class="chapter" data-level="13.0.1" data-path="inferencia-metabólica.html"><a href="inferencia-metabólica.html#keeg"><i class="fa fa-check"></i><b>13.0.1</b> KEEG</a></li>
+<li class="chapter" data-level="13.0.2" data-path="inferencia-metabólica.html"><a href="inferencia-metabólica.html#explorando-el-metabolismo-con-rbims."><i class="fa fa-check"></i><b>13.0.2</b> Explorando el metabolismo con rbims.</a></li>
+<li class="chapter" data-level="13.0.3" data-path="inferencia-metabólica.html"><a href="inferencia-metabólica.html#anotacion-con-interproscan"><i class="fa fa-check"></i><b>13.0.3</b> Anotacion con InterproScan</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="mebs.html"><a href="mebs.html"><i class="fa fa-check"></i><b>14</b> MEBs</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Workshop CDSB 2022: Análisis avanzado de metagenomas. Creando tus flujos de análisis con R/Bioconductor.</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="inferencia-metabólica" class="section level1 hasAnchor" number="13">
+<h1><span class="header-section-number">13</span> Inferencia metabólica<a href="inferencia-metabólica.html#inferencia-metabólica" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Dra. Mirna Vazquez Rosas Landa</p>
+<p>03 de agosto de 2022</p>
+<p>Vamos a utilizar prodigal para predecir las proteínas:</p>
+<div class="sourceCode" id="cb53"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb53-1"><a href="inferencia-metabólica.html#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> /home/mirna/07.Bins/Genoma/01.Bins_named/<span class="pp">*</span>.fa <span class="kw">;</span> <span class="cf">do</span> <span class="ex">prodigal</span> <span class="at">-i</span> <span class="va">$i</span> <span class="at">-o</span> <span class="va">$i</span>.txt <span class="at">-a</span> <span class="va">$i</span>.faa <span class="kw">;</span> <span class="cf">done</span></span></code></pre></div>
+<p>Veamos un poco la salida</p>
+<div class="sourceCode" id="cb54"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb54-1"><a href="inferencia-metabólica.html#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span> <span class="st">&quot;&gt;&quot;</span> <span class="pp">*</span>.faa</span></code></pre></div>
+<div id="keeg" class="section level3 hasAnchor" number="13.0.1">
+<h3><span class="header-section-number">13.0.1</span> KEEG<a href="inferencia-metabólica.html#keeg" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Okay, ahora vamos a utilizar kofam_scan para anotar las proteinas.</p>
+<p>Vamos a dividirnos en equipos para hacer la anotacion de los bins!</p>
+<p>Esto es como lo hariamos para uno:</p>
+<div class="sourceCode" id="cb55"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb55-1"><a href="inferencia-metabólica.html#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="ex">/home/programs/DB/kofam/kofam_scan-1.3.0/exec_annotation</span> <span class="at">-o</span> /home/mirna/08.Kofamscan/htn_bins_63.fa.faa.txt /home/mirna/07.Bins/Proteoma/htn_bins_63.fa.faa  <span class="at">--report-unannotated</span>  <span class="at">--cpu</span> 4</span></code></pre></div>
+<p>En un loop lo podriamos hacer asi:</p>
+<div class="sourceCode" id="cb56"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb56-1"><a href="inferencia-metabólica.html#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="pp">*</span>.faa <span class="kw">;</span> <span class="cf">do</span>  <span class="ex">/home/programs/DB/kofam/kofam_scan-1.3.0/exec_annotation</span> <span class="at">-o</span> /home/mirna/08.Kofamscan/<span class="va">$i</span>.txt <span class="va">$i</span>  <span class="at">--report-unannotated</span>  <span class="at">--cpu</span> 4<span class="kw">;</span> <span class="cf">done</span></span></code></pre></div>
+<p>Okay antes de correrlo, vamos a crear dos carpetas nuevas y unas ligas simbolicas.</p>
+<div class="sourceCode" id="cb57"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb57-1"><a href="inferencia-metabólica.html#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> <span class="at">-p</span> 08.Kofamscan/<span class="dt">{01.Proteomas</span><span class="op">,</span><span class="dt">02.KO_results}</span></span>
+<span id="cb57-2"><a href="inferencia-metabólica.html#cb57-2" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> 08.Kofamscan/</span>
+<span id="cb57-3"><a href="inferencia-metabólica.html#cb57-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ln</span> <span class="at">-s</span> /home/mirna/07.Bins/Proteoma/<span class="pp">*</span>.faa 01.Proteomas </span></code></pre></div>
+<p>Ajusta el loop para correr KofamScan con los genomas que te tocan :)</p>
+</div>
+<div id="explorando-el-metabolismo-con-rbims." class="section level3 hasAnchor" number="13.0.2">
+<h3><span class="header-section-number">13.0.2</span> Explorando el metabolismo con rbims.<a href="inferencia-metabólica.html#explorando-el-metabolismo-con-rbims." class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Vamos a hacer una exploracion rapida del metabolosmo con <a href="https://mirnavazquez.github.io/RbiMs/index.html">rbims</a>.</p>
+<p>Okay iniciamos con la libreria de Rbims</p>
+<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="inferencia-metabólica.html#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rbims)</span></code></pre></div>
+<p>Ahora vamos a leer los resulados de KEEG</p>
+<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="inferencia-metabólica.html#cb59-1" aria-hidden="true" tabindex="-1"></a>htn<span class="ot">&lt;-</span><span class="fu">read_ko</span>(<span class="st">&quot;08.Kofamscan/02.KO_results/&quot;</span>)</span></code></pre></div>
+<p>Vamos a mapear con el resto de la base de datos de KEEG</p>
+<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="inferencia-metabólica.html#cb60-1" aria-hidden="true" tabindex="-1"></a>htn_mapp<span class="ot">&lt;-</span><span class="fu">mapping_ko</span>(htn)</span></code></pre></div>
+<p>Okay, vamos a enfocarnos en los metabolismos encargados de la obtencion de energia.</p>
+<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="inferencia-metabólica.html#cb61-1" aria-hidden="true" tabindex="-1"></a>Overview<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">&quot;Central Metabolism&quot;</span>, <span class="st">&quot;Carbon Fixation&quot;</span>, </span>
+<span id="cb61-2"><a href="inferencia-metabólica.html#cb61-2" aria-hidden="true" tabindex="-1"></a>            <span class="st">&quot;Nitrogen Metabolism&quot;</span>, <span class="st">&quot;Sulfur Metabolism&quot;</span>, <span class="st">&quot;Fermentation&quot;</span>, </span>
+<span id="cb61-3"><a href="inferencia-metabólica.html#cb61-3" aria-hidden="true" tabindex="-1"></a>            <span class="st">&quot;Methane Metabolism&quot;</span>)</span>
+<span id="cb61-4"><a href="inferencia-metabólica.html#cb61-4" aria-hidden="true" tabindex="-1"></a>Energy_metabolisms_GOM<span class="ot">&lt;-</span>htn_mapp <span class="sc">%&gt;%</span></span>
+<span id="cb61-5"><a href="inferencia-metabólica.html#cb61-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">drop_na</span>(Cycle) <span class="sc">%&gt;%</span></span>
+<span id="cb61-6"><a href="inferencia-metabólica.html#cb61-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">get_subset_pathway</span>(rbims_pathway, Overview) </span></code></pre></div>
+<p>Vamos a visualizar los datos.</p>
+<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="inferencia-metabólica.html#cb62-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_bubble</span>(<span class="at">tibble_ko =</span> Energy_metabolisms_GOM,</span>
+<span id="cb62-2"><a href="inferencia-metabólica.html#cb62-2" aria-hidden="true" tabindex="-1"></a>            <span class="at">x_axis =</span> Bin_name, </span>
+<span id="cb62-3"><a href="inferencia-metabólica.html#cb62-3" aria-hidden="true" tabindex="-1"></a>            <span class="at">y_axis =</span> Pathway_cycle,</span>
+<span id="cb62-4"><a href="inferencia-metabólica.html#cb62-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">analysis=</span><span class="st">&quot;KEGG&quot;</span>,</span>
+<span id="cb62-5"><a href="inferencia-metabólica.html#cb62-5" aria-hidden="true" tabindex="-1"></a>            <span class="at">calc=</span><span class="st">&quot;Percentage&quot;</span>,</span>
+<span id="cb62-6"><a href="inferencia-metabólica.html#cb62-6" aria-hidden="true" tabindex="-1"></a>            <span class="at">range_size =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">10</span>),</span>
+<span id="cb62-7"><a href="inferencia-metabólica.html#cb62-7" aria-hidden="true" tabindex="-1"></a>            <span class="at">y_labs=</span><span class="cn">FALSE</span>,</span>
+<span id="cb62-8"><a href="inferencia-metabólica.html#cb62-8" aria-hidden="true" tabindex="-1"></a>            <span class="at">x_labs=</span><span class="cn">FALSE</span>)  </span></code></pre></div>
+<p>Okay, incorporemos metadatos, como por ejemplo la taxonomia.</p>
+<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="inferencia-metabólica.html#cb63-1" aria-hidden="true" tabindex="-1"></a>Metadatos<span class="ot">&lt;-</span><span class="fu">read_delim</span>(<span class="st">&quot;11.GTDBTK/Metadatos.txt&quot;</span>, <span class="at">delim=</span><span class="st">&quot;</span><span class="sc">\t</span><span class="st">&quot;</span>)</span></code></pre></div>
+<p>Hagamos un plot</p>
+<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="inferencia-metabólica.html#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_bubble</span>(<span class="at">tibble_ko =</span> Energy_metabolisms_GOM,</span>
+<span id="cb64-2"><a href="inferencia-metabólica.html#cb64-2" aria-hidden="true" tabindex="-1"></a>            <span class="at">x_axis =</span> Bin_name, </span>
+<span id="cb64-3"><a href="inferencia-metabólica.html#cb64-3" aria-hidden="true" tabindex="-1"></a>            <span class="at">y_axis =</span> Pathway_cycle,</span>
+<span id="cb64-4"><a href="inferencia-metabólica.html#cb64-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">analysis=</span><span class="st">&quot;KEGG&quot;</span>,</span>
+<span id="cb64-5"><a href="inferencia-metabólica.html#cb64-5" aria-hidden="true" tabindex="-1"></a>            <span class="at">data_experiment =</span> Metadatos,</span>
+<span id="cb64-6"><a href="inferencia-metabólica.html#cb64-6" aria-hidden="true" tabindex="-1"></a>            <span class="at">calc=</span><span class="st">&quot;Percentage&quot;</span>,</span>
+<span id="cb64-7"><a href="inferencia-metabólica.html#cb64-7" aria-hidden="true" tabindex="-1"></a>            <span class="at">color_character =</span> Class,</span>
+<span id="cb64-8"><a href="inferencia-metabólica.html#cb64-8" aria-hidden="true" tabindex="-1"></a>            <span class="at">range_size =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">10</span>),</span>
+<span id="cb64-9"><a href="inferencia-metabólica.html#cb64-9" aria-hidden="true" tabindex="-1"></a>            <span class="at">y_labs=</span><span class="cn">FALSE</span>,</span>
+<span id="cb64-10"><a href="inferencia-metabólica.html#cb64-10" aria-hidden="true" tabindex="-1"></a>            <span class="at">x_labs=</span><span class="cn">FALSE</span>) </span></code></pre></div>
+<p>Ahora, vamos a explorar una sola via</p>
+<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="inferencia-metabólica.html#cb65-1" aria-hidden="true" tabindex="-1"></a>Methane_metabolisms_GOM<span class="ot">&lt;-</span>htn_mapp <span class="sc">%&gt;%</span></span>
+<span id="cb65-2"><a href="inferencia-metabólica.html#cb65-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">drop_na</span>(Cycle) <span class="sc">%&gt;%</span></span>
+<span id="cb65-3"><a href="inferencia-metabólica.html#cb65-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">get_subset_pathway</span>(Cycle, Methane_meta)</span></code></pre></div>
+<p>Y hagamos un heatmap</p>
+<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb66-1"><a href="inferencia-metabólica.html#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_heatmap</span>(<span class="at">tibble_ko=</span>Methane_metabolisms_GOM, </span>
+<span id="cb66-2"><a href="inferencia-metabólica.html#cb66-2" aria-hidden="true" tabindex="-1"></a>             <span class="at">y_axis=</span>Genes,</span>
+<span id="cb66-3"><a href="inferencia-metabólica.html#cb66-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">analysis =</span> <span class="st">&quot;KEGG&quot;</span>,</span>
+<span id="cb66-4"><a href="inferencia-metabólica.html#cb66-4" aria-hidden="true" tabindex="-1"></a>             <span class="at">calc=</span><span class="st">&quot;Binary&quot;</span>)</span></code></pre></div>
+<p>Ahora agregemos metadatos</p>
+<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="inferencia-metabólica.html#cb67-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_heatmap</span>(<span class="at">tibble_ko=</span>Methane_metabolisms_GOM, </span>
+<span id="cb67-2"><a href="inferencia-metabólica.html#cb67-2" aria-hidden="true" tabindex="-1"></a>             <span class="at">y_axis=</span>Genes,</span>
+<span id="cb67-3"><a href="inferencia-metabólica.html#cb67-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">data_experiment =</span> Metadatos,</span>
+<span id="cb67-4"><a href="inferencia-metabólica.html#cb67-4" aria-hidden="true" tabindex="-1"></a>             <span class="at">order_x =</span> Phylum,</span>
+<span id="cb67-5"><a href="inferencia-metabólica.html#cb67-5" aria-hidden="true" tabindex="-1"></a>             <span class="at">analysis =</span> <span class="st">&quot;KEGG&quot;</span>,</span>
+<span id="cb67-6"><a href="inferencia-metabólica.html#cb67-6" aria-hidden="true" tabindex="-1"></a>             <span class="at">calc=</span><span class="st">&quot;Binary&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb68-1"><a href="inferencia-metabólica.html#cb68-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_heatmap</span>(<span class="at">tibble_ko=</span>Methane_metabolisms_GOM, </span>
+<span id="cb68-2"><a href="inferencia-metabólica.html#cb68-2" aria-hidden="true" tabindex="-1"></a>             <span class="at">y_axis=</span>Genes,</span>
+<span id="cb68-3"><a href="inferencia-metabólica.html#cb68-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">data_experiment =</span> Metadatos,</span>
+<span id="cb68-4"><a href="inferencia-metabólica.html#cb68-4" aria-hidden="true" tabindex="-1"></a>             <span class="co">#order_y = Pathway_cycle,</span></span>
+<span id="cb68-5"><a href="inferencia-metabólica.html#cb68-5" aria-hidden="true" tabindex="-1"></a>             <span class="at">order_x =</span> Phylum,</span>
+<span id="cb68-6"><a href="inferencia-metabólica.html#cb68-6" aria-hidden="true" tabindex="-1"></a>             <span class="at">analysis =</span> <span class="st">&quot;KEGG&quot;</span>,</span>
+<span id="cb68-7"><a href="inferencia-metabólica.html#cb68-7" aria-hidden="true" tabindex="-1"></a>             <span class="at">calc=</span><span class="st">&quot;Binary&quot;</span>)</span></code></pre></div>
+</div>
+<div id="anotacion-con-interproscan" class="section level3 hasAnchor" number="13.0.3">
+<h3><span class="header-section-number">13.0.3</span> Anotacion con InterproScan<a href="inferencia-metabólica.html#anotacion-con-interproscan" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb69"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb69-1"><a href="inferencia-metabólica.html#cb69-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="va">$(</span><span class="fu">ls</span> <span class="pp">*</span>.faa<span class="va">)</span><span class="kw">;</span> <span class="cf">do</span> <span class="fu">sed</span> <span class="at">-i</span> <span class="st">&quot;s/\*//g&quot;</span> <span class="va">$i</span><span class="kw">;</span> <span class="cf">done</span></span>
+<span id="cb69-2"><a href="inferencia-metabólica.html#cb69-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="va">$(</span><span class="fu">ls</span> <span class="pp">*</span>.faa<span class="va">)</span><span class="kw">;</span> <span class="cf">do</span> <span class="ex">interproscan.sh</span> <span class="at">-cpu</span> 4 <span class="at">-goterms</span> <span class="at">-pa</span> <span class="at">-i</span> <span class="va">$i</span> <span class="op">&gt;</span> Log_Interpro_Scan_<span class="va">$i</span>.txt<span class="kw">;</span> <span class="cf">done</span> </span></code></pre></div>
+<p>Okay… vamos a juntar todo en un solo.</p>
+<div class="sourceCode" id="cb70"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb70-1"><a href="inferencia-metabólica.html#cb70-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> <span class="pp">*</span>.tsv <span class="op">&gt;</span> htn_interpro.tsv</span></code></pre></div>
+<p>Vamos a R</p>
+<div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb71-1"><a href="inferencia-metabólica.html#cb71-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rbims)</span>
+<span id="cb71-2"><a href="inferencia-metabólica.html#cb71-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div>
+<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb72-1"><a href="inferencia-metabólica.html#cb72-1" aria-hidden="true" tabindex="-1"></a>interpro_pfam_long<span class="ot">&lt;-</span><span class="fu">read_interpro</span>(</span>
+<span id="cb72-2"><a href="inferencia-metabólica.html#cb72-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">data_interpro =</span> <span class="st">&quot;09.Interpro/01.Proteomas/htn_interpro.tsv&quot;</span>, </span>
+<span id="cb72-3"><a href="inferencia-metabólica.html#cb72-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">database=</span><span class="st">&quot;INTERPRO&quot;</span>, <span class="at">profile =</span> F)</span>
+<span id="cb72-4"><a href="inferencia-metabólica.html#cb72-4" aria-hidden="true" tabindex="-1"></a>interpro_pfam_profile<span class="ot">&lt;-</span><span class="fu">read_interpro</span>(</span>
+<span id="cb72-5"><a href="inferencia-metabólica.html#cb72-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">data_interpro =</span> <span class="st">&quot;09.Interpro/01.Proteomas/htn_interpro.tsv&quot;</span>, </span>
+<span id="cb72-6"><a href="inferencia-metabólica.html#cb72-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">database=</span><span class="st">&quot;INTERPRO&quot;</span>, <span class="at">profile =</span> T) <span class="sc">%&gt;%</span></span>
+<span id="cb72-7"><a href="inferencia-metabólica.html#cb72-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">str_detect</span>(INTERPRO, <span class="st">&quot;-&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb73-1"><a href="inferencia-metabólica.html#cb73-1" aria-hidden="true" tabindex="-1"></a>important_PFAMs<span class="ot">&lt;-</span><span class="fu">get_subset_pca</span>(<span class="at">tibble_rbims=</span>interpro_pfam_profile, </span>
+<span id="cb73-2"><a href="inferencia-metabólica.html#cb73-2" aria-hidden="true" tabindex="-1"></a>                                <span class="at">cos2_val=</span><span class="fl">0.95</span>,</span>
+<span id="cb73-3"><a href="inferencia-metabólica.html#cb73-3" aria-hidden="true" tabindex="-1"></a>                                <span class="at">analysis=</span><span class="st">&quot;INTERPRO&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb74-1"><a href="inferencia-metabólica.html#cb74-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_heatmap</span>(important_PFAMs, <span class="at">y_axis=</span>INTERPRO, <span class="at">analysis =</span> <span class="st">&quot;INTERPRO&quot;</span>, <span class="at">distance =</span> T)</span></code></pre></div>
+<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb75-1"><a href="inferencia-metabólica.html#cb75-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_heatmap</span>(important_PFAMs, <span class="at">y_axis=</span>INTERPRO, <span class="at">analysis =</span> <span class="st">&quot;INTERPRO&quot;</span>, <span class="at">distance =</span> F)</span></code></pre></div>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="taxonomia.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="mebs.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,6 @@
+#  Generación de Reportes con R markdown.
+
+M.C Erick Cuevas Fernández y Dra. Joselyn Chávez
+
+01 de agosto de 2022
+

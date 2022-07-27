@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Page not found | Workshop CDSB 2022: Análisis avanzado de metagenomas. Creando tus flujos de análisis con R/Bioconductor.</title>
-  <meta name="description" content="Page not found | Workshop CDSB 2022: Análisis avanzado de metagenomas. Creando tus flujos de análisis con R/Bioconductor." />
+  <title>11 Control de Calidad y Ensamble | Workshop CDSB 2022: Análisis avanzado de metagenomas. Creando tus flujos de análisis con R/Bioconductor.</title>
+  <meta name="description" content="11 Control de Calidad y Ensamble | Workshop CDSB 2022: Análisis avanzado de metagenomas. Creando tus flujos de análisis con R/Bioconductor." />
   <meta name="generator" content="bookdown 0.27 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Page not found | Workshop CDSB 2022: Análisis avanzado de metagenomas. Creando tus flujos de análisis con R/Bioconductor." />
+  <meta property="og:title" content="11 Control de Calidad y Ensamble | Workshop CDSB 2022: Análisis avanzado de metagenomas. Creando tus flujos de análisis con R/Bioconductor." />
   <meta property="og:type" content="book" />
   
   
   <meta name="github-repo" content="comunidadbioinfo/cdsb2022" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Page not found | Workshop CDSB 2022: Análisis avanzado de metagenomas. Creando tus flujos de análisis con R/Bioconductor." />
+  <meta name="twitter:title" content="11 Control de Calidad y Ensamble | Workshop CDSB 2022: Análisis avanzado de metagenomas. Creando tus flujos de análisis con R/Bioconductor." />
   
   
   
@@ -29,8 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-
+<link rel="prev" href="keynote-paquetes-de-bioconductor-relacionados-con-la-metagenómica.html"/>
+<link rel="next" href="taxonomia.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -206,19 +206,36 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="page-not-found" class="section level1">
-<h1>Page not found</h1>
-<p>The page you requested cannot be found (perhaps it was moved or renamed).</p>
-<p>You may want to try searching to find the page's new location, or use
-the table of contents to find the page you are looking for.</p>
+<div id="control-de-calidad-y-ensamble" class="section level1 hasAnchor" number="11">
+<h1><span class="header-section-number">11</span> Control de Calidad y Ensamble<a href="control-de-calidad-y-ensamble.html#control-de-calidad-y-ensamble" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>M.C. Diana Oaxaca y Dra. Mirna Vazquez Rosas Landa</p>
+<p>02 de agosto de 2022</p>
+<div id="preprocesamiento" class="section level3 hasAnchor" number="11.0.1">
+<h3><span class="header-section-number">11.0.1</span> Preprocesamiento<a href="control-de-calidad-y-ensamble.html#preprocesamiento" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Para hacer la reconstrucción de genomas, fue necesario hacer un preprocesamiento de las lecturas generadas por el secuenciador, este preprocesamiento consistió en los siguientes pasos:</p>
+<ol style="list-style-type: decimal">
+<li><p><strong>Control de calidad:</strong> se verificó la calidad de las lecturas con <strong><a href="https://github.com/s-andrews/FastQC">FastQC</a>,</strong> este genera reportes que nos permiten verificar el estado de las lecturas, los posibles problemas y qué futuros análisis son necesarios. La limpieza se hizo con <strong><a href="https://github.com/FelixKrueger/TrimGalore">TrimGalore</a></strong>, que nos permite eliminar lecturas de baja calidad, adaptadores, etc.</p>
+<pre class="shell"><code>bash src/01.qc_preprocessing.sh</code></pre></li>
+<li><p><strong>Ensamble</strong>: después de la limpieza de las lecturas se realizó un co-ensamble, se utilizaron todas las lecturas generadas para cada estudio. El ensamble se realizó con <strong><a href="https://github.com/voutcn/megahit">Megahit</a></strong>.</p>
+<pre class="shell"><code>cp results/01.trimgalore/*/*.fq data/
+bash src/change_name_extension.sh
+bash src/02.assembly.sh</code></pre>
+<p>Nota: Para las muestras de biogas y sedimento, los autores de los datos depositaron también el co-ensable por lo que este ya no fue generado. Sin embargo, se realizó un filtrado por longitud de los contigs, mediante la herramienta <strong>reformat</strong> del programa <strong><a href="https://jgi.doe.gov/data-and-tools/software-tools/bbtools/">BBtools</a></strong>.</p>
+<pre class="shell"><code>## activar el ambiente de bbmap
+conda activate /home/dhernandez/.conda/envs/bbmap
+## ejecutar reformat
+reformat.sh in=contigs.fasta out=filtered.fasta minlength=1000</code></pre></li>
+</ol>
+
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-
-
+<a href="keynote-paquetes-de-bioconductor-relacionados-con-la-metagenómica.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="taxonomia.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

@@ -1,0 +1,33 @@
+#  Control de Calidad y Ensamble
+
+M.C. Diana Oaxaca y Dra. Mirna Vazquez Rosas Landa 
+
+02 de agosto de 2022
+
+
+### Preprocesamiento
+
+Para hacer la reconstrucción de genomas, fue necesario hacer un preprocesamiento de las lecturas generadas por el secuenciador, este preprocesamiento consistió en los siguientes pasos:
+
+1. **Control de calidad:** se verificó la calidad de las lecturas con **[FastQC](https://github.com/s-andrews/FastQC),** este genera reportes que nos permiten verificar el estado de las lecturas, los posibles problemas y qué futuros análisis son necesarios. La limpieza se hizo con **[TrimGalore](https://github.com/FelixKrueger/TrimGalore)**, que nos permite eliminar lecturas de baja calidad, adaptadores, etc.
+
+   ```shell
+   bash src/01.qc_preprocessing.sh
+   ```
+
+2. **Ensamble**: después de la limpieza de las lecturas se realizó un co-ensamble, se utilizaron todas las lecturas generadas para cada estudio. El ensamble se realizó con **[Megahit](https://github.com/voutcn/megahit)**.
+
+   ```shell
+   cp results/01.trimgalore/*/*.fq data/
+   bash src/change_name_extension.sh
+   bash src/02.assembly.sh
+   ```
+
+   Nota: Para las muestras de biogas y sedimento, los autores de los datos depositaron también el co-ensable por lo que este ya no fue generado. Sin embargo, se realizó un filtrado por longitud de los contigs, mediante la herramienta **reformat** del programa **[BBtools](https://jgi.doe.gov/data-and-tools/software-tools/bbtools/)**.
+
+   ```shell
+   ## activar el ambiente de bbmap
+   conda activate /home/dhernandez/.conda/envs/bbmap
+   ## ejecutar reformat
+   reformat.sh in=contigs.fasta out=filtered.fasta minlength=1000
+   ```

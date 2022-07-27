@@ -1,0 +1,198 @@
+# Inferencia metabólica
+
+Dra. Mirna Vazquez Rosas Landa
+
+03 de agosto de 2022
+
+
+Vamos a utilizar prodigal para predecir las proteínas:
+
+```{bash, eval=FALSE}
+for i in /home/mirna/07.Bins/Genoma/01.Bins_named/*.fa ; do prodigal -i $i -o $i.txt -a $i.faa ; done
+```
+
+Veamos un poco la salida
+
+```{bash, eval=FALSE}
+grep ">" *.faa
+```
+
+### KEEG
+
+Okay, ahora vamos a utilizar kofam_scan para anotar las proteinas.
+
+Vamos a dividirnos en equipos para hacer la anotacion de los bins!
+
+Esto es como lo hariamos para uno:
+
+```{bash, eval=FALSE}
+/home/programs/DB/kofam/kofam_scan-1.3.0/exec_annotation -o /home/mirna/08.Kofamscan/htn_bins_63.fa.faa.txt /home/mirna/07.Bins/Proteoma/htn_bins_63.fa.faa  --report-unannotated  --cpu 4
+```
+
+En un loop lo podriamos hacer asi: 
+
+```{bash, eval=FALSE}
+for i in *.faa ; do  /home/programs/DB/kofam/kofam_scan-1.3.0/exec_annotation -o /home/mirna/08.Kofamscan/$i.txt $i  --report-unannotated  --cpu 4; done
+```
+
+Okay antes de correrlo, vamos a crear dos carpetas nuevas y unas ligas simbolicas.
+
+```{bash, eval=F}
+mkdir -p 08.Kofamscan/{01.Proteomas,02.KO_results}
+cd 08.Kofamscan/
+ln -s /home/mirna/07.Bins/Proteoma/*.faa 01.Proteomas 
+```
+
+Ajusta el loop para correr KofamScan con los genomas que te tocan :)
+
+### Explorando el metabolismo con rbims.
+
+Vamos a hacer una exploracion rapida del metabolosmo con [rbims](https://mirnavazquez.github.io/RbiMs/index.html).
+
+Okay iniciamos con la libreria de Rbims
+
+```{r, eval=F}
+library(rbims)
+```
+
+Ahora vamos a leer los resulados de KEEG
+
+```{r, eval=F}
+htn<-read_ko("08.Kofamscan/02.KO_results/")
+```
+
+Vamos a mapear con el resto de la base de datos de KEEG
+
+```{r, eval=F}
+htn_mapp<-mapping_ko(htn)
+```
+
+Okay, vamos a enfocarnos en los metabolismos encargados de la obtencion de energia. 
+
+```{r, eval=F}
+Overview<-c("Central Metabolism", "Carbon Fixation", 
+            "Nitrogen Metabolism", "Sulfur Metabolism", "Fermentation", 
+            "Methane Metabolism")
+Energy_metabolisms_GOM<-htn_mapp %>%
+  drop_na(Cycle) %>%
+  get_subset_pathway(rbims_pathway, Overview) 
+```
+
+Vamos a visualizar los datos.
+
+```{r, eval=F}
+plot_bubble(tibble_ko = Energy_metabolisms_GOM,
+            x_axis = Bin_name, 
+            y_axis = Pathway_cycle,
+            analysis="KEGG",
+            calc="Percentage",
+            range_size = c(1,10),
+            y_labs=FALSE,
+            x_labs=FALSE)  
+```
+
+Okay, incorporemos metadatos, como por ejemplo la taxonomia. 
+
+```{r, eval=F}
+Metadatos<-read_delim("11.GTDBTK/Metadatos.txt", delim="\t")
+```
+
+Hagamos un plot
+
+```{r, eval=F}
+plot_bubble(tibble_ko = Energy_metabolisms_GOM,
+            x_axis = Bin_name, 
+            y_axis = Pathway_cycle,
+            analysis="KEGG",
+            data_experiment = Metadatos,
+            calc="Percentage",
+            color_character = Class,
+            range_size = c(1,10),
+            y_labs=FALSE,
+            x_labs=FALSE) 
+```
+
+Ahora, vamos a explorar una sola via
+
+```{r, eval=F}
+Methane_metabolisms_GOM<-htn_mapp %>%
+  drop_na(Cycle) %>%
+  get_subset_pathway(Cycle, Methane_meta)
+```
+
+Y hagamos un heatmap
+
+```{r, eval=F}
+plot_heatmap(tibble_ko=Methane_metabolisms_GOM, 
+             y_axis=Genes,
+             analysis = "KEGG",
+             calc="Binary")
+```
+
+Ahora agregemos metadatos
+
+```{r, eval=F}
+plot_heatmap(tibble_ko=Methane_metabolisms_GOM, 
+             y_axis=Genes,
+             data_experiment = Metadatos,
+             order_x = Phylum,
+             analysis = "KEGG",
+             calc="Binary")
+```
+
+```{r, eval=F}
+plot_heatmap(tibble_ko=Methane_metabolisms_GOM, 
+             y_axis=Genes,
+             data_experiment = Metadatos,
+             #order_y = Pathway_cycle,
+             order_x = Phylum,
+             analysis = "KEGG",
+             calc="Binary")
+```
+
+### Anotacion con InterproScan
+
+```{bash, eval=FALSE}
+for i in $(ls *.faa); do sed -i "s/\*//g" $i; done
+for i in $(ls *.faa); do interproscan.sh -cpu 4 -goterms -pa -i $i > Log_Interpro_Scan_$i.txt; done 
+```
+
+Okay... vamos a juntar todo en un solo.
+
+```{bash, eval=FALSE}
+cat *.tsv > htn_interpro.tsv
+```
+
+Vamos a R
+
+```{r, eval=FALSE}
+library(rbims)
+library(tidyverse)
+```
+
+```{r, eval=FALSE}
+interpro_pfam_long<-read_interpro(
+  data_interpro = "09.Interpro/01.Proteomas/htn_interpro.tsv", 
+  database="INTERPRO", profile = F)
+interpro_pfam_profile<-read_interpro(
+  data_interpro = "09.Interpro/01.Proteomas/htn_interpro.tsv", 
+  database="INTERPRO", profile = T) %>%
+  filter(!str_detect(INTERPRO, "-"))
+```
+
+```{r, eval=FALSE}
+important_PFAMs<-get_subset_pca(tibble_rbims=interpro_pfam_profile, 
+                                cos2_val=0.95,
+                                analysis="INTERPRO")
+```
+
+```{r, eval=FALSE}
+plot_heatmap(important_PFAMs, y_axis=INTERPRO, analysis = "INTERPRO", distance = T)
+
+```
+
+```{r, eval=FALSE}
+plot_heatmap(important_PFAMs, y_axis=INTERPRO, analysis = "INTERPRO", distance = F)
+```
+
+

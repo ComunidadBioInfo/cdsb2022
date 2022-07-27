@@ -1,0 +1,88 @@
+# Taxonomia
+
+Dra. Mirna Vazquez Rosas Landa
+
+03 de agosto de 2022
+
+
+Vamos a explorar la taxonomia de estos bins con [GTDB-tk](https://github.com/Ecogenomics/GTDBTk).
+
+```{bash eval=F}
+mkdir 11.GTDBTK
+```
+
+Activemos el ambiente
+
+```{bash  eval=F}
+conda activate gtdbtk-2.1.0
+```
+
+Indiquemos donde esta la base de datos:
+
+```{bash  eval=F}
+export GTDBTK_DATA_PATH=/home/programs/DB/release207_v2 
+```
+
+Explora la ayuda de GTDB-tk
+
+Discutamos: https://docs.google.com/document/d/1iiw-q-90nATg-RNTd9nU8L1XE5xoDRC6j19JC1GiPIk/edit?usp=sharing
+
+Excelente, ahora en equipos vamos a correr GTDB-tk.
+
+```{bash, eval=FALSE}
+gtdbtk classify_wf --genome_dir /home/mirna/07.Bins/Genoma/01.Bins_named --out_dir /home/mirna/11.GTDBTK --cpus 4 -x fa 
+```
+
+Vamos a visualizar los datos. Todos a R!!
+
+### Leamos los datos
+
+```{r, eval=FALSE}
+library(tidyverse)
+```
+
+```{r, eval=FALSE}
+GTDBK<-read.table("11.GTDBTK/gtdbtk.bac120.summary.tsv", 
+  sep = "\t", header = T, 
+  na.strings ="", stringsAsFactors= F)%>%
+  as_tibble()
+```
+
+```{r, eval=FALSE}
+htn_gtdbtk<-GTDBK %>%
+  select(user_genome, classification) %>%
+  separate(classification, c("Domain", "Phylum", "Class", "Order",
+                             "Family", "Genus", "Species"), sep= ";") %>%
+  rename(Bin_name=user_genome)  %>%
+  unite(Bin_name_2, c("Bin_name", "Phylum"), remove = FALSE) %>%
+  select(Bin_name, Domain, Phylum, Class, Order, Family, Genus, 
+         Species)
+```
+
+Parentesis, vamos a imprimir esta tabla para convertirla en metadatos.
+
+```{r eval=FALSE}
+write.table(htn_gtdbtk, file = "11.GTDBTK/Metadatos.txt", sep="\t", quote = F,
+            row.names = F, col.names = T)
+```
+
+Vamos a hacer un plot
+
+```{r, eval=FALSE}
+GTDBtk<-htn_gtdbtk %>%
+  count(Domain, Phylum) %>%
+  rename(Number_of_MAGs = n) %>%
+  ggplot(aes(x = Domain, 
+             y = Number_of_MAGs, fill = Phylum)) + 
+  geom_bar(stat = "identity", position=position_dodge())+
+  theme_minimal()
+```
+
+Puede ser interactivo tambien.
+
+```{r, eval=FALSE}
+library(plotly)
+GTDBtk_p_fig <- ggplotly(GTDBtk)
+```
+
+

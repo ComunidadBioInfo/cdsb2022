@@ -1,0 +1,346 @@
+#  Binning
+
+M.C. Diana Oaxaca y Dra. Mirna Vazquez Rosas Landa 
+
+02 de agosto de 2022
+
+### Mapeo
+
+**Profundidad**: La profundidad de cada contig se calcula mapeando las lecturas al ensamble. Este paso permite evaluar la calidad del ensable y es necesario para hacer la reconstrucción de genomas ya que, como veremos más adelante, es uno de los parámetros que toman en cuenta los "bineadores". 
+
+Vamos a mapear utilizando la herramienta BBMap del programa **[BBtools](https://jgi.doe.gov/data-and-tools/software-tools/bbtools/)**. Y [**samtools**](http://www.htslib.org/doc/samtools.html). 
+
+**¡Manos a la obra!**
+
+Conéctate al servidor:
+
+```{bash, eval=F}
+ssh USER@hpc-matematicas-z.fciencias.unam.mx
+```
+
+Crea tu carpeta y una liga simbólica a los datos:
+
+```{bash acomodando_archivos, eval=F}
+mkdir -p 01.Mapeo/{data,results}
+cd 01.Mapeo/
+ln -s /home/diana/samples/htn/data/htn.fasta data/  
+ln -s /home/mirna/03.Mapeo/01.Trimm_reads/htn*.fastq  data/ 
+```
+
+Primero que nada activa tu ambiente de conda.
+
+```{bash, eval=F}
+conda activate bbmap_env
+```
+
+Ahora ¡sí! explora las opciones de bbmap, y vamos a hacer nuestro primer mapeo.
+
+```{bash mapeando, eval=F}
+bbmap.sh ref=data/htn.fasta in1=data/htn_1-short.fastq in2=data/htn_2-short.fastq out=results/htn.sam kfilter=22 subfilter=15 maxindel=80 
+```
+
+```{bash creando_bam_file, eval=F}
+cd results
+samtools view -bShu htn.sam | samtools sort -@ 94 -o htn_sorted.bam
+samtools index htn_sorted.bam
+```
+
+# Discutamos
+
+https://docs.google.com/document/d/1iiw-q-90nATg-RNTd9nU8L1XE5xoDRC6j19JC1GiPIk/edit?usp=sharing
+
+### Binning
+
+Utilizaremos varios programas para hacer la reconstrucción de los genomas y haremos una comparación de estos.
+
+**NOTA**: Cada programa tiene una ayuda y un manual de usuario, es **importante** revisarlo y conocer cada parámetro que se ejecute. En terminal se puede consultar el manual con el comando `man` y también se puede consultar la ayuda con `-h` o `--help`, por ejemplo `fastqc -h`.
+
+La presente práctica sólo es una representación del flujo de trabajo, sin embargo, no sustituye los manuales de cada programa y el flujo puede variar dependiendo del tipo de datos y pregunta de investigación.
+
+#### [MaxBin](https://sourceforge.net/p/maxbin/code/ci/master/tree/)
+
+Crea tu espacio de trabajo y una liga símbólica hacia los datos que se usarán:
+
+```{bash, eval=F}
+mkdir -p 02.MaxBin/{data,results}
+cd 02.MaxBin/
+ln -s /home/diana/samples/htn/data/htn.fasta data/  
+ln -s /home/diana/samples/htn/data/htn-depth.txt  data/ 
+```
+
+Okay, ahora activa tu ambiente.
+
+```{bash, eval=FALSE}
+conda activate maxbin_env
+```
+
+Explora las opciones y ahora si, a calcular bins. 
+
+```{bash run_MaxBin2, eval=FALSE}
+run_MaxBin.pl -contig data/htn.fasta -out results/maxbin -abund data/htn-depth.txt -max_iteration 2
+```
+
+#### [MetaBat](https://bitbucket.org/berkeleylab/metabat/src/master/)
+
+Okay vamos a utilizar otro progama. Crea tus ligas simbolicas :)
+
+```{bash, eval=F}
+mkdir -p 03.Metabat/{data,results}
+cd 03.Metabat/
+ln -s /home/diana/samples/htn/data/htn.fasta data/  
+ln -s /home/diana/samples/htn/data/htn_sorted.bam  data/ 
+```
+
+Para MetaBat lo primero que tenemos que hacer es crear un archivo de profundidad utilizando el script **jgi_summarize_bam_contig_depths**.
+
+Entonces primero activamos el ambiente.
+
+```{bash, eval=FALSE}
+conda activate metabat_env
+```
+
+Como cualquier otro programa **jgi_summarize_bam_contig_depths** tiene opciones, podemos revisarlas. 
+
+```{bash, eval=FALSE}
+jgi_summarize_bam_contig_depths --outputDepth data/htn-depth.txt data/htn_sorted.bam
+```
+
+Okay... exploremos el archivo con **head**
+
+```{bash, eval=FALSE}
+head data/htn-depth.txt
+```
+
+Para metabat solo necesitamos dos archivos principales:
+
+- El ensamble
+- El archivo de profundidad
+ 
+```{bash running_Metabat, eval=FALSE}
+metabat -i data/htn.fasta -a data/htn-depth.txt -o results/bins -t 4 --minCVSum 0 --saveCls -d -v --minCV 0.1 -m 2000
+```
+
+#### [CONCOCT](https://concoct.readthedocs.io/en/latest/)
+
+Okay vamos a utilizar otro programa. Crea tus ligas simbolicas :)
+
+```{bash, eval=F}
+mkdir -p 04.Concoct/{data,results}
+cd 04.Concoct/
+ln -s /home/diana/samples/htn/data/htn.fasta data/  
+ln -s /home/diana/samples/htn/data/htn_sorted.bam  data/ 
+```
+
+Primero activemos el ambiente
+
+```{bash, eval=FALSE}
+conda activate concoct_env
+```
+
+Primero los contigs se tienen que partir en pedazos mas pequeños
+
+```{bash split_assembly, eval=FALSE}
+cut_up_fasta.py data/htn.fasta -c 10000 -o 0 --merge_last -b results/SplitAssembly-htn.bed > results/htn.fasta-split10K.fa
+```
+
+Para crear la tabla de cobertura se necesita primero indexar el archivo bam
+
+```{bash index_bamfile, eval=FALSE}
+samtools index data/htn_sorted.bam
+```
+
+```{bash create_coverage_table, eval=FALSE}
+concoct_coverage_table.py results/SplitAssembly-htn.bed data/htn_sorted.bam > results/concoct_coverage_table_htn.tsv
+```
+
+Ahora si!! a correr concoct.
+
+Normalmente correriamos 500 iteraciones, pero esta vez solo haremos una.
+
+```{bash run_concot, eval=FALSE}
+concoct --coverage_file results/concoct_coverage_table_htn.tsv --composition_file results/htn.fasta-split10K.fa --clusters 400 --kmer_length 4 --threads 4 --length_threshold 3000 --basename concot --seed 4 --iterations 1
+```
+
+Combinar contigs
+
+```{bash merge_step, eval=FALSE}
+merge_cutup_clustering.py concot_clustering_gt3000.csv > results/merged-htn-gt3000.csv
+```
+
+Extraer bins como fasta individualmente
+
+```{bash make_fastafiles, eval=FALSE}
+mkdir results/bins-concot
+extract_fasta_bins.py  data/htn.fasta results/merged-htn-gt3000.csv --output_path results/bins-concot
+```
+
+# Discutamos
+
+https://docs.google.com/document/d/1iiw-q-90nATg-RNTd9nU8L1XE5xoDRC6j19JC1GiPIk/edit?usp=sharing
+
+### Refinamiento
+
+#### [DASTool](https://github.com/cmks/DAS_Tool)
+
+Preparing input files.
+
+```{bash, eval=FALSE}
+Fasta_to_Scaffolds2Bin.sh -i /home/mirna/05.Concoct/bins-concot -e fa > htn_concot.scaffolds2bin.tsv
+
+Fasta_to_Scaffolds2Bin.sh -i /home/mirna/04.Metabat2 -e fa > htn.scaffolds2bin.tsv
+```
+
+```{bash DAS_default, eval=FALSE}
+PATH=/home/programs:$PATH
+/home/programs/DAS_Tool-1.1.2/DAS_Tool -i htn_maxbin.contigs2bin.tsv,htn_metabat.scaffolds2bin.tsv,htn_concoct.scaffolds2bin.tsv -l maxbin,metabat,concoct -c data/htn.fasta -o results/htn_bins --debug -t 4  --search_engine diamond --write_bins 1 
+```
+
+### [CheckM](https://github.com/Ecogenomics/CheckM/wiki)
+
+Muy bien, crea un nuevo directorio y entra en él.
+
+```{bash, eval=F}
+mkdir 06.CheckM
+cd 06.CheckM/
+```
+
+Ahora activemos el ambiente.
+
+```{bash, eval=F}
+conda activate checkm_env
+```
+
+
+```{bash, eval=FALSE}
+checkm  lineage_wf -t 4 -x fa /home/mirna/05.DAS_tool/results/htn_bins_DASTool_bins DAStools-log_htn  -f CheckM-DAS_Tool_bins.txt
+```
+
+Vamos a explorar la salida de checkM
+
+Primero me puedes decir ¿cuántas lineas tiene tu archivo?
+
+Okay... ahora vamos a remover esas lineas feas. 
+
+```{bash, eval=FALSE}
+sed -e '1,3d' CheckM-DAS_Tool_bins.txt | sed -e '37d' >CheckM-DAS_Tool_bins_mod.txt
+```
+
+
+```{r, eval=FALSE}
+library(tidyverse)
+# CheckM -------------------------------------------------------------------####
+checkm<-read.table("CheckM-DAS_Tool_bins_mod.txt", sep = "", header = F, na.strings ="", stringsAsFactors= F)
+# Extracting good quality bins Megahit ------------------------------------####
+colnames(checkm)<-c("Bin_Id", "Marker", "lineage", "Number_of_genomes", 
+                         "Number_of_markers", "Number_of_marker_sets", 
+                         "0", "1", "2", "3", "4", "5", "Completeness", 
+                         "Contamination", "Strain_heterogeneity")  
+
+good_bins<-checkm %>%
+  select(Bin_Id, Marker, Completeness, Contamination) %>%
+  filter(Completeness >= 50.00) %>%
+  filter(Contamination <= 10.00) 
+```
+
+Okay... quizá podamos recuperar algunos más.
+
+```{r, eval=FALSE}
+medium_bins<-checkm %>%
+  select(Bin_Id, Marker, Completeness, Contamination) %>%
+  filter(Completeness >= 50.00) %>%
+  filter(Contamination <= 20.00) 
+```
+
+Muy bien, vamos a extraer esos bins.
+
+```{r, eval=FALSE}
+bins<-medium_bins$Bin_Id
+
+write.table(bins, "lista_medium_bins", quote = F, row.names = F, col.names = F)
+```
+
+
+### Mis Bins
+
+```{bash, eval=F}
+mkdir  -p 08.Bins/{Genoma,Proteoma}
+cd 08.Bins
+```
+
+```{bash, eval=FALSE}
+sed 's#bin#cp /home/mirna/05.DAS_tool/results/htn_bins_DASTool_bins/bin#g' lista_medium_bins | sed 's#$#.fa .#g' > copy_bins.sh
+```
+
+Ahora un ejercicio.
+
+```{bash, eval=FALSE}
+grep ">" *.fa
+```
+
+Cuál es el problema?
+
+```{r, eval=FALSE}
+change_bin_name<-function(ruta, ambiente){
+ruta_original<-getwd()
+setwd(ruta)
+filez <- list.files()
+newname<-paste0(ambiente, "_", filez)
+file.rename(from=filez, to=newname)
+filez <- list.files()
+file.rename(from=filez, to=sub(pattern="\\.", replacement="_", filez))
+setwd(ruta_original)
+}
+```
+
+```{r, eval=FALSE}
+change_bin_name("/home/mirna/07.Bins/Genoma", "htn")
+```
+
+
+```{r, eval=FALSE}
+library(phylotools)
+library(tidyverse)
+
+add_names_to_seqs <- function(nombre_del_archivo){
+  filenames <- unlist(strsplit(nombre_del_archivo, "/"))
+  filenames <- filenames[[grep("fa", filenames)]]
+  divide <- unlist(strsplit(filenames, "\\."))
+  bin_name <- divide[1]
+  termination <- divide[2]
+  old_name <- get.fasta.name(nombre_del_archivo)
+  new_name <- paste0( bin_name, "-scaffold-", old_name) 
+  ref2 <- data.frame(old_name, new_name)
+  out_file <- paste0(bin_name, "_renamed", ".", termination)
+  rename.fasta(infile = nombre_del_archivo, ref_table = ref2, outfile = out_file)
+}
+
+files <- list.files(".")
+files <- paste0("/home/mirna/07.Bins/Genoma/", files)
+
+map(files, add_names_to_seqs)
+```
+
+Veamos si funcionó
+
+```{bash, eval=FALSE}
+grep ">" *.fa
+```
+
+Muy bien, pongamos eso en una nueva carpeta y esperemos lo mejor jaja, no es cierto, si movámoslo a otra carpeta, pero quitemos el renamed.
+
+```{r, eval=FALSE}
+change_bin_name<-function(ruta){
+ruta_original<-getwd()
+setwd(ruta)
+filez <- list.files()
+file.rename(from=filez, to=sub(pattern="_renamed", replacement="", filez))
+setwd(ruta_original)
+}
+```
+
+```{r, eval=FALSE}
+change_bin_name("/home/mirna/07.Bins/Genoma/01.Bins_named")
+```
+
+Creen que puedan optimizar esos scripts? discute en tu equipo si tienes una mejor idea!
+
