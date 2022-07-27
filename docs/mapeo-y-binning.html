@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>7 Mapeo y Binning | Workshop CDSB 2022: Análisis avanzado de metagenomas. Creando tus flujos de análisis con R/Bioconductor.</title>
+  <meta name="description" content="7 Mapeo y Binning | Workshop CDSB 2022: Análisis avanzado de metagenomas. Creando tus flujos de análisis con R/Bioconductor." />
+  <meta name="generator" content="bookdown 0.27 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="7 Mapeo y Binning | Workshop CDSB 2022: Análisis avanzado de metagenomas. Creando tus flujos de análisis con R/Bioconductor." />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta name="github-repo" content="comunidadbioinfo/cdsb2022" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="7 Mapeo y Binning | Workshop CDSB 2022: Análisis avanzado de metagenomas. Creando tus flujos de análisis con R/Bioconductor." />
+  
+  
+  
+
+<meta name="author" content="Dra. Mirna Vázquez Rosas-Landa, Dra. Yalbi Balderas-Martínez, Dra. Joselyn Chávez, M.C. Erick Cuevas-Fernández, Dra. Alejandra Medina-Rivera, Dr. Leonardo Collado-Torres, Dr. Brett Baker, Dra. Valerie de Anda" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="el-grupo-de-datos.html"/>
+<link rel="next" href="keynote-paquetes-de-bioconductor-relacionados-con-la-metagenómica.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Bienvenida</a>
+<ul>
+<li class="chapter" data-level="0.1" data-path="index.html"><a href="index.html#instructores"><i class="fa fa-check"></i><b>0.1</b> Instructores</a></li>
+<li class="chapter" data-level="0.2" data-path="index.html"><a href="index.html#ponentes-invitados"><i class="fa fa-check"></i><b>0.2</b> Ponentes invitados</a></li>
+<li class="chapter" data-level="0.3" data-path="index.html"><a href="index.html#ayudantes"><i class="fa fa-check"></i><b>0.3</b> Ayudantes</a></li>
+<li class="chapter" data-level="0.4" data-path="index.html"><a href="index.html#temario"><i class="fa fa-check"></i><b>0.4</b> Temario</a>
+<ul>
+<li class="chapter" data-level="0.4.1" data-path="index.html"><a href="index.html#lunes-01-de-agosto"><i class="fa fa-check"></i><b>0.4.1</b> Lunes 01 de agosto</a></li>
+<li class="chapter" data-level="0.4.2" data-path="index.html"><a href="index.html#martes-02-de-agosto"><i class="fa fa-check"></i><b>0.4.2</b> Martes 02 de agosto</a></li>
+<li class="chapter" data-level="0.4.3" data-path="index.html"><a href="index.html#miércoles-03-de-agosto"><i class="fa fa-check"></i><b>0.4.3</b> Miércoles 03 de agosto</a></li>
+<li class="chapter" data-level="0.4.4" data-path="index.html"><a href="index.html#jueves-04-de-agosto"><i class="fa fa-check"></i><b>0.4.4</b> Jueves 04 de agosto</a></li>
+<li class="chapter" data-level="0.4.5" data-path="index.html"><a href="index.html#viernes-05-de-agosto"><i class="fa fa-check"></i><b>0.4.5</b> Viernes 05 de agosto</a></li>
+</ul></li>
+<li class="chapter" data-level="0.5" data-path="index.html"><a href="index.html#patrocinadores"><i class="fa fa-check"></i><b>0.5</b> Patrocinadores</a></li>
+<li class="chapter" data-level="0.6" data-path="index.html"><a href="index.html#licencia"><i class="fa fa-check"></i><b>0.6</b> Licencia</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="keynote-la-última-versión-del-árbol-de-la-vida-y-la-metagenómica.html"><a href="keynote-la-última-versión-del-árbol-de-la-vida-y-la-metagenómica.html"><i class="fa fa-check"></i><b>1</b> Keynote: La última versión del árbol de la vida y la metagenómica</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="keynote-la-última-versión-del-árbol-de-la-vida-y-la-metagenómica.html"><a href="keynote-la-última-versión-del-árbol-de-la-vida-y-la-metagenómica.html#diapositivas"><i class="fa fa-check"></i><b>1.1</b> Diapositivas</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="control-de-versiones-con-github-y-rstudio..html"><a href="control-de-versiones-con-github-y-rstudio..html"><i class="fa fa-check"></i><b>2</b> Control de versiones con GitHub y RStudio.</a></li>
+<li class="chapter" data-level="3" data-path="generación-de-reportes-con-r-markdown..html"><a href="generación-de-reportes-con-r-markdown..html"><i class="fa fa-check"></i><b>3</b> Generación de Reportes con R markdown.</a></li>
+<li class="chapter" data-level="4" data-path="keynote-convirtiendo-tu-flujo-de-análisis-en-un-paquete-de-rbioconductor..html"><a href="keynote-convirtiendo-tu-flujo-de-análisis-en-un-paquete-de-rbioconductor..html"><i class="fa fa-check"></i><b>4</b> Keynote: Convirtiendo tu flujo de análisis en un paquete de R/Bioconductor.</a></li>
+<li class="chapter" data-level="5" data-path="introducción-a-conda..html"><a href="introducción-a-conda..html"><i class="fa fa-check"></i><b>5</b> Introducción a Conda.</a></li>
+<li class="chapter" data-level="6" data-path="el-grupo-de-datos.html"><a href="el-grupo-de-datos.html"><i class="fa fa-check"></i><b>6</b> El grupo de datos</a>
+<ul>
+<li class="chapter" data-level="6.0.1" data-path="el-grupo-de-datos.html"><a href="el-grupo-de-datos.html#datos"><i class="fa fa-check"></i><b>6.0.1</b> Datos</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="mapeo-y-binning.html"><a href="mapeo-y-binning.html"><i class="fa fa-check"></i><b>7</b> Mapeo y Binning</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="mapeo-y-binning.html"><a href="mapeo-y-binning.html#mapeo"><i class="fa fa-check"></i><b>7.1</b> Mapeo</a>
+<ul>
+<li class="chapter" data-level="7.1.1" data-path="mapeo-y-binning.html"><a href="mapeo-y-binning.html#discutamos"><i class="fa fa-check"></i><b>7.1.1</b> Discutamos</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="mapeo-y-binning.html"><a href="mapeo-y-binning.html#binning"><i class="fa fa-check"></i><b>7.2</b> Binning</a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="mapeo-y-binning.html"><a href="mapeo-y-binning.html#maxbin"><i class="fa fa-check"></i><b>7.2.1</b> <span>MaxBin</span></a></li>
+<li class="chapter" data-level="7.2.2" data-path="mapeo-y-binning.html"><a href="mapeo-y-binning.html#metabat"><i class="fa fa-check"></i><b>7.2.2</b> <span>MetaBat</span></a></li>
+<li class="chapter" data-level="7.2.3" data-path="mapeo-y-binning.html"><a href="mapeo-y-binning.html#concoct"><i class="fa fa-check"></i><b>7.2.3</b> <span>CONCOCT</span></a></li>
+<li class="chapter" data-level="7.2.4" data-path="mapeo-y-binning.html"><a href="mapeo-y-binning.html#discutamos-1"><i class="fa fa-check"></i><b>7.2.4</b> Discutamos</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="mapeo-y-binning.html"><a href="mapeo-y-binning.html#refinamiento"><i class="fa fa-check"></i><b>7.3</b> Refinamiento</a>
+<ul>
+<li class="chapter" data-level="7.3.1" data-path="mapeo-y-binning.html"><a href="mapeo-y-binning.html#dastool"><i class="fa fa-check"></i><b>7.3.1</b> <span>DASTool</span></a></li>
+<li class="chapter" data-level="7.3.2" data-path="mapeo-y-binning.html"><a href="mapeo-y-binning.html#checkm"><i class="fa fa-check"></i><b>7.3.2</b> <span>CheckM</span></a></li>
+<li class="chapter" data-level="7.3.3" data-path="mapeo-y-binning.html"><a href="mapeo-y-binning.html#mis-bins"><i class="fa fa-check"></i><b>7.3.3</b> Mis Bins</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="keynote-paquetes-de-bioconductor-relacionados-con-la-metagenómica.html"><a href="keynote-paquetes-de-bioconductor-relacionados-con-la-metagenómica.html"><i class="fa fa-check"></i><b>8</b> Keynote: Paquetes de bioconductor relacionados con la metagenómica</a></li>
+<li class="chapter" data-level="9" data-path="control-de-calidad-y-ensamble.html"><a href="control-de-calidad-y-ensamble.html"><i class="fa fa-check"></i><b>9</b> Control de Calidad y Ensamble</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="control-de-calidad-y-ensamble.html"><a href="control-de-calidad-y-ensamble.html#preprocesamiento"><i class="fa fa-check"></i><b>9.1</b> Preprocesamiento</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="taxonomia.html"><a href="taxonomia.html"><i class="fa fa-check"></i><b>10</b> Taxonomia</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="taxonomia.html"><a href="taxonomia.html#leamos-los-datos"><i class="fa fa-check"></i><b>10.1</b> Leamos los datos</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="inferencia-metabólica.html"><a href="inferencia-metabólica.html"><i class="fa fa-check"></i><b>11</b> Inferencia metabólica</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="inferencia-metabólica.html"><a href="inferencia-metabólica.html#keeg"><i class="fa fa-check"></i><b>11.1</b> KEEG</a></li>
+<li class="chapter" data-level="11.2" data-path="inferencia-metabólica.html"><a href="inferencia-metabólica.html#explorando-el-metabolismo-con-rbims."><i class="fa fa-check"></i><b>11.2</b> Explorando el metabolismo con rbims.</a></li>
+<li class="chapter" data-level="11.3" data-path="inferencia-metabólica.html"><a href="inferencia-metabólica.html#anotacion-con-interproscan"><i class="fa fa-check"></i><b>11.3</b> Anotacion con InterproScan</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="mebs.html"><a href="mebs.html"><i class="fa fa-check"></i><b>12</b> MEBs</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Workshop CDSB 2022: Análisis avanzado de metagenomas. Creando tus flujos de análisis con R/Bioconductor.</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="mapeo-y-binning" class="section level1 hasAnchor" number="7">
+<h1><span class="header-section-number">7</span> Mapeo y Binning<a href="mapeo-y-binning.html#mapeo-y-binning" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>M.C. Diana Oaxaca y Dra. Mirna Vazquez Rosas Landa</p>
+<p>02 de agosto de 2022</p>
+<div id="mapeo" class="section level2 hasAnchor" number="7.1">
+<h2><span class="header-section-number">7.1</span> Mapeo<a href="mapeo-y-binning.html#mapeo" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong>Profundidad</strong>: La profundidad de cada contig se calcula mapeando las lecturas al ensamble. Este paso permite evaluar la calidad del ensable y es necesario para hacer la reconstrucción de genomas ya que, como veremos más adelante, es uno de los parámetros que toman en cuenta los “bineadores”.</p>
+<p>Vamos a mapear utilizando la herramienta BBMap del programa <strong><a href="https://jgi.doe.gov/data-and-tools/software-tools/bbtools/">BBtools</a></strong>. Y <a href="http://www.htslib.org/doc/samtools.html"><strong>samtools</strong></a>.</p>
+<p><strong>¡Manos a la obra!</strong></p>
+<p>Conéctate al servidor:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="mapeo-y-binning.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ssh</span> USER@hpc-matematicas-z.fciencias.unam.mx</span></code></pre></div>
+<p>Crea tu carpeta y una liga simbólica a los datos:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="mapeo-y-binning.html#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> <span class="at">-p</span> 01.Mapeo/<span class="dt">{data</span><span class="op">,</span><span class="dt">results}</span></span>
+<span id="cb2-2"><a href="mapeo-y-binning.html#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> 01.Mapeo/</span>
+<span id="cb2-3"><a href="mapeo-y-binning.html#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ln</span> <span class="at">-s</span> /home/diana/samples/htn/data/htn.fasta data/  </span>
+<span id="cb2-4"><a href="mapeo-y-binning.html#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ln</span> <span class="at">-s</span> /home/mirna/03.Mapeo/01.Trimm_reads/htn<span class="pp">*</span>.fastq  data/ </span></code></pre></div>
+<p>Primero que nada activa tu ambiente de conda.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="mapeo-y-binning.html#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> activate bbmap_env</span></code></pre></div>
+<p>Ahora ¡sí! explora las opciones de bbmap, y vamos a hacer nuestro primer mapeo.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb4-1"><a href="mapeo-y-binning.html#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">bbmap.sh</span> ref=data/htn.fasta in1=data/htn_1-short.fastq in2=data/htn_2-short.fastq out=results/htn.sam kfilter=22 subfilter=15 maxindel=80 </span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb5-1"><a href="mapeo-y-binning.html#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> results</span>
+<span id="cb5-2"><a href="mapeo-y-binning.html#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="ex">samtools</span> view <span class="at">-bShu</span> htn.sam <span class="kw">|</span> <span class="ex">samtools</span> sort <span class="at">-@</span> 94 <span class="at">-o</span> htn_sorted.bam</span>
+<span id="cb5-3"><a href="mapeo-y-binning.html#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="ex">samtools</span> index htn_sorted.bam</span></code></pre></div>
+<div id="discutamos" class="section level3 hasAnchor" number="7.1.1">
+<h3><span class="header-section-number">7.1.1</span> Discutamos<a href="mapeo-y-binning.html#discutamos" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><a href="https://docs.google.com/document/d/1iiw-q-90nATg-RNTd9nU8L1XE5xoDRC6j19JC1GiPIk/edit?usp=sharing" class="uri">https://docs.google.com/document/d/1iiw-q-90nATg-RNTd9nU8L1XE5xoDRC6j19JC1GiPIk/edit?usp=sharing</a></p>
+</div>
+</div>
+<div id="binning" class="section level2 hasAnchor" number="7.2">
+<h2><span class="header-section-number">7.2</span> Binning<a href="mapeo-y-binning.html#binning" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Utilizaremos varios programas para hacer la reconstrucción de los genomas y haremos una comparación de estos.</p>
+<p><strong>NOTA</strong>: Cada programa tiene una ayuda y un manual de usuario, es <strong>importante</strong> revisarlo y conocer cada parámetro que se ejecute. En terminal se puede consultar el manual con el comando <code>man</code> y también se puede consultar la ayuda con <code>-h</code> o <code>--help</code>, por ejemplo <code>fastqc -h</code>.</p>
+<p>La presente práctica sólo es una representación del flujo de trabajo, sin embargo, no sustituye los manuales de cada programa y el flujo puede variar dependiendo del tipo de datos y pregunta de investigación.</p>
+<div id="maxbin" class="section level3 hasAnchor" number="7.2.1">
+<h3><span class="header-section-number">7.2.1</span> <a href="https://sourceforge.net/p/maxbin/code/ci/master/tree/">MaxBin</a><a href="mapeo-y-binning.html#maxbin" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Crea tu espacio de trabajo y una liga símbólica hacia los datos que se usarán:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb6-1"><a href="mapeo-y-binning.html#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> <span class="at">-p</span> 02.MaxBin/<span class="dt">{data</span><span class="op">,</span><span class="dt">results}</span></span>
+<span id="cb6-2"><a href="mapeo-y-binning.html#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> 02.MaxBin/</span>
+<span id="cb6-3"><a href="mapeo-y-binning.html#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ln</span> <span class="at">-s</span> /home/diana/samples/htn/data/htn.fasta data/  </span>
+<span id="cb6-4"><a href="mapeo-y-binning.html#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ln</span> <span class="at">-s</span> /home/diana/samples/htn/data/htn-depth.txt  data/ </span></code></pre></div>
+<p>Okay, ahora activa tu ambiente.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb7-1"><a href="mapeo-y-binning.html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> activate maxbin_env</span></code></pre></div>
+<p>Explora las opciones y ahora si, a calcular bins.</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb8-1"><a href="mapeo-y-binning.html#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">run_MaxBin.pl</span> <span class="at">-contig</span> data/htn.fasta <span class="at">-out</span> results/maxbin <span class="at">-abund</span> data/htn-depth.txt <span class="at">-max_iteration</span> 2</span></code></pre></div>
+</div>
+<div id="metabat" class="section level3 hasAnchor" number="7.2.2">
+<h3><span class="header-section-number">7.2.2</span> <a href="https://bitbucket.org/berkeleylab/metabat/src/master/">MetaBat</a><a href="mapeo-y-binning.html#metabat" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Okay vamos a utilizar otro progama. Crea tus ligas simbolicas :)</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb9-1"><a href="mapeo-y-binning.html#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> <span class="at">-p</span> 03.Metabat/<span class="dt">{data</span><span class="op">,</span><span class="dt">results}</span></span>
+<span id="cb9-2"><a href="mapeo-y-binning.html#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> 03.Metabat/</span>
+<span id="cb9-3"><a href="mapeo-y-binning.html#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ln</span> <span class="at">-s</span> /home/diana/samples/htn/data/htn.fasta data/  </span>
+<span id="cb9-4"><a href="mapeo-y-binning.html#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ln</span> <span class="at">-s</span> /home/diana/samples/htn/data/htn_sorted.bam  data/ </span></code></pre></div>
+<p>Para MetaBat lo primero que tenemos que hacer es crear un archivo de profundidad utilizando el script <strong>jgi_summarize_bam_contig_depths</strong>.</p>
+<p>Entonces primero activamos el ambiente.</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb10-1"><a href="mapeo-y-binning.html#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> activate metabat_env</span></code></pre></div>
+<p>Como cualquier otro programa <strong>jgi_summarize_bam_contig_depths</strong> tiene opciones, podemos revisarlas.</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb11-1"><a href="mapeo-y-binning.html#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="ex">jgi_summarize_bam_contig_depths</span> <span class="at">--outputDepth</span> data/htn-depth.txt data/htn_sorted.bam</span></code></pre></div>
+<p>Okay… exploremos el archivo con <strong>head</strong></p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb12-1"><a href="mapeo-y-binning.html#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span> data/htn-depth.txt</span></code></pre></div>
+<p>Para metabat solo necesitamos dos archivos principales:</p>
+<ul>
+<li>El ensamble</li>
+<li>El archivo de profundidad</li>
+</ul>
+<div class="sourceCode" id="cb13"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb13-1"><a href="mapeo-y-binning.html#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="ex">metabat</span> <span class="at">-i</span> data/htn.fasta <span class="at">-a</span> data/htn-depth.txt <span class="at">-o</span> results/bins <span class="at">-t</span> 4 <span class="at">--minCVSum</span> 0 <span class="at">--saveCls</span> <span class="at">-d</span> <span class="at">-v</span> <span class="at">--minCV</span> 0.1 <span class="at">-m</span> 2000</span></code></pre></div>
+</div>
+<div id="concoct" class="section level3 hasAnchor" number="7.2.3">
+<h3><span class="header-section-number">7.2.3</span> <a href="https://concoct.readthedocs.io/en/latest/">CONCOCT</a><a href="mapeo-y-binning.html#concoct" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Okay vamos a utilizar otro programa. Crea tus ligas simbolicas :)</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb14-1"><a href="mapeo-y-binning.html#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> <span class="at">-p</span> 04.Concoct/<span class="dt">{data</span><span class="op">,</span><span class="dt">results}</span></span>
+<span id="cb14-2"><a href="mapeo-y-binning.html#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> 04.Concoct/</span>
+<span id="cb14-3"><a href="mapeo-y-binning.html#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ln</span> <span class="at">-s</span> /home/diana/samples/htn/data/htn.fasta data/  </span>
+<span id="cb14-4"><a href="mapeo-y-binning.html#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ln</span> <span class="at">-s</span> /home/diana/samples/htn/data/htn_sorted.bam  data/ </span></code></pre></div>
+<p>Primero activemos el ambiente</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb15-1"><a href="mapeo-y-binning.html#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> activate concoct_env</span></code></pre></div>
+<p>Primero los contigs se tienen que partir en pedazos mas pequeños</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb16-1"><a href="mapeo-y-binning.html#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="ex">cut_up_fasta.py</span> data/htn.fasta <span class="at">-c</span> 10000 <span class="at">-o</span> 0 <span class="at">--merge_last</span> <span class="at">-b</span> results/SplitAssembly-htn.bed <span class="op">&gt;</span> results/htn.fasta-split10K.fa</span></code></pre></div>
+<p>Para crear la tabla de cobertura se necesita primero indexar el archivo bam</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb17-1"><a href="mapeo-y-binning.html#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="ex">samtools</span> index data/htn_sorted.bam</span></code></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb18-1"><a href="mapeo-y-binning.html#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="ex">concoct_coverage_table.py</span> results/SplitAssembly-htn.bed data/htn_sorted.bam <span class="op">&gt;</span> results/concoct_coverage_table_htn.tsv</span></code></pre></div>
+<p>Ahora si!! a correr concoct.</p>
+<p>Normalmente correriamos 500 iteraciones, pero esta vez solo haremos una.</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb19-1"><a href="mapeo-y-binning.html#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="ex">concoct</span> <span class="at">--coverage_file</span> results/concoct_coverage_table_htn.tsv <span class="at">--composition_file</span> results/htn.fasta-split10K.fa <span class="at">--clusters</span> 400 <span class="at">--kmer_length</span> 4 <span class="at">--threads</span> 4 <span class="at">--length_threshold</span> 3000 <span class="at">--basename</span> concot <span class="at">--seed</span> 4 <span class="at">--iterations</span> 1</span></code></pre></div>
+<p>Combinar contigs</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb20-1"><a href="mapeo-y-binning.html#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="ex">merge_cutup_clustering.py</span> concot_clustering_gt3000.csv <span class="op">&gt;</span> results/merged-htn-gt3000.csv</span></code></pre></div>
+<p>Extraer bins como fasta individualmente</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb21-1"><a href="mapeo-y-binning.html#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> results/bins-concot</span>
+<span id="cb21-2"><a href="mapeo-y-binning.html#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="ex">extract_fasta_bins.py</span>  data/htn.fasta results/merged-htn-gt3000.csv <span class="at">--output_path</span> results/bins-concot</span></code></pre></div>
+</div>
+<div id="discutamos-1" class="section level3 hasAnchor" number="7.2.4">
+<h3><span class="header-section-number">7.2.4</span> Discutamos<a href="mapeo-y-binning.html#discutamos-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><a href="https://docs.google.com/document/d/1iiw-q-90nATg-RNTd9nU8L1XE5xoDRC6j19JC1GiPIk/edit?usp=sharing" class="uri">https://docs.google.com/document/d/1iiw-q-90nATg-RNTd9nU8L1XE5xoDRC6j19JC1GiPIk/edit?usp=sharing</a></p>
+</div>
+</div>
+<div id="refinamiento" class="section level2 hasAnchor" number="7.3">
+<h2><span class="header-section-number">7.3</span> Refinamiento<a href="mapeo-y-binning.html#refinamiento" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="dastool" class="section level3 hasAnchor" number="7.3.1">
+<h3><span class="header-section-number">7.3.1</span> <a href="https://github.com/cmks/DAS_Tool">DASTool</a><a href="mapeo-y-binning.html#dastool" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Preparing input files.</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb22-1"><a href="mapeo-y-binning.html#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Fasta_to_Scaffolds2Bin.sh</span> <span class="at">-i</span> /home/mirna/05.Concoct/bins-concot <span class="at">-e</span> fa <span class="op">&gt;</span> htn_concot.scaffolds2bin.tsv</span>
+<span id="cb22-2"><a href="mapeo-y-binning.html#cb22-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-3"><a href="mapeo-y-binning.html#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="ex">Fasta_to_Scaffolds2Bin.sh</span> <span class="at">-i</span> /home/mirna/04.Metabat2 <span class="at">-e</span> fa <span class="op">&gt;</span> htn.scaffolds2bin.tsv</span></code></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb23-1"><a href="mapeo-y-binning.html#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="va">PATH</span><span class="op">=</span>/home/programs:<span class="va">$PATH</span></span>
+<span id="cb23-2"><a href="mapeo-y-binning.html#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="ex">/home/programs/DAS_Tool-1.1.2/DAS_Tool</span> <span class="at">-i</span> htn_maxbin.contigs2bin.tsv,htn_metabat.scaffolds2bin.tsv,htn_concoct.scaffolds2bin.tsv <span class="at">-l</span> maxbin,metabat,concoct <span class="at">-c</span> data/htn.fasta <span class="at">-o</span> results/htn_bins <span class="at">--debug</span> <span class="at">-t</span> 4  <span class="at">--search_engine</span> diamond <span class="at">--write_bins</span> 1 </span></code></pre></div>
+</div>
+<div id="checkm" class="section level3 hasAnchor" number="7.3.2">
+<h3><span class="header-section-number">7.3.2</span> <a href="https://github.com/Ecogenomics/CheckM/wiki">CheckM</a><a href="mapeo-y-binning.html#checkm" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Muy bien, crea un nuevo directorio y entra en él.</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb24-1"><a href="mapeo-y-binning.html#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> 06.CheckM</span>
+<span id="cb24-2"><a href="mapeo-y-binning.html#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> 06.CheckM/</span></code></pre></div>
+<p>Ahora activemos el ambiente.</p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb25-1"><a href="mapeo-y-binning.html#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> activate checkm_env</span></code></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb26-1"><a href="mapeo-y-binning.html#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="ex">checkm</span>  lineage_wf <span class="at">-t</span> 4 <span class="at">-x</span> fa /home/mirna/05.DAS_tool/results/htn_bins_DASTool_bins DAStools-log_htn  <span class="at">-f</span> CheckM-DAS_Tool_bins.txt</span></code></pre></div>
+<p>Vamos a explorar la salida de checkM</p>
+<p>Primero me puedes decir ¿cuántas lineas tiene tu archivo?</p>
+<p>Okay… ahora vamos a remover esas lineas feas.</p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb27-1"><a href="mapeo-y-binning.html#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sed</span> <span class="at">-e</span> <span class="st">&#39;1,3d&#39;</span> CheckM-DAS_Tool_bins.txt <span class="kw">|</span> <span class="fu">sed</span> <span class="at">-e</span> <span class="st">&#39;37d&#39;</span> <span class="op">&gt;</span>CheckM-DAS_Tool_bins_mod.txt</span></code></pre></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="mapeo-y-binning.html#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb28-2"><a href="mapeo-y-binning.html#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="co"># CheckM -------------------------------------------------------------------####</span></span>
+<span id="cb28-3"><a href="mapeo-y-binning.html#cb28-3" aria-hidden="true" tabindex="-1"></a>checkm<span class="ot">&lt;-</span><span class="fu">read.table</span>(<span class="st">&quot;CheckM-DAS_Tool_bins_mod.txt&quot;</span>, <span class="at">sep =</span> <span class="st">&quot;&quot;</span>, <span class="at">header =</span> F, <span class="at">na.strings =</span><span class="st">&quot;&quot;</span>, <span class="at">stringsAsFactors=</span> F)</span>
+<span id="cb28-4"><a href="mapeo-y-binning.html#cb28-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Extracting good quality bins Megahit ------------------------------------####</span></span>
+<span id="cb28-5"><a href="mapeo-y-binning.html#cb28-5" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(checkm)<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">&quot;Bin_Id&quot;</span>, <span class="st">&quot;Marker&quot;</span>, <span class="st">&quot;lineage&quot;</span>, <span class="st">&quot;Number_of_genomes&quot;</span>, </span>
+<span id="cb28-6"><a href="mapeo-y-binning.html#cb28-6" aria-hidden="true" tabindex="-1"></a>                         <span class="st">&quot;Number_of_markers&quot;</span>, <span class="st">&quot;Number_of_marker_sets&quot;</span>, </span>
+<span id="cb28-7"><a href="mapeo-y-binning.html#cb28-7" aria-hidden="true" tabindex="-1"></a>                         <span class="st">&quot;0&quot;</span>, <span class="st">&quot;1&quot;</span>, <span class="st">&quot;2&quot;</span>, <span class="st">&quot;3&quot;</span>, <span class="st">&quot;4&quot;</span>, <span class="st">&quot;5&quot;</span>, <span class="st">&quot;Completeness&quot;</span>, </span>
+<span id="cb28-8"><a href="mapeo-y-binning.html#cb28-8" aria-hidden="true" tabindex="-1"></a>                         <span class="st">&quot;Contamination&quot;</span>, <span class="st">&quot;Strain_heterogeneity&quot;</span>)  </span>
+<span id="cb28-9"><a href="mapeo-y-binning.html#cb28-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-10"><a href="mapeo-y-binning.html#cb28-10" aria-hidden="true" tabindex="-1"></a>good_bins<span class="ot">&lt;-</span>checkm <span class="sc">%&gt;%</span></span>
+<span id="cb28-11"><a href="mapeo-y-binning.html#cb28-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Bin_Id, Marker, Completeness, Contamination) <span class="sc">%&gt;%</span></span>
+<span id="cb28-12"><a href="mapeo-y-binning.html#cb28-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Completeness <span class="sc">&gt;=</span> <span class="fl">50.00</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb28-13"><a href="mapeo-y-binning.html#cb28-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Contamination <span class="sc">&lt;=</span> <span class="fl">10.00</span>) </span></code></pre></div>
+<p>Okay… quizá podamos recuperar algunos más.</p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="mapeo-y-binning.html#cb29-1" aria-hidden="true" tabindex="-1"></a>medium_bins<span class="ot">&lt;-</span>checkm <span class="sc">%&gt;%</span></span>
+<span id="cb29-2"><a href="mapeo-y-binning.html#cb29-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Bin_Id, Marker, Completeness, Contamination) <span class="sc">%&gt;%</span></span>
+<span id="cb29-3"><a href="mapeo-y-binning.html#cb29-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Completeness <span class="sc">&gt;=</span> <span class="fl">50.00</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb29-4"><a href="mapeo-y-binning.html#cb29-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Contamination <span class="sc">&lt;=</span> <span class="fl">20.00</span>) </span></code></pre></div>
+<p>Muy bien, vamos a extraer esos bins.</p>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="mapeo-y-binning.html#cb30-1" aria-hidden="true" tabindex="-1"></a>bins<span class="ot">&lt;-</span>medium_bins<span class="sc">$</span>Bin_Id</span>
+<span id="cb30-2"><a href="mapeo-y-binning.html#cb30-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-3"><a href="mapeo-y-binning.html#cb30-3" aria-hidden="true" tabindex="-1"></a><span class="fu">write.table</span>(bins, <span class="st">&quot;lista_medium_bins&quot;</span>, <span class="at">quote =</span> F, <span class="at">row.names =</span> F, <span class="at">col.names =</span> F)</span></code></pre></div>
+</div>
+<div id="mis-bins" class="section level3 hasAnchor" number="7.3.3">
+<h3><span class="header-section-number">7.3.3</span> Mis Bins<a href="mapeo-y-binning.html#mis-bins" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb31"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb31-1"><a href="mapeo-y-binning.html#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span>  <span class="at">-p</span> 08.Bins/<span class="dt">{Genoma</span><span class="op">,</span><span class="dt">Proteoma}</span></span>
+<span id="cb31-2"><a href="mapeo-y-binning.html#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> 08.Bins</span></code></pre></div>
+<div class="sourceCode" id="cb32"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb32-1"><a href="mapeo-y-binning.html#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sed</span> <span class="st">&#39;s#bin#cp /home/mirna/05.DAS_tool/results/htn_bins_DASTool_bins/bin#g&#39;</span> lista_medium_bins <span class="kw">|</span> <span class="fu">sed</span> <span class="st">&#39;s#$#.fa .#g&#39;</span> <span class="op">&gt;</span> copy_bins.sh</span></code></pre></div>
+<p>Ahora un ejercicio.</p>
+<div class="sourceCode" id="cb33"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb33-1"><a href="mapeo-y-binning.html#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span> <span class="st">&quot;&gt;&quot;</span> <span class="pp">*</span>.fa</span></code></pre></div>
+<p>Cuál es el problema?</p>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="mapeo-y-binning.html#cb34-1" aria-hidden="true" tabindex="-1"></a>change_bin_name<span class="ot">&lt;-</span><span class="cf">function</span>(ruta, ambiente){</span>
+<span id="cb34-2"><a href="mapeo-y-binning.html#cb34-2" aria-hidden="true" tabindex="-1"></a>ruta_original<span class="ot">&lt;-</span><span class="fu">getwd</span>()</span>
+<span id="cb34-3"><a href="mapeo-y-binning.html#cb34-3" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(ruta)</span>
+<span id="cb34-4"><a href="mapeo-y-binning.html#cb34-4" aria-hidden="true" tabindex="-1"></a>filez <span class="ot">&lt;-</span> <span class="fu">list.files</span>()</span>
+<span id="cb34-5"><a href="mapeo-y-binning.html#cb34-5" aria-hidden="true" tabindex="-1"></a>newname<span class="ot">&lt;-</span><span class="fu">paste0</span>(ambiente, <span class="st">&quot;_&quot;</span>, filez)</span>
+<span id="cb34-6"><a href="mapeo-y-binning.html#cb34-6" aria-hidden="true" tabindex="-1"></a><span class="fu">file.rename</span>(<span class="at">from=</span>filez, <span class="at">to=</span>newname)</span>
+<span id="cb34-7"><a href="mapeo-y-binning.html#cb34-7" aria-hidden="true" tabindex="-1"></a>filez <span class="ot">&lt;-</span> <span class="fu">list.files</span>()</span>
+<span id="cb34-8"><a href="mapeo-y-binning.html#cb34-8" aria-hidden="true" tabindex="-1"></a><span class="fu">file.rename</span>(<span class="at">from=</span>filez, <span class="at">to=</span><span class="fu">sub</span>(<span class="at">pattern=</span><span class="st">&quot;</span><span class="sc">\\</span><span class="st">.&quot;</span>, <span class="at">replacement=</span><span class="st">&quot;_&quot;</span>, filez))</span>
+<span id="cb34-9"><a href="mapeo-y-binning.html#cb34-9" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(ruta_original)</span>
+<span id="cb34-10"><a href="mapeo-y-binning.html#cb34-10" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="mapeo-y-binning.html#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">change_bin_name</span>(<span class="st">&quot;/home/mirna/07.Bins/Genoma&quot;</span>, <span class="st">&quot;htn&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="mapeo-y-binning.html#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(phylotools)</span>
+<span id="cb36-2"><a href="mapeo-y-binning.html#cb36-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb36-3"><a href="mapeo-y-binning.html#cb36-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-4"><a href="mapeo-y-binning.html#cb36-4" aria-hidden="true" tabindex="-1"></a>add_names_to_seqs <span class="ot">&lt;-</span> <span class="cf">function</span>(nombre_del_archivo){</span>
+<span id="cb36-5"><a href="mapeo-y-binning.html#cb36-5" aria-hidden="true" tabindex="-1"></a>  filenames <span class="ot">&lt;-</span> <span class="fu">unlist</span>(<span class="fu">strsplit</span>(nombre_del_archivo, <span class="st">&quot;/&quot;</span>))</span>
+<span id="cb36-6"><a href="mapeo-y-binning.html#cb36-6" aria-hidden="true" tabindex="-1"></a>  filenames <span class="ot">&lt;-</span> filenames[[<span class="fu">grep</span>(<span class="st">&quot;fa&quot;</span>, filenames)]]</span>
+<span id="cb36-7"><a href="mapeo-y-binning.html#cb36-7" aria-hidden="true" tabindex="-1"></a>  divide <span class="ot">&lt;-</span> <span class="fu">unlist</span>(<span class="fu">strsplit</span>(filenames, <span class="st">&quot;</span><span class="sc">\\</span><span class="st">.&quot;</span>))</span>
+<span id="cb36-8"><a href="mapeo-y-binning.html#cb36-8" aria-hidden="true" tabindex="-1"></a>  bin_name <span class="ot">&lt;-</span> divide[<span class="dv">1</span>]</span>
+<span id="cb36-9"><a href="mapeo-y-binning.html#cb36-9" aria-hidden="true" tabindex="-1"></a>  termination <span class="ot">&lt;-</span> divide[<span class="dv">2</span>]</span>
+<span id="cb36-10"><a href="mapeo-y-binning.html#cb36-10" aria-hidden="true" tabindex="-1"></a>  old_name <span class="ot">&lt;-</span> <span class="fu">get.fasta.name</span>(nombre_del_archivo)</span>
+<span id="cb36-11"><a href="mapeo-y-binning.html#cb36-11" aria-hidden="true" tabindex="-1"></a>  new_name <span class="ot">&lt;-</span> <span class="fu">paste0</span>( bin_name, <span class="st">&quot;-scaffold-&quot;</span>, old_name) </span>
+<span id="cb36-12"><a href="mapeo-y-binning.html#cb36-12" aria-hidden="true" tabindex="-1"></a>  ref2 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(old_name, new_name)</span>
+<span id="cb36-13"><a href="mapeo-y-binning.html#cb36-13" aria-hidden="true" tabindex="-1"></a>  out_file <span class="ot">&lt;-</span> <span class="fu">paste0</span>(bin_name, <span class="st">&quot;_renamed&quot;</span>, <span class="st">&quot;.&quot;</span>, termination)</span>
+<span id="cb36-14"><a href="mapeo-y-binning.html#cb36-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename.fasta</span>(<span class="at">infile =</span> nombre_del_archivo, <span class="at">ref_table =</span> ref2, <span class="at">outfile =</span> out_file)</span>
+<span id="cb36-15"><a href="mapeo-y-binning.html#cb36-15" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb36-16"><a href="mapeo-y-binning.html#cb36-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-17"><a href="mapeo-y-binning.html#cb36-17" aria-hidden="true" tabindex="-1"></a>files <span class="ot">&lt;-</span> <span class="fu">list.files</span>(<span class="st">&quot;.&quot;</span>)</span>
+<span id="cb36-18"><a href="mapeo-y-binning.html#cb36-18" aria-hidden="true" tabindex="-1"></a>files <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">&quot;/home/mirna/07.Bins/Genoma/&quot;</span>, files)</span>
+<span id="cb36-19"><a href="mapeo-y-binning.html#cb36-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-20"><a href="mapeo-y-binning.html#cb36-20" aria-hidden="true" tabindex="-1"></a><span class="fu">map</span>(files, add_names_to_seqs)</span></code></pre></div>
+<p>Veamos si funcionó</p>
+<div class="sourceCode" id="cb37"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb37-1"><a href="mapeo-y-binning.html#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span> <span class="st">&quot;&gt;&quot;</span> <span class="pp">*</span>.fa</span></code></pre></div>
+<p>Muy bien, pongamos eso en una nueva carpeta y esperemos lo mejor jaja, no es cierto, si movámoslo a otra carpeta, pero quitemos el renamed.</p>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="mapeo-y-binning.html#cb38-1" aria-hidden="true" tabindex="-1"></a>change_bin_name<span class="ot">&lt;-</span><span class="cf">function</span>(ruta){</span>
+<span id="cb38-2"><a href="mapeo-y-binning.html#cb38-2" aria-hidden="true" tabindex="-1"></a>ruta_original<span class="ot">&lt;-</span><span class="fu">getwd</span>()</span>
+<span id="cb38-3"><a href="mapeo-y-binning.html#cb38-3" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(ruta)</span>
+<span id="cb38-4"><a href="mapeo-y-binning.html#cb38-4" aria-hidden="true" tabindex="-1"></a>filez <span class="ot">&lt;-</span> <span class="fu">list.files</span>()</span>
+<span id="cb38-5"><a href="mapeo-y-binning.html#cb38-5" aria-hidden="true" tabindex="-1"></a><span class="fu">file.rename</span>(<span class="at">from=</span>filez, <span class="at">to=</span><span class="fu">sub</span>(<span class="at">pattern=</span><span class="st">&quot;_renamed&quot;</span>, <span class="at">replacement=</span><span class="st">&quot;&quot;</span>, filez))</span>
+<span id="cb38-6"><a href="mapeo-y-binning.html#cb38-6" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(ruta_original)</span>
+<span id="cb38-7"><a href="mapeo-y-binning.html#cb38-7" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="mapeo-y-binning.html#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">change_bin_name</span>(<span class="st">&quot;/home/mirna/07.Bins/Genoma/01.Bins_named&quot;</span>)</span></code></pre></div>
+<p>Creen que puedan optimizar esos scripts? discute en tu equipo si tienes una mejor idea!</p>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="el-grupo-de-datos.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="keynote-paquetes-de-bioconductor-relacionados-con-la-metagenómica.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

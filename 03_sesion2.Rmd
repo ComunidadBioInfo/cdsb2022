@@ -17,7 +17,7 @@ Veamos un poco la salida
 grep ">" *.faa
 ```
 
-### KEEG
+## KEEG
 
 Okay, ahora vamos a utilizar kofam_scan para anotar las proteinas.
 
@@ -45,7 +45,7 @@ ln -s /home/mirna/07.Bins/Proteoma/*.faa 01.Proteomas
 
 Ajusta el loop para correr KofamScan con los genomas que te tocan :)
 
-### Explorando el metabolismo con rbims.
+## Explorando el metabolismo con rbims.
 
 Vamos a hacer una exploracion rapida del metabolosmo con [rbims](https://mirnavazquez.github.io/RbiMs/index.html).
 
@@ -150,7 +150,7 @@ plot_heatmap(tibble_ko=Methane_metabolisms_GOM,
              calc="Binary")
 ```
 
-### Anotacion con InterproScan
+## Anotacion con InterproScan
 
 ```{bash, eval=FALSE}
 for i in $(ls *.faa); do sed -i "s/\*//g" $i; done

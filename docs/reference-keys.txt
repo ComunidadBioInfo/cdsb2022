@@ -21,10 +21,10 @@ htn
 pulque.
 sedimento
 tea
-binning
+mapeo-y-binning
 mapeo
 discutamos
-binning-1
+binning
 maxbin
 metabat
 concoct

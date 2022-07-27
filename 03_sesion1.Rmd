@@ -35,7 +35,7 @@ gtdbtk classify_wf --genome_dir /home/mirna/07.Bins/Genoma/01.Bins_named --out_d
 
 Vamos a visualizar los datos. Todos a R!!
 
-### Leamos los datos
+## Leamos los datos
 
 ```{r, eval=FALSE}
 library(tidyverse)

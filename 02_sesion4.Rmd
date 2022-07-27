@@ -1,10 +1,10 @@
-#  Binning
+#  Mapeo y Binning
 
 M.C. Diana Oaxaca y Dra. Mirna Vazquez Rosas Landa 
 
 02 de agosto de 2022
 
-### Mapeo
+## Mapeo
 
 **Profundidad**: La profundidad de cada contig se calcula mapeando las lecturas al ensamble. Este paso permite evaluar la calidad del ensable y es necesario para hacer la reconstrucción de genomas ya que, como veremos más adelante, es uno de los parámetros que toman en cuenta los "bineadores". 
 
@@ -45,11 +45,11 @@ samtools view -bShu htn.sam | samtools sort -@ 94 -o htn_sorted.bam
 samtools index htn_sorted.bam
 ```
 
-# Discutamos
+### Discutamos
 
 https://docs.google.com/document/d/1iiw-q-90nATg-RNTd9nU8L1XE5xoDRC6j19JC1GiPIk/edit?usp=sharing
 
-### Binning
+## Binning
 
 Utilizaremos varios programas para hacer la reconstrucción de los genomas y haremos una comparación de estos.
 
@@ -57,7 +57,7 @@ Utilizaremos varios programas para hacer la reconstrucción de los genomas y har
 
 La presente práctica sólo es una representación del flujo de trabajo, sin embargo, no sustituye los manuales de cada programa y el flujo puede variar dependiendo del tipo de datos y pregunta de investigación.
 
-#### [MaxBin](https://sourceforge.net/p/maxbin/code/ci/master/tree/)
+### [MaxBin](https://sourceforge.net/p/maxbin/code/ci/master/tree/)
 
 Crea tu espacio de trabajo y una liga símbólica hacia los datos que se usarán:
 
@@ -80,7 +80,7 @@ Explora las opciones y ahora si, a calcular bins.
 run_MaxBin.pl -contig data/htn.fasta -out results/maxbin -abund data/htn-depth.txt -max_iteration 2
 ```
 
-#### [MetaBat](https://bitbucket.org/berkeleylab/metabat/src/master/)
+### [MetaBat](https://bitbucket.org/berkeleylab/metabat/src/master/)
 
 Okay vamos a utilizar otro progama. Crea tus ligas simbolicas :)
 
@@ -120,7 +120,7 @@ Para metabat solo necesitamos dos archivos principales:
 metabat -i data/htn.fasta -a data/htn-depth.txt -o results/bins -t 4 --minCVSum 0 --saveCls -d -v --minCV 0.1 -m 2000
 ```
 
-#### [CONCOCT](https://concoct.readthedocs.io/en/latest/)
+### [CONCOCT](https://concoct.readthedocs.io/en/latest/)
 
 Okay vamos a utilizar otro programa. Crea tus ligas simbolicas :)
 
@@ -174,13 +174,13 @@ mkdir results/bins-concot
 extract_fasta_bins.py  data/htn.fasta results/merged-htn-gt3000.csv --output_path results/bins-concot
 ```
 
-# Discutamos
+### Discutamos
 
 https://docs.google.com/document/d/1iiw-q-90nATg-RNTd9nU8L1XE5xoDRC6j19JC1GiPIk/edit?usp=sharing
 
-### Refinamiento
+## Refinamiento
 
-#### [DASTool](https://github.com/cmks/DAS_Tool)
+### [DASTool](https://github.com/cmks/DAS_Tool)
 
 Preparing input files.
 
