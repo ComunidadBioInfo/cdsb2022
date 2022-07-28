@@ -1,5 +1,5 @@
-# MEBs
+# Un vistazo a la creación de paquetes de R/Bioconductor
 
-Dra. Valerie de Anda
+Dra. Joselyn Chávez
 
 04 de agosto de 2022
