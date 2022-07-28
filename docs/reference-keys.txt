@@ -59,3 +59,9 @@ breviario-cultural-con-los-pats
 actividad-4
 finalmente-podemos-escribir-esto-en-una-tabla.
 un-vistazo-a-la-creación-de-paquetes-de-rbioconductor
+por-qué-hacer-control-de-versiones-de-nuestros-proyectos
+git
+section
+git-vs-controles-de-versión-a-mano
+github
+diapositivas-1

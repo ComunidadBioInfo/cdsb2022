@@ -1,6 +1,6 @@
 # Control de versiones con GitHub y RStudio
 
-Alejandra Medina; Erick Cuevas-Fernández 
+Dr. Alejandra Medina; M. C. Erick Cuevas-Fernández 
 
 01 de agosto de 2022
 
@@ -41,6 +41,54 @@ div.alert{color:#bd475d; background-color:transparent}
 
 
 https://happygitwithr.com
+
+## ¿Por qué hacer control de versiones de nuestros proyectos?
+
+1. ✅ Los proyectos suelen cambiar y crecer.
+2. 💾 Es díficil saber cuáles fueron todos los cambios a lo largo del tiempo (en especial tiempos largos, hazlo por tu yo del **futuro!**).
+3. 🤔 Las colaboraciones se pueden complicar sin un buen control de versiones.
+4. 🔐 Seguridad.
+
+```{r,echo=FALSE, fig.align='center'}
+knitr::include_graphics("img/git_why.png")
+```
+
+## Git
+
+- Git es un sistema de control de versiones
+- Git funciona con GitHub, Bitbucket o GitLab
+
+**¿Por qué usar Git en vez de solo renombrar los archivos?**
+
+✅✅Por qué es mejor tener una filogenia del archivo.
+
+>Git es un sistema de control de versiones distribuido, gratuito y de código abierto, diseñado para manejar todo tipo de proyectos, desde los más pequeños hasta los más grandes, con rapidez y eficiencia.
+
+>Git es fácil de aprender y ocupa poco espacio con un rendimiento rapidísimo. Supera a las herramientas SCM como Subversion, CVS, Perforce y ClearCase con características como la ramificación local barata, las cómodas áreas de preparación y los múltiples flujos de trabajo.
+
+### **Git vs controles de versión a mano**
+
+```{r,echo=FALSE, fig.align='center'}
+knitr::include_graphics("img/git_vers.png")
+```
+
+Con Git cada contribuidor tiene una copia del repositorio central, con todos los archivos y la historia de los cambios por los que han pasado. 
+
+>Excuse me, do you have a moment to talk about version control?, Jennifer Bryan, 2017
+
+<div class="alert">
+
+⚠️ **NO OLVIDES TENER INSTALADO DE GIT**, en caso de que aún no lo hayas instalado, lo puedes decargar en el siguiente enlace [https://git-scm.com/downloads](https://git-scm.com/downloads). 
+
+Para conocer la localización y la versión de Git que tienes en tu computadora, corre el siguiente comando en la terminal: `which git` y `git --version`
+
+
+</div> 
+
+
+## GitHub
+
+
 
 ## Manual de sobreviviencia con Git Y GitHub en RStudio (en caso de ser necesario)
 

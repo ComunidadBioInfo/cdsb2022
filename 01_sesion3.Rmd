@@ -4,3 +4,49 @@ M.C Erick Cuevas Fernández y Dra. Joselyn Chávez
 
 01 de agosto de 2022
 
+<style>
+
+div.color { 
+border-radius: 5px; 
+padding: 20px;
+margin: 30px 0px 30px;}
+
+div.red { background-color:#f67155; }
+
+div.orange{ background-color:#f0BB51;}
+
+div.pair { 	
+display: flex;
+flex-direction: row;
+justify-content: center;
+text-align:center;
+padding:0px}
+
+div.inside { width: 49%; padding: 0px}
+
+div.scroll { 
+max-height: 400px; 
+overflow-y: auto; 
+background: #111111;
+border-radius:5px;
+padding: 10px;
+margin: 30px 0px 30px;
+color: #999999;}
+
+div.alert{color:#bd475d; background-color:transparent}
+</style>
+
+**Este documento se basa en:** 
+
+- [Advanced R Markdown Workshop rstudio::conf 2019](https://arm.rbind.io)
+- [R Markdown Cookbook](https://bookdown.org/yihui/rmarkdown-cookbook/)
+
+## Diapositivas
+
+[
+```{r,echo=FALSE}
+knitr::include_url("https://github.com/Erickcufe/abc_RMarkdown/blob/main/abc_RMarkdown_slides.html", 
+                   height = "380px")
+```
+]()
+
