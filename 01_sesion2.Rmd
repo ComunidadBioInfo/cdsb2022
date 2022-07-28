@@ -78,7 +78,7 @@ Con Git cada contribuidor tiene una copia del repositorio central, con todos los
 
 <div class="alert">
 
-⚠️ **NO OLVIDES TENER INSTALADO DE GIT**, en caso de que aún no lo hayas instalado, lo puedes decargar en el siguiente enlace [https://git-scm.com/downloads](https://git-scm.com/downloads). 
+⚠️ **NO OLVIDES TENER INSTALADO Git**, en caso de que aún no lo hayas instalado, lo puedes decargar en el siguiente enlace [https://git-scm.com/downloads](https://git-scm.com/downloads). 
 
 Para conocer la localización y la versión de Git que tienes en tu computadora, corre el siguiente comando en la terminal: `which git` y `git --version`
 
@@ -88,7 +88,15 @@ Para conocer la localización y la versión de Git que tienes en tu computadora,
 
 ## GitHub
 
+[GitHub](https://github.com/about) es una plataforma para guardar proyectos, hace uso de Git. Su principal utilidad es para generar código fuente de programas. 
 
+<div class="alert">
+
+⚠️ **NO OLVIDES TENER UNA CUENTA EN GITHUB**, en caso de que aún no lo hayas hecho, puedes ir la página de [GitHub](https://github.com) y seleccionar `join`. 
+Es indispensable tu usuario para los ejercicios que siguen.
+</div> 
+
+También existen otras plataformas como [Bitbucked](https://bitbucket.org/product/) y [GitLab](https://about.gitlab.com), las cuales funcionan de manera similar a GitHub. 
 
 ## Manual de sobreviviencia con Git Y GitHub en RStudio (en caso de ser necesario)
 

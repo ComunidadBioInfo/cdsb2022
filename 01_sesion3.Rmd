@@ -50,3 +50,12 @@ knitr::include_url("https://github.com/Erickcufe/abc_RMarkdown/blob/main/abc_RMa
 ```
 ]()
 
+## ¿Qué es y para que sirve RMarkdown?
+
+## Ejemplos de uso
+
+## Sintaxis Markdown
+
+### Elementos de bloque
+
+### Elementos de línea

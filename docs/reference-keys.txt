@@ -65,3 +65,8 @@ section
 git-vs-controles-de-versión-a-mano
 github
 diapositivas-1
+qué-es-y-para-que-sirve-rmarkdown
+sintaxis-markdown
+elementos-de-bloque
+elementos-de-línea
+ejemplos-de-uso
