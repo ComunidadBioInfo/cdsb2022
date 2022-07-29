@@ -5,7 +5,7 @@ Dra. Mirna Vazquez Rosas Landa
 03 de agosto de 2022
 
 
-Vamos a utilizar prodigal para predecir las proteínas:
+Vamos a utilizar [prodigal](https://github.com/hyattpd/Prodigal) para predecir las proteínas:
 
 ```{bash, eval=FALSE}
 for i in /home/mirna/07.Bins/Genoma/01.Bins_named/*.fa ; do prodigal -i $i -o $i.txt -a $i.faa ; done
@@ -19,7 +19,7 @@ grep ">" *.faa
 
 ## KEEG
 
-Okay, ahora vamos a utilizar kofam_scan para anotar las proteínas.
+Okay, ahora vamos a utilizar [kofam_scan](https://github.com/takaram/kofam_scan) para anotar las proteínas.
 
 Vamos a dividirnos en equipos para hacer la anotación de los bins!
 
@@ -146,7 +146,7 @@ plot_heatmap(tibble_ko=Secretion_system_htn,
              calc="Binary")
 ```
 
-## Anotación con InterproScan
+## Anotación con [InterproScan](https://interproscan-docs.readthedocs.io/en/latest/)
 
 ```{bash, eval=FALSE}
 for i in $(ls *.faa); do sed -i "s/\*//g" $i; done
