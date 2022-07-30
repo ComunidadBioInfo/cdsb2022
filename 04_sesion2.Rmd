@@ -1,0 +1,42 @@
+# Proyectos colaborativos
+
+04 de agosto de 2022
+
+[Google doc](https://docs.google.com/document/d/1ZZ5U3XDeGI-duMAuM1Q9xM5P8kyqJbTwIOnRdMFPSIg/edit#)
+
+Estos son los proyectos que vamos a desarrollar, lee la descripción y pon tu nombre debajo del que te interese. 
+
+## Proyecto uno: El microbioma del pulque.
+
+Sinopsis: En este trabajo se secuenciaron librerías de Illumina MiSeq de muestras a diferentes tiempos de fermentación: 0 hrs (aguamiel), 3, 6 y 12 horas. En general observaron que la abundancia de los géneros cambió durante la fermentación y se asoció con una disminución de sacarosa, aumento de etanol y ácido láctico (Medidos por HPLC). Predijeron, entre otros, la biosíntesis de folato y vitamina B. Uno de los MAG obtenidos correspondió a Saccharomyces cereviseae relacionado filogenéticamente con S. cerevisiae aislado de sake y bioetanol y otro correspondió a Zymomonas mobilis que propusieron como un nuevo linaje.
+
+Los datos crudos: PRJNA603591
+https://www.ebi.ac.uk/ena/browser/view/PRJNA603591
+
+El articulo: Genomic profiling of bacterial and fungal communities and their predictive functionality during pulque fermentation by whole-genome shotgun sequencing
+https://www.nature.com/articles/s41598-020-71864-4
+
+## Proyecto dos: Microbioma de sedimento del Microbial Dark Matter project (MDMP)
+
+Sinopsis: El MDMP es realizado por el Departamento de Energía del JGI, se enfoca en resolver nuevos superphyla de bacterias y arqueas, en la fase uno se secuenciaron 201 linajes enriquecidos no cultivados, mediante single cell sequencing. En esta segunda fase se utilizaron datos publicos de diferentes muestras y regiones del mundo. Aún se siguen procesando datos y hasta el momento han encontrado prometedores SAGs incluído un phylum novedoso en Deward Creek.
+
+Los datos: PRJNA364776
+https://www.ebi.ac.uk/ena/browser/view/PRJNA364776
+
+El proyecto: Microbial Dark Matter project phaseII https://www.osti.gov/award-doi-service/biblio/10.46936/10.25585/60000876  
+
+## Proyecto tres: Microbioma de Camellia sinensis (la planta del té verde y negro)
+
+Sinopsis: En este trabajo se secuenciaron librerías de Illumina de muestras rizosféricas y endofíticas de C. sinensis, el estudio hace una descripción general de la taxonomía y predicción funcional del microbioma, y hace énfasis en las diferencias encontradas en la parte endofítica y rizosféricas. 
+
+Los datos: PRJNA698063
+https://www.ebi.ac.uk/ena/browser/view/PRJNA698063
+
+El artículo: Niche differentiation of microbes and their functional signatures in Assam type tea (Camellia sinensis var. assamica)
+https://www.researchsquare.com/article/rs-347764/v1
+
+## Proyecto cuatro: Módulos de Rbims
+
+Sinopsis: Aunque los microorganismos juegan un papel crucial en los ciclos biogeoquímicos y en los ecosistemas, aún se desconoce la mayor parte de su diversidad. Comprender las vías metabólicas utilizadas para los nuevos genomas microbianos es un paso esencial para acceder a esta diversidad. La mayoría de los programas de anotación usan bases de datos predefinidas para la asignación funcional, y no permiten que el usuario agregue información de metadatos, lo que dificulta la exploración del metabolismo en función de una pregunta científica específica. rbims es un paquete de R, fácil de usar que permite realizar análisis de metabolismo microbiano incorporando metadatos. El primer módulo de rbims lee, evalúa y visualiza la salida del perfil de anotación derivada de KofamScan. Tu tarea dentro de rbims será desarrollar un módulo que permita leer, evaluar y visualizar la salida de dbCAN. 
+
+Github: https://github.com/mirnavazquez/RbiMs
