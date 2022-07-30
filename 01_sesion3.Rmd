@@ -45,10 +45,9 @@ div.alert{color:#bd475d; background-color:transparent}
 
 [
 ```{r,echo=FALSE}
-knitr::include_url("https://github.com/Erickcufe/abc_RMarkdown/blob/main/abc_RMarkdown_slides.html", 
-                   height = "380px")
+knitr::include_url("https://Erickcufe.github.io/abc_RMarkdown/abc_RMarkdown_slides.html", height = "380px")
 ```
-]()
+](https://Erickcufe.github.io/abc_RMarkdown/abc_RMarkdown_slides.html)
 
 ## ¿Qué es y para que sirve RMarkdown?
 
