@@ -45,12 +45,50 @@ div.alert{color:#bd475d; background-color:transparent}
 
 [
 ```{r,echo=FALSE}
-knitr::include_url("https://github.com/Erickcufe/abc_RMarkdown/blob/main/abc_RMarkdown_slides.html", 
+knitr::include_url("https://erickcufe.github.io/abc_RMarkdown/abc_RMarkdown_slides.html", 
                    height = "380px")
 ```
 ]()
 
 ## ¿Qué es y para que sirve RMarkdown?
+
+RMarkdown facilita armar un marco de autoría para ciencia de datos. Facilita la reproducibilidad del código, al permitir generar texto y código en conjunto. Tiene la bondad de soportar multiples formatos para guardar y ejecutar código, asi como para generar informes de alta calidad que se pueden compartir. 
+
+Su estructura básica consta de:
+
+1. **YAML**, nos permite diseñar la configuración de nuestro archivo markdown. YAML es un lenguaje de serialización de datos. Cuenta con funciones de Perl, C, XML, HTML. Se basa en el formato JSON. 
+
+2. **Markdown**, aquí escribiremos el texto y el código que vamos a compartir en el reporte, se pueden añadir graficos, tablas, imagenes, etc. 
+
+Básicamente esta es la estructura básica de un RMarkdown:
+
+**YAML**
+```yaml
+---
+title: "Bienvenido CDSB 2022"
+author: "EMB 2022"
+date: "2018-02-14"
+output: html_document
+---
+```
+
+**Markdown**
+````markdown
+Parrafo de R Markdown.
+
+Esto es un fragmento de código o "chunk":
+
+```{r}
+fit = lm(dist ~ speed, data = cars)
+b   = coef(fit)
+plot(cars)
+abline(fit)
+```
+
+La pendiente de la regresión es `r b[1]`.
+````
+    
+    
 
 ## Ejemplos de uso
 
