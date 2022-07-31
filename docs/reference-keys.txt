@@ -70,3 +70,4 @@ sintaxis-markdown
 elementos-de-bloque
 elementos-de-línea
 ejemplos-de-uso
+diapositivas-2

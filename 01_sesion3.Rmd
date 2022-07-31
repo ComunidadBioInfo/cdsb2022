@@ -46,7 +46,7 @@ div.alert{color:#bd475d; background-color:transparent}
 [
 ```{r,echo=FALSE}
 
-knitr::include_url("https://erickcufe.github.io/abc_RMarkdown/abc_RMarkdown_slides.html", 
+knitr::include_url("https://Erickcufe.github.io/abc_RMarkdown/abc_RMarkdown_slides.html", 
                    height = "380px")
 
 ```
@@ -69,7 +69,7 @@ Básicamente esta es la estructura básica de un RMarkdown:
 ---
 title: "Bienvenido CDSB 2022"
 author: "EMB 2022"
-date: "2018-02-14"
+date: "2022-08-01"
 output: html_document
 ---
 ```
@@ -90,9 +90,12 @@ abline(fit)
 La pendiente de la regresión es `r b[1]`.
 ````
     
-    
 
 ## Ejemplos de uso
+
+Entre las cosas que se pueden hacer con RMarkdown es lo siguiente:
+
+
 
 ## Sintaxis Markdown
 

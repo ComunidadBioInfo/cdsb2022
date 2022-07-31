@@ -42,6 +42,15 @@ div.alert{color:#bd475d; background-color:transparent}
 
 https://happygitwithr.com
 
+## Diapositivas
+
+[
+```{r,echo=FALSE}
+knitr::include_url("https://erickcufe.github.io/versiones_GitHub_RStudio/git_Rstudio.html", 
+                   height = "380px")
+```
+](https://erickcufe.github.io/versiones_GitHub_RStudio/git_Rstudio.html)
+
 ## ¿Por qué hacer control de versiones de nuestros proyectos?
 
 1. ✅ Los proyectos suelen cambiar y crecer.
@@ -78,7 +87,7 @@ Con Git cada contribuidor tiene una copia del repositorio central, con todos los
 
 <div class="alert">
 
-⚠️ **NO OLVIDES TENER INSTALADO Git**, en caso de que aún no lo hayas instalado, lo puedes decargar en el siguiente enlace [https://git-scm.com/downloads](https://git-scm.com/downloads). 
+⚠️ **NO OLVIDES TENER INSTALADO Git**, en caso de que aún no lo hayas instalado, lo puedes descargar en el siguiente enlace [https://git-scm.com/downloads](https://git-scm.com/downloads). 
 
 Para conocer la localización y la versión de Git que tienes en tu computadora, corre el siguiente comando en la terminal: `which git` y `git --version`
 
