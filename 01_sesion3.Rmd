@@ -95,10 +95,34 @@ La pendiente de la regresión es `r b[1]`.
 
 Entre las cosas que se pueden hacer con RMarkdown es lo siguiente:
 
+##Agregar en un informe la información de una localización
+
+```{r out.width='100%', fig.height=6, eval=require('leaflet')}
+library(leaflet)
+leaflet() %>% addTiles() %>% setView(lat = 18.95, lng = -99.239, zoom = 13)
+```
 
 
-## Sintaxis Markdown
+## Poner la chicharronera (Fórmula cuadrática en un texto)
 
-### Elementos de bloque
+Esto es la chicharronera dentro de un texto $$x = \frac {-b \pm \sqrt {b^2 - 4ac}}{2a}$$
 
-### Elementos de línea
+Y puedo seguir describiendo lo que siga haciendo.
+
+$$\text{La Fórmula Cuadrática es }x = \frac {-b \pm \sqrt {b^2 - 4ac}}{2a}$$
+
+- [RPubs](https://rpubs.com)
+- [Generar correos personalizados](https://rmarkdown.rstudio.com/articles_mail_merge.html)
+- [Escribir artículos](https://elifesciences.org/labs/cad57bcf/composing-reproducible-manuscripts-using-r-markdown)
+  - [rticles](https://github.com/rstudio/rticles)
+- [Escribir Libros](https://bookdown.org/)
+  - [Escribir tesis](https://eddjberry.netlify.com/post/writing-your-thesis-with-bookdown/)
+- [Crear sitios web](https://github.com/seankross/postcards)
+
+## Crear un archivo `.Rmd`
+
+`File` > `New_file` > `R Markdown...`
+
+## Los ejemplos de sintaxis los puedes ver a detalle en las diapositivas. 
+
+

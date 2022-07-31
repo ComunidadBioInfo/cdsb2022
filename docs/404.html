@@ -51,6 +51,14 @@
 <link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
 <link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/htmlwidgets-1.5.4/htmlwidgets.js"></script>
+<link href="libs/leaflet-1.3.1/leaflet.css" rel="stylesheet" />
+<script src="libs/leaflet-1.3.1/leaflet.js"></script>
+<link href="libs/leafletfix-1.0.0/leafletfix.css" rel="stylesheet" />
+<script src="libs/proj4-2.6.2/proj4.min.js"></script>
+<script src="libs/Proj4Leaflet-1.0.1/proj4leaflet.js"></script>
+<link href="libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet" />
+<script src="libs/leaflet-binding-2.1.1/leaflet.js"></script>
 
 
 <style type="text/css">
@@ -187,11 +195,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.1" data-path="generación-de-reportes-con-r-markdown..html"><a href="generación-de-reportes-con-r-markdown..html#diapositivas-2"><i class="fa fa-check"></i><b>3.1</b> Diapositivas</a></li>
 <li class="chapter" data-level="3.2" data-path="generación-de-reportes-con-r-markdown..html"><a href="generación-de-reportes-con-r-markdown..html#qué-es-y-para-que-sirve-rmarkdown"><i class="fa fa-check"></i><b>3.2</b> ¿Qué es y para que sirve RMarkdown?</a></li>
 <li class="chapter" data-level="3.3" data-path="generación-de-reportes-con-r-markdown..html"><a href="generación-de-reportes-con-r-markdown..html#ejemplos-de-uso"><i class="fa fa-check"></i><b>3.3</b> Ejemplos de uso</a></li>
-<li class="chapter" data-level="3.4" data-path="generación-de-reportes-con-r-markdown..html"><a href="generación-de-reportes-con-r-markdown..html#sintaxis-markdown"><i class="fa fa-check"></i><b>3.4</b> Sintaxis Markdown</a>
-<ul>
-<li class="chapter" data-level="3.4.1" data-path="generación-de-reportes-con-r-markdown..html"><a href="generación-de-reportes-con-r-markdown..html#elementos-de-bloque"><i class="fa fa-check"></i><b>3.4.1</b> Elementos de bloque</a></li>
-<li class="chapter" data-level="3.4.2" data-path="generación-de-reportes-con-r-markdown..html"><a href="generación-de-reportes-con-r-markdown..html#elementos-de-línea"><i class="fa fa-check"></i><b>3.4.2</b> Elementos de línea</a></li>
-</ul></li>
+<li class="chapter" data-level="3.4" data-path="generación-de-reportes-con-r-markdown..html"><a href="generación-de-reportes-con-r-markdown..html#poner-la-chicharronera-fórmula-cuadrática-en-un-texto"><i class="fa fa-check"></i><b>3.4</b> Poner la chicharronera (Fórmula cuadrática en un texto)</a></li>
+<li class="chapter" data-level="3.5" data-path="generación-de-reportes-con-r-markdown..html"><a href="generación-de-reportes-con-r-markdown..html#crear-un-archivo-.rmd"><i class="fa fa-check"></i><b>3.5</b> Crear un archivo <code>.Rmd</code></a></li>
+<li class="chapter" data-level="3.6" data-path="generación-de-reportes-con-r-markdown..html"><a href="generación-de-reportes-con-r-markdown..html#los-ejemplos-de-sintaxis-los-puedes-ver-a-detalle-en-las-diapositivas."><i class="fa fa-check"></i><b>3.6</b> Los ejemplos de sintaxis los puedes ver a detalle en las diapositivas.</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="keynote-convirtiendo-tu-flujo-de-análisis-en-un-paquete-de-rbioconductor..html"><a href="keynote-convirtiendo-tu-flujo-de-análisis-en-un-paquete-de-rbioconductor..html"><i class="fa fa-check"></i><b>4</b> Keynote: Convirtiendo tu flujo de análisis en un paquete de R/Bioconductor.</a></li>
 <li class="chapter" data-level="5" data-path="introducción-a-conda..html"><a href="introducción-a-conda..html"><i class="fa fa-check"></i><b>5</b> Introducción a Conda.</a></li>
@@ -317,6 +323,20 @@ gitbook.start({
 });
 </script>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 </body>
 
 </html>

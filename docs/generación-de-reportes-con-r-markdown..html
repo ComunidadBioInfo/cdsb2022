@@ -51,6 +51,14 @@
 <link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
 <link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/htmlwidgets-1.5.4/htmlwidgets.js"></script>
+<link href="libs/leaflet-1.3.1/leaflet.css" rel="stylesheet" />
+<script src="libs/leaflet-1.3.1/leaflet.js"></script>
+<link href="libs/leafletfix-1.0.0/leafletfix.css" rel="stylesheet" />
+<script src="libs/proj4-2.6.2/proj4.min.js"></script>
+<script src="libs/Proj4Leaflet-1.0.1/proj4leaflet.js"></script>
+<link href="libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet" />
+<script src="libs/leaflet-binding-2.1.1/leaflet.js"></script>
 
 
 <style type="text/css">
@@ -153,44 +161,43 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="2" data-path="control-de-versiones-con-github-y-rstudio.html"><a href="control-de-versiones-con-github-y-rstudio.html"><i class="fa fa-check"></i><b>2</b> Control de versiones con GitHub y RStudio</a>
 <ul>
-<li class="chapter" data-level="2.1" data-path="control-de-versiones-con-github-y-rstudio.html"><a href="control-de-versiones-con-github-y-rstudio.html#por-qué-hacer-control-de-versiones-de-nuestros-proyectos"><i class="fa fa-check"></i><b>2.1</b> ¿Por qué hacer control de versiones de nuestros proyectos?</a></li>
-<li class="chapter" data-level="2.2" data-path="control-de-versiones-con-github-y-rstudio.html"><a href="control-de-versiones-con-github-y-rstudio.html#git"><i class="fa fa-check"></i><b>2.2</b> Git</a>
+<li class="chapter" data-level="2.1" data-path="control-de-versiones-con-github-y-rstudio.html"><a href="control-de-versiones-con-github-y-rstudio.html#diapositivas-1"><i class="fa fa-check"></i><b>2.1</b> Diapositivas</a></li>
+<li class="chapter" data-level="2.2" data-path="control-de-versiones-con-github-y-rstudio.html"><a href="control-de-versiones-con-github-y-rstudio.html#por-qué-hacer-control-de-versiones-de-nuestros-proyectos"><i class="fa fa-check"></i><b>2.2</b> ¿Por qué hacer control de versiones de nuestros proyectos?</a></li>
+<li class="chapter" data-level="2.3" data-path="control-de-versiones-con-github-y-rstudio.html"><a href="control-de-versiones-con-github-y-rstudio.html#git"><i class="fa fa-check"></i><b>2.3</b> Git</a>
 <ul>
-<li class="chapter" data-level="2.2.1" data-path="control-de-versiones-con-github-y-rstudio.html"><a href="control-de-versiones-con-github-y-rstudio.html#git-vs-controles-de-versión-a-mano"><i class="fa fa-check"></i><b>2.2.1</b> <strong>Git vs controles de versión a mano</strong></a></li>
+<li class="chapter" data-level="2.3.1" data-path="control-de-versiones-con-github-y-rstudio.html"><a href="control-de-versiones-con-github-y-rstudio.html#git-vs-controles-de-versión-a-mano"><i class="fa fa-check"></i><b>2.3.1</b> <strong>Git vs controles de versión a mano</strong></a></li>
 </ul></li>
-<li class="chapter" data-level="2.3" data-path="control-de-versiones-con-github-y-rstudio.html"><a href="control-de-versiones-con-github-y-rstudio.html#github"><i class="fa fa-check"></i><b>2.3</b> GitHub</a></li>
-<li class="chapter" data-level="2.4" data-path="control-de-versiones-con-github-y-rstudio.html"><a href="control-de-versiones-con-github-y-rstudio.html#manual-de-sobreviviencia-con-git-y-github-en-rstudio-en-caso-de-ser-necesario"><i class="fa fa-check"></i><b>2.4</b> Manual de sobreviviencia con Git Y GitHub en RStudio (en caso de ser necesario)</a></li>
-<li class="chapter" data-level="2.5" data-path="control-de-versiones-con-github-y-rstudio.html"><a href="control-de-versiones-con-github-y-rstudio.html#credenciales-https-en-cache"><i class="fa fa-check"></i><b>2.5</b> Credenciales HTTPS en <strong>Cache</strong></a>
+<li class="chapter" data-level="2.4" data-path="control-de-versiones-con-github-y-rstudio.html"><a href="control-de-versiones-con-github-y-rstudio.html#github"><i class="fa fa-check"></i><b>2.4</b> GitHub</a></li>
+<li class="chapter" data-level="2.5" data-path="control-de-versiones-con-github-y-rstudio.html"><a href="control-de-versiones-con-github-y-rstudio.html#manual-de-sobreviviencia-con-git-y-github-en-rstudio-en-caso-de-ser-necesario"><i class="fa fa-check"></i><b>2.5</b> Manual de sobreviviencia con Git Y GitHub en RStudio (en caso de ser necesario)</a></li>
+<li class="chapter" data-level="2.6" data-path="control-de-versiones-con-github-y-rstudio.html"><a href="control-de-versiones-con-github-y-rstudio.html#credenciales-https-en-cache"><i class="fa fa-check"></i><b>2.6</b> Credenciales HTTPS en <strong>Cache</strong></a>
 <ul>
-<li class="chapter" data-level="2.5.1" data-path="control-de-versiones-con-github-y-rstudio.html"><a href="control-de-versiones-con-github-y-rstudio.html#actividad"><i class="fa fa-check"></i><b>2.5.1</b> Actividad</a></li>
+<li class="chapter" data-level="2.6.1" data-path="control-de-versiones-con-github-y-rstudio.html"><a href="control-de-versiones-con-github-y-rstudio.html#actividad"><i class="fa fa-check"></i><b>2.6.1</b> Actividad</a></li>
 </ul></li>
-<li class="chapter" data-level="2.6" data-path="control-de-versiones-con-github-y-rstudio.html"><a href="control-de-versiones-con-github-y-rstudio.html#conectando-rstudio-con-git-y-github."><i class="fa fa-check"></i><b>2.6</b> Conectando RStudio con Git y Github.</a></li>
-<li class="chapter" data-level="2.7" data-path="control-de-versiones-con-github-y-rstudio.html"><a href="control-de-versiones-con-github-y-rstudio.html#github-primero-rstudio-después"><i class="fa fa-check"></i><b>2.7</b> GitHub primero, RStudio después…</a>
+<li class="chapter" data-level="2.7" data-path="control-de-versiones-con-github-y-rstudio.html"><a href="control-de-versiones-con-github-y-rstudio.html#conectando-rstudio-con-git-y-github."><i class="fa fa-check"></i><b>2.7</b> Conectando RStudio con Git y Github.</a></li>
+<li class="chapter" data-level="2.8" data-path="control-de-versiones-con-github-y-rstudio.html"><a href="control-de-versiones-con-github-y-rstudio.html#github-primero-rstudio-después"><i class="fa fa-check"></i><b>2.8</b> GitHub primero, RStudio después…</a>
 <ul>
-<li class="chapter" data-level="2.7.1" data-path="control-de-versiones-con-github-y-rstudio.html"><a href="control-de-versiones-con-github-y-rstudio.html#actividad-1"><i class="fa fa-check"></i><b>2.7.1</b> Actividad</a></li>
-<li class="chapter" data-level="2.7.2" data-path="control-de-versiones-con-github-y-rstudio.html"><a href="control-de-versiones-con-github-y-rstudio.html#comentar-pull-y-push"><i class="fa fa-check"></i><b>2.7.2</b> Comentar, pull y push</a></li>
-<li class="chapter" data-level="2.7.3" data-path="control-de-versiones-con-github-y-rstudio.html"><a href="control-de-versiones-con-github-y-rstudio.html#actividad-2"><i class="fa fa-check"></i><b>2.7.3</b> Actividad</a></li>
+<li class="chapter" data-level="2.8.1" data-path="control-de-versiones-con-github-y-rstudio.html"><a href="control-de-versiones-con-github-y-rstudio.html#actividad-1"><i class="fa fa-check"></i><b>2.8.1</b> Actividad</a></li>
+<li class="chapter" data-level="2.8.2" data-path="control-de-versiones-con-github-y-rstudio.html"><a href="control-de-versiones-con-github-y-rstudio.html#comentar-pull-y-push"><i class="fa fa-check"></i><b>2.8.2</b> Comentar, pull y push</a></li>
+<li class="chapter" data-level="2.8.3" data-path="control-de-versiones-con-github-y-rstudio.html"><a href="control-de-versiones-con-github-y-rstudio.html#actividad-2"><i class="fa fa-check"></i><b>2.8.3</b> Actividad</a></li>
 </ul></li>
-<li class="chapter" data-level="2.8" data-path="control-de-versiones-con-github-y-rstudio.html"><a href="control-de-versiones-con-github-y-rstudio.html#rstudio-primero-y-github-también"><i class="fa fa-check"></i><b>2.8</b> RStudio primero y GitHub también</a>
+<li class="chapter" data-level="2.9" data-path="control-de-versiones-con-github-y-rstudio.html"><a href="control-de-versiones-con-github-y-rstudio.html#rstudio-primero-y-github-también"><i class="fa fa-check"></i><b>2.9</b> RStudio primero y GitHub también</a>
 <ul>
-<li class="chapter" data-level="2.8.1" data-path="control-de-versiones-con-github-y-rstudio.html"><a href="control-de-versiones-con-github-y-rstudio.html#actividad-3"><i class="fa fa-check"></i><b>2.8.1</b> Actividad</a></li>
+<li class="chapter" data-level="2.9.1" data-path="control-de-versiones-con-github-y-rstudio.html"><a href="control-de-versiones-con-github-y-rstudio.html#actividad-3"><i class="fa fa-check"></i><b>2.9.1</b> Actividad</a></li>
 </ul></li>
-<li class="chapter" data-level="2.9" data-path="control-de-versiones-con-github-y-rstudio.html"><a href="control-de-versiones-con-github-y-rstudio.html#proyecto-existente-github-al-final"><i class="fa fa-check"></i><b>2.9</b> Proyecto existente, GitHub al final</a>
+<li class="chapter" data-level="2.10" data-path="control-de-versiones-con-github-y-rstudio.html"><a href="control-de-versiones-con-github-y-rstudio.html#proyecto-existente-github-al-final"><i class="fa fa-check"></i><b>2.10</b> Proyecto existente, GitHub al final</a>
 <ul>
-<li class="chapter" data-level="2.9.1" data-path="control-de-versiones-con-github-y-rstudio.html"><a href="control-de-versiones-con-github-y-rstudio.html#breviario-cultural-con-los-pats"><i class="fa fa-check"></i><b>2.9.1</b> Breviario cultural con los PATs</a></li>
-<li class="chapter" data-level="2.9.2" data-path="control-de-versiones-con-github-y-rstudio.html"><a href="control-de-versiones-con-github-y-rstudio.html#actividad-4"><i class="fa fa-check"></i><b>2.9.2</b> Actividad</a></li>
+<li class="chapter" data-level="2.10.1" data-path="control-de-versiones-con-github-y-rstudio.html"><a href="control-de-versiones-con-github-y-rstudio.html#breviario-cultural-con-los-pats"><i class="fa fa-check"></i><b>2.10.1</b> Breviario cultural con los PATs</a></li>
+<li class="chapter" data-level="2.10.2" data-path="control-de-versiones-con-github-y-rstudio.html"><a href="control-de-versiones-con-github-y-rstudio.html#actividad-4"><i class="fa fa-check"></i><b>2.10.2</b> Actividad</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="generación-de-reportes-con-r-markdown..html"><a href="generación-de-reportes-con-r-markdown..html"><i class="fa fa-check"></i><b>3</b> Generación de Reportes con R markdown.</a>
 <ul>
-<li class="chapter" data-level="3.1" data-path="generación-de-reportes-con-r-markdown..html"><a href="generación-de-reportes-con-r-markdown..html#diapositivas-1"><i class="fa fa-check"></i><b>3.1</b> Diapositivas</a></li>
+<li class="chapter" data-level="3.1" data-path="generación-de-reportes-con-r-markdown..html"><a href="generación-de-reportes-con-r-markdown..html#diapositivas-2"><i class="fa fa-check"></i><b>3.1</b> Diapositivas</a></li>
 <li class="chapter" data-level="3.2" data-path="generación-de-reportes-con-r-markdown..html"><a href="generación-de-reportes-con-r-markdown..html#qué-es-y-para-que-sirve-rmarkdown"><i class="fa fa-check"></i><b>3.2</b> ¿Qué es y para que sirve RMarkdown?</a></li>
 <li class="chapter" data-level="3.3" data-path="generación-de-reportes-con-r-markdown..html"><a href="generación-de-reportes-con-r-markdown..html#ejemplos-de-uso"><i class="fa fa-check"></i><b>3.3</b> Ejemplos de uso</a></li>
-<li class="chapter" data-level="3.4" data-path="generación-de-reportes-con-r-markdown..html"><a href="generación-de-reportes-con-r-markdown..html#sintaxis-markdown"><i class="fa fa-check"></i><b>3.4</b> Sintaxis Markdown</a>
-<ul>
-<li class="chapter" data-level="3.4.1" data-path="generación-de-reportes-con-r-markdown..html"><a href="generación-de-reportes-con-r-markdown..html#elementos-de-bloque"><i class="fa fa-check"></i><b>3.4.1</b> Elementos de bloque</a></li>
-<li class="chapter" data-level="3.4.2" data-path="generación-de-reportes-con-r-markdown..html"><a href="generación-de-reportes-con-r-markdown..html#elementos-de-línea"><i class="fa fa-check"></i><b>3.4.2</b> Elementos de línea</a></li>
-</ul></li>
+<li class="chapter" data-level="3.4" data-path="generación-de-reportes-con-r-markdown..html"><a href="generación-de-reportes-con-r-markdown..html#poner-la-chicharronera-fórmula-cuadrática-en-un-texto"><i class="fa fa-check"></i><b>3.4</b> Poner la chicharronera (Fórmula cuadrática en un texto)</a></li>
+<li class="chapter" data-level="3.5" data-path="generación-de-reportes-con-r-markdown..html"><a href="generación-de-reportes-con-r-markdown..html#crear-un-archivo-.rmd"><i class="fa fa-check"></i><b>3.5</b> Crear un archivo <code>.Rmd</code></a></li>
+<li class="chapter" data-level="3.6" data-path="generación-de-reportes-con-r-markdown..html"><a href="generación-de-reportes-con-r-markdown..html#los-ejemplos-de-sintaxis-los-puedes-ver-a-detalle-en-las-diapositivas."><i class="fa fa-check"></i><b>3.6</b> Los ejemplos de sintaxis los puedes ver a detalle en las diapositivas.</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="keynote-convirtiendo-tu-flujo-de-análisis-en-un-paquete-de-rbioconductor..html"><a href="keynote-convirtiendo-tu-flujo-de-análisis-en-un-paquete-de-rbioconductor..html"><i class="fa fa-check"></i><b>4</b> Keynote: Convirtiendo tu flujo de análisis en un paquete de R/Bioconductor.</a></li>
 <li class="chapter" data-level="5" data-path="introducción-a-conda..html"><a href="introducción-a-conda..html"><i class="fa fa-check"></i><b>5</b> Introducción a Conda.</a></li>
@@ -290,9 +297,9 @@ div.alert{color:#bd475d; background-color:transparent}
 <li><a href="https://arm.rbind.io">Advanced R Markdown Workshop rstudio::conf 2019</a></li>
 <li><a href="https://bookdown.org/yihui/rmarkdown-cookbook/">R Markdown Cookbook</a></li>
 </ul>
-<div id="diapositivas-1" class="section level2 hasAnchor" number="3.1">
-<h2><span class="header-section-number">3.1</span> Diapositivas<a href="generación-de-reportes-con-r-markdown..html#diapositivas-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p><a href=""><iframe src="https://Erickcufe.github.io/abc_RMarkdown/abc_RMarkdown_slides.html" width="672" height="380px" data-external="1"></iframe></a></p>
+<div id="diapositivas-2" class="section level2 hasAnchor" number="3.1">
+<h2><span class="header-section-number">3.1</span> Diapositivas<a href="generación-de-reportes-con-r-markdown..html#diapositivas-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><a href="https://Erickcufe.github.io/abc_RMarkdown/abc_RMarkdown_slides.html"><iframe src="https://Erickcufe.github.io/abc_RMarkdown/abc_RMarkdown_slides.html" width="672" height="380px" data-external="1"></iframe></a></p>
 </div>
 <div id="qué-es-y-para-que-sirve-rmarkdown" class="section level2 hasAnchor" number="3.2">
 <h2><span class="header-section-number">3.2</span> ¿Qué es y para que sirve RMarkdown?<a href="generación-de-reportes-con-r-markdown..html#qué-es-y-para-que-sirve-rmarkdown" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -330,16 +337,38 @@ div.alert{color:#bd475d; background-color:transparent}
 <div id="ejemplos-de-uso" class="section level2 hasAnchor" number="3.3">
 <h2><span class="header-section-number">3.3</span> Ejemplos de uso<a href="generación-de-reportes-con-r-markdown..html#ejemplos-de-uso" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Entre las cosas que se pueden hacer con RMarkdown es lo siguiente:</p>
+<p>##Agregar en un informe la información de una localización</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="generación-de-reportes-con-r-markdown..html#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(leaflet)</span>
+<span id="cb3-2"><a href="generación-de-reportes-con-r-markdown..html#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">leaflet</span>() <span class="sc">%&gt;%</span> <span class="fu">addTiles</span>() <span class="sc">%&gt;%</span> <span class="fu">setView</span>(<span class="at">lat =</span> <span class="fl">18.95</span>, <span class="at">lng =</span> <span class="sc">-</span><span class="fl">99.239</span>, <span class="at">zoom =</span> <span class="dv">13</span>)</span></code></pre></div>
+<div id="htmlwidget-5a904150f850268aa3be" style="width:100%;height:576px;" class="leaflet html-widget"></div>
+<script type="application/json" data-for="htmlwidget-5a904150f850268aa3be">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"https://openstreetmap.org\">OpenStreetMap<\/a> contributors, <a href=\"https://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA<\/a>"}]}],"setView":[[18.95,-99.239],13,[]]},"evals":[],"jsHooks":[]}</script>
 </div>
-<div id="sintaxis-markdown" class="section level2 hasAnchor" number="3.4">
-<h2><span class="header-section-number">3.4</span> Sintaxis Markdown<a href="generación-de-reportes-con-r-markdown..html#sintaxis-markdown" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div id="elementos-de-bloque" class="section level3 hasAnchor" number="3.4.1">
-<h3><span class="header-section-number">3.4.1</span> Elementos de bloque<a href="generación-de-reportes-con-r-markdown..html#elementos-de-bloque" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="poner-la-chicharronera-fórmula-cuadrática-en-un-texto" class="section level2 hasAnchor" number="3.4">
+<h2><span class="header-section-number">3.4</span> Poner la chicharronera (Fórmula cuadrática en un texto)<a href="generación-de-reportes-con-r-markdown..html#poner-la-chicharronera-fórmula-cuadrática-en-un-texto" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Esto es la chicharronera dentro de un texto <span class="math display">\[x = \frac {-b \pm \sqrt {b^2 - 4ac}}{2a}\]</span></p>
+<p>Y puedo seguir describiendo lo que siga haciendo.</p>
+<p><span class="math display">\[\text{La Fórmula Cuadrática es }x = \frac {-b \pm \sqrt {b^2 - 4ac}}{2a}\]</span></p>
+<ul>
+<li><a href="https://rpubs.com">RPubs</a></li>
+<li><a href="https://rmarkdown.rstudio.com/articles_mail_merge.html">Generar correos personalizados</a></li>
+<li><a href="https://elifesciences.org/labs/cad57bcf/composing-reproducible-manuscripts-using-r-markdown">Escribir artículos</a>
+<ul>
+<li><a href="https://github.com/rstudio/rticles">rticles</a></li>
+</ul></li>
+<li><a href="https://bookdown.org/">Escribir Libros</a>
+<ul>
+<li><a href="https://eddjberry.netlify.com/post/writing-your-thesis-with-bookdown/">Escribir tesis</a></li>
+</ul></li>
+<li><a href="https://github.com/seankross/postcards">Crear sitios web</a></li>
+</ul>
 </div>
-<div id="elementos-de-línea" class="section level3 hasAnchor" number="3.4.2">
-<h3><span class="header-section-number">3.4.2</span> Elementos de línea<a href="generación-de-reportes-con-r-markdown..html#elementos-de-línea" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="crear-un-archivo-.rmd" class="section level2 hasAnchor" number="3.5">
+<h2><span class="header-section-number">3.5</span> Crear un archivo <code>.Rmd</code><a href="generación-de-reportes-con-r-markdown..html#crear-un-archivo-.rmd" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><code>File</code> &gt; <code>New_file</code> &gt; <code>R Markdown...</code></p>
+</div>
+<div id="los-ejemplos-de-sintaxis-los-puedes-ver-a-detalle-en-las-diapositivas." class="section level2 hasAnchor" number="3.6">
+<h2><span class="header-section-number">3.6</span> Los ejemplos de sintaxis los puedes ver a detalle en las diapositivas.<a href="generación-de-reportes-con-r-markdown..html#los-ejemplos-de-sintaxis-los-puedes-ver-a-detalle-en-las-diapositivas." class="anchor-section" aria-label="Anchor link to header"></a></h2>
 
-</div>
 </div>
 </div>
             </section>
@@ -402,6 +431,20 @@ gitbook.start({
 });
 </script>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 </body>
 
 </html>

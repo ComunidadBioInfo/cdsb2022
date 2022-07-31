@@ -71,3 +71,6 @@ elementos-de-bloque
 elementos-de-línea
 ejemplos-de-uso
 diapositivas-2
+poner-la-chicharronera-fórmula-cuadrática-en-un-texto
+crear-un-archivo-.rmd
+los-ejemplos-de-sintaxis-los-puedes-ver-a-detalle-en-las-diapositivas.
