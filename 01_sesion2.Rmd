@@ -51,6 +51,8 @@ knitr::include_url("https://erickcufe.github.io/versiones_GitHub_RStudio/git_Rst
 ```
 ](https://erickcufe.github.io/versiones_GitHub_RStudio/git_Rstudio.html)
 
+Puedes encontrar las diapositivas [aquí](https://erickcufe.github.io/versiones_GitHub_RStudio/git_Rstudio.html).
+
 ## ¿Por qué hacer control de versiones de nuestros proyectos?
 
 1. ✅ Los proyectos suelen cambiar y crecer.

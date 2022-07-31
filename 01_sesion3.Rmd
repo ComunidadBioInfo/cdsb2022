@@ -46,11 +46,13 @@ div.alert{color:#bd475d; background-color:transparent}
 [
 ```{r,echo=FALSE}
 
-knitr::include_url("https://Erickcufe.github.io/abc_RMarkdown/abc_RMarkdown_slides.html", 
+knitr::include_url("https://erickcufe.github.io/abc_RMarkdown/abc_RMarkdown_slides.html", 
                    height = "380px")
 
 ```
-](https://Erickcufe.github.io/abc_RMarkdown/abc_RMarkdown_slides.html)
+](https://erickcufe.github.io/abc_RMarkdown/abc_RMarkdown_slides.html)
+
+Puedes encontrar las diapositivas [aquí](https://erickcufe.github.io/abc_RMarkdown/abc_RMarkdown_slides.html).
 
 ## ¿Qué es y para que sirve RMarkdown?
 
