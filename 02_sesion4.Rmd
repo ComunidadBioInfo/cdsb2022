@@ -27,6 +27,10 @@ Las lecturas se ensamblan para armar [contigs](https://www.genome.gov/es/genetic
 - [IDBA](https://github.com/loneknightpy/idba)
 - [MetaSPAdes](https://github.com/ablab/spades)
 
+### Discutamos
+
+https://docs.google.com/document/d/1iiw-q-90nATg-RNTd9nU8L1XE5xoDRC6j19JC1GiPIk/edit?usp=sharing
+
 ## Mapeo
 
 **Profundidad**: La profundidad de cada contig se calcula mapeando las lecturas al ensamble. Este paso permite evaluar la calidad del ensable y es necesario para hacer la reconstrucción de genomas ya que, como veremos más adelante, es uno de los parámetros que toman en cuenta los "bineadores". 
