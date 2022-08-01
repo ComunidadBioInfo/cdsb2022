@@ -142,6 +142,7 @@ knitr::include_url("https://comunidadbioinfo.github.io/cdsb2022/dia1_sesion3.htm
 
 
 Basado en 
+
 - ["R Markdown: The Definitive Guide"](https://bookdown.org/yihui/rmarkdown/)
 
 - ["bookdown: Authoring Books and Technical Documents with R Markdown"](https://bookdown.org/yihui/bookdown)
@@ -168,23 +169,23 @@ infinite_moon_reader()
 xaringan::inf_mr()
 ```
 
-```{r, echo=FALSE, out.width='100%', fig.align='center'}
+```{r, echo=FALSE, out.width='50%', fig.align='center'}
 knitr::include_graphics("img/viewer.png")
 ```
 
 ### La diapositiva de título
 
-```{r, echo=FALSE, out.width='60%', fig.align='center'}
+```{r, echo=FALSE, out.width='50%', fig.align='center'}
 knitr::include_graphics("img/title_slide.png")
 ```
 
 Modificando la diapositiva de título
 
-```{r, echo=FALSE, out.width='100%', fig.align='center'}
+```{r, echo=FALSE, out.width='50%', fig.align='center'}
 knitr::include_graphics("img/rladies_theme1.png")
 ```
 
-```{r, echo=FALSE, out.width='100%', fig.align='center'}
+```{r, echo=FALSE, out.width='50%', fig.align='center'}
 knitr::include_graphics("img/rladies_theme2.png")
 ```
 
@@ -199,19 +200,19 @@ knitr::include_graphics("img/contenido.png")
 
 Ejecutando código
 
-```{r,echo=FALSE, out.width='70%', fig.align='center'}
+```{r,echo=FALSE, out.width='50%', fig.align='center'}
 knitr::include_graphics("img/code_1.png")
 ```
 
 
-```{r,echo=FALSE, out.width='100%', fig.align='center'}
+```{r,echo=FALSE, out.width='50%', fig.align='center'}
 knitr::include_graphics("img/code_2.png")
 ```
 
 
 ### Incluyendo imágenes
 
-```{r,echo=FALSE, out.width='80%', fig.align='center'}
+```{r,echo=FALSE, out.width='50%', fig.align='center'}
 knitr::include_graphics("img/graphics.png")
 ```
 
@@ -244,16 +245,16 @@ class: middle
 
 Generar el archivo html usando Knit > Publicar usando **GitHub pages**
 
-```{r, echo=FALSE, out.width='80%', fig.align='center'}
+```{r, echo=FALSE, out.width='50%', fig.align='center'}
 knitr::include_graphics("img/settings_1.png")
 ```
 
-```{r, echo=FALSE, out.width='80%', fig.align='center'}
+```{r, echo=FALSE, out.width='50%', fig.align='center'}
 knitr::include_graphics("img/settings_2.png")
 ```
 
 
-```{r, echo=FALSE, out.width='80%', fig.align='center'}
+```{r, echo=FALSE, out.width='50%', fig.align='center'}
 knitr::include_graphics("img/settings_3.png")
 ```
 
@@ -273,16 +274,12 @@ Nota: Es necesario mantener el ratio original de las diapositivas.
 
 https://bookdown.org/yihui/rmarkdown/xaringan.html
 
-```{r, echo=FALSE, out.width='60%', fig.align='center'}
+```{r, echo=FALSE, out.width='50%', fig.align='center'}
 knitr::include_graphics("img/xaringan_book.png")
 ```
 
 
 ### Creación de libros con bookdown
-
-```{r, echo=FALSE, out.width='100%', fig.align='center'}
-knitr::include_graphics("img/bookdown_logo.png")
-```
 
 **Instalación:**
 
@@ -310,7 +307,7 @@ knitr::include_graphics("img/templado.png")
 - Cada archivo Rmd representa un capítulo
 - Los capítulos van ordenados/numerados
 - No se deben renderizar los Rmd
-- Las imágenes llamadas dentro de los capítulos se colocan en docs > img
+- Las imágenes llamadas dentro de los capítulos se colocan en img
 - Para incluir las imáges se usa: knitr::include_graphics("img/imagen.png")
 - Los archivos html llamados dentro de los capítulos se colocan en docs 
 
