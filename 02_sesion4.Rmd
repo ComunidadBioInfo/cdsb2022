@@ -4,6 +4,31 @@ M.C. Diana Oaxaca y Dra. Mirna Vazquez Rosas Landa
 
 02 de agosto de 2022
 
+## Secuenciación
+El ADN ambiental se secuencia utilizando alguna plataforma de secuenciacion o varias:
+
+- [Ilumina](https://www.illumina.com/)
+- [PacBio](https://www.pacb.com/)
+- [Nanopore](https://nanoporetech.com/applications/dna-nanopore-sequencing)
+
+
+
+## Control de calidad
+
+Del proceso de secuenciacion se recuperan lecturas de aproximadamente 300 bps. Las secuencias las recortamos para eliminar artefactos generados durante el proceso de secuenciación. Aquí algunas herramientas utilizadas: 
+
+- [FastQC](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/)
+- [Trimmomatic](http://www.usadellab.org/cms/?page=trimmomatic)
+- [fastp](https://github.com/OpenGene/fastp) 
+
+##  Ensamble
+
+Las lecturas se ensamblan para armar [contigs](https://www.genome.gov/es/genetics-glossary/C%C3%B3ntigo) y [scaffolds](https://mycocosm.jgi.doe.gov/help/scaffolds.jsf). Existen diferentes programas para ensamblar metagenomas, aquí algunos de ellos:
+
+- [MEGAHIT](https://github.com/voutcn/megahit)
+- [IDBA](https://github.com/loneknightpy/idba)
+- [MetaSPAdes](https://github.com/ablab/spades)
+
 ## Mapeo
 
 **Profundidad**: La profundidad de cada contig se calcula mapeando las lecturas al ensamble. Este paso permite evaluar la calidad del ensable y es necesario para hacer la reconstrucción de genomas ya que, como veremos más adelante, es uno de los parámetros que toman en cuenta los "bineadores". 
