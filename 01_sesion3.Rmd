@@ -1,4 +1,4 @@
-#  Generación de Reportes con R markdown.
+#  Generación de Reportes con R Markdown.
 
 M.C Erick Cuevas Fernández y Dra. Joselyn Chávez
 
@@ -36,25 +36,26 @@ color: #999999;}
 div.alert{color:#bd475d; background-color:transparent}
 </style>
 
+## Introducción a R Markdown
+
 **Este documento se basa en:** 
 
 - [Advanced R Markdown Workshop rstudio::conf 2019](https://arm.rbind.io)
 - [R Markdown Cookbook](https://bookdown.org/yihui/rmarkdown-cookbook/)
 
-## Diapositivas
+### Diapositivas
 
 [
 ```{r,echo=FALSE}
 
-knitr::include_url("https://erickcufe.github.io/abc_RMarkdown/abc_RMarkdown_slides.html", 
-                   height = "380px")
+knitr::include_url("https://erickcufe.github.io/abc_RMarkdown/abc_RMarkdown_slides.html", height = "380px")
 
 ```
 ](https://erickcufe.github.io/abc_RMarkdown/abc_RMarkdown_slides.html)
 
 Puedes encontrar las diapositivas [aquí](https://erickcufe.github.io/abc_RMarkdown/abc_RMarkdown_slides.html).
 
-## ¿Qué es y para que sirve RMarkdown?
+### ¿Qué es y para que sirve R Markdown?
 
 RMarkdown facilita armar un marco de autoría para ciencia de datos. Facilita la reproducibilidad del código, al permitir generar texto y código en conjunto. Tiene la bondad de soportar multiples formatos para guardar y ejecutar código, asi como para generar informes de alta calidad que se pueden compartir. 
 
@@ -93,11 +94,11 @@ La pendiente de la regresión es `r b[1]`.
 ````
     
 
-## Ejemplos de uso
+### Ejemplos de uso
 
 Entre las cosas que se pueden hacer con RMarkdown es lo siguiente:
 
-##Agregar en un informe la información de una localización
+### Agregar en un informe la información de una localización
 
 ```{r out.width='100%', fig.height=6, eval=require('leaflet')}
 library(leaflet)
@@ -105,7 +106,7 @@ leaflet() %>% addTiles() %>% setView(lat = 18.95, lng = -99.239, zoom = 13)
 ```
 
 
-## Poner la chicharronera (Fórmula cuadrática en un texto)
+### Poner la chicharronera (Fórmula cuadrática en un texto)
 
 Esto es la chicharronera dentro de un texto $$x = \frac {-b \pm \sqrt {b^2 - 4ac}}{2a}$$
 
@@ -121,10 +122,224 @@ $$\text{La Fórmula Cuadrática es }x = \frac {-b \pm \sqrt {b^2 - 4ac}}{2a}$$
   - [Escribir tesis](https://eddjberry.netlify.com/post/writing-your-thesis-with-bookdown/)
 - [Crear sitios web](https://github.com/seankross/postcards)
 
-## Crear un archivo `.Rmd`
+### Crear un archivo `.Rmd`
 
 `File` > `New_file` > `R Markdown...`
 
-## Los ejemplos de sintaxis los puedes ver a detalle en las diapositivas. 
+### Ejemplos
+
+Los ejemplos de sintaxis los puedes ver a detalle en las diapositivas. 
+
+## Creación de presentaciones y libros con R Markdown
+
+### Diapositivas
+
+[
+```{r, echo=FALSE}
+knitr::include_url("https://comunidadbioinfo.github.io/cdsb2022/dia1_sesion3.html", height = "380px")
+```
+](https://comunidadbioinfo.github.io/cdsb2022/dia1_sesion3.html)
+
+
+Basado en 
+- ["R Markdown: The Definitive Guide"](https://bookdown.org/yihui/rmarkdown/)
+
+- ["bookdown: Authoring Books and Technical Documents with R Markdown"](https://bookdown.org/yihui/bookdown)
+
+
+### El paquete xaringan
+
+**Instalación:**
+
+```{r,eval=FALSE}
+install.packages("xaringan")
+```
+
+Creación de una nueva presentación:
+
+File > New file > R Markdown > From Template > Ninja Presentation
+
+
+### Previsualización de las diapositivas
+
+```{r, eval=FALSE}
+infinite_moon_reader()
+
+xaringan::inf_mr()
+```
+
+```{r, echo=FALSE, out.width='100%', fig.align='center'}
+knitr::include_graphics("img/viewer.png")
+```
+
+### La diapositiva de título
+
+```{r, echo=FALSE, out.width='60%', fig.align='center'}
+knitr::include_graphics("img/title_slide.png")
+```
+
+Modificando la diapositiva de título
+
+```{r, echo=FALSE, out.width='100%', fig.align='center'}
+knitr::include_graphics("img/rladies_theme1.png")
+```
+
+```{r, echo=FALSE, out.width='100%', fig.align='center'}
+knitr::include_graphics("img/rladies_theme2.png")
+```
+
+Otros temas: chocolate, duke, fc, hygge, ki, lucy, metropolis, middlebury, nhsr, robot, uio, useR, uwm, wic.
+
+
+### Diapositivas de contenido
+
+```{r, echo=FALSE, out.width='50%', fig.align='center'}
+knitr::include_graphics("img/contenido.png")
+```
+
+Ejecutando código
+
+```{r,echo=FALSE, out.width='70%', fig.align='center'}
+knitr::include_graphics("img/code_1.png")
+```
+
+
+```{r,echo=FALSE, out.width='100%', fig.align='center'}
+knitr::include_graphics("img/code_2.png")
+```
+
+
+### Incluyendo imágenes
+
+```{r,echo=FALSE, out.width='80%', fig.align='center'}
+knitr::include_graphics("img/graphics.png")
+```
+
+- El tamaño de la imagen se puede modificar usando las opciones out.width, out.height, fig.width, fig.height. 
+
+- Las dimensiones se indican como porcentaje o como número de pixeles.
+
+
+### Alineación del contenido
+
+- Afectando todo el contenido de la diapositiva
+
+```{r, eval=FALSE}
+class: center
+class: middle
+```
+
+- Afectando contenido específico
+
+```{r, eval=FALSE}
+.center[]
+.pull-left[]
+.pull-right[]
+```
+
+
+### Compartiendo la presentación
+
+**Como página web**
+
+Generar el archivo html usando Knit > Publicar usando **GitHub pages**
+
+```{r, echo=FALSE, out.width='80%', fig.align='center'}
+knitr::include_graphics("img/settings_1.png")
+```
+
+```{r, echo=FALSE, out.width='80%', fig.align='center'}
+knitr::include_graphics("img/settings_2.png")
+```
+
+
+```{r, echo=FALSE, out.width='80%', fig.align='center'}
+knitr::include_graphics("img/settings_3.png")
+```
+
+
+**Como pdf**
+
+Generar el archivo html usando Knit > Convertir a pdf usando **pagedown**
+
+```{r, eval=FALSE}
+pagedown::chrome_print("presentacion.html")
+```
+
+Nota: Es necesario mantener el ratio original de las diapositivas.
+
+
+### Información adicional
+
+https://bookdown.org/yihui/rmarkdown/xaringan.html
+
+```{r, echo=FALSE, out.width='60%', fig.align='center'}
+knitr::include_graphics("img/xaringan_book.png")
+```
+
+
+### Creación de libros con bookdown
+
+```{r, echo=FALSE, out.width='100%', fig.align='center'}
+knitr::include_graphics("img/bookdown_logo.png")
+```
+
+**Instalación:**
+
+```{r,eval=FALSE}
+install.packages("bookdown")
+```
+
+Descarga alguno de los ejemplos:
+
+- https://github.com/yihui/bookdown-minimal
+
+- https://github.com/rstudio/bookdown-demo
+
+
+### Templado a utilizar
+
+https://github.com/ComunidadBioInfo/templado_bookdown/
+
+```{r, echo=FALSE, out.width='50%', fig.align='center'}
+knitr::include_graphics("img/templado.png")
+```
+
+### Agregando contenido
+
+- Cada archivo Rmd representa un capítulo
+- Los capítulos van ordenados/numerados
+- No se deben renderizar los Rmd
+- Las imágenes llamadas dentro de los capítulos se colocan en docs > img
+- Para incluir las imáges se usa: knitr::include_graphics("img/imagen.png")
+- Los archivos html llamados dentro de los capítulos se colocan en docs 
+
+### Publicando el libro
+
+Renderizado > Publicación con GitHub pages
+
+```{r, eval=FALSE}
+bookdown::render_book()
+```
+
+Los html correspondientes a los capítulos se renderizan de manera automática en **docs**
+
+El libro quedará disponible en https://comunidadbioinfo.github.io/templado_bookdown/
+
+
+### Configuración del repositorio
+
+```{r, echo=FALSE, out.width='40%', fig.align='center'}
+knitr::include_graphics("img/settings_4.png")
+```
+
+
+### Información adicional
+
+https://bookdown.org/yihui/bookdown/
+
+```{r, echo=FALSE, out.width='25%', fig.align='center'}
+knitr::include_graphics("img/bookdown.png")
+```
 
 

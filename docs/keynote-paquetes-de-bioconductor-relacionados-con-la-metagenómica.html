@@ -30,7 +30,7 @@
   
   
 <link rel="prev" href="mapeo-y-binning.html"/>
-<link rel="next" href="control-de-calidad-y-ensamble.html"/>
+<link rel="next" href="taxonomía.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -51,6 +51,14 @@
 <link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
 <link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/htmlwidgets-1.5.4/htmlwidgets.js"></script>
+<link href="libs/leaflet-1.3.1/leaflet.css" rel="stylesheet" />
+<script src="libs/leaflet-1.3.1/leaflet.js"></script>
+<link href="libs/leafletfix-1.0.0/leafletfix.css" rel="stylesheet" />
+<script src="libs/proj4-2.6.2/proj4.min.js"></script>
+<script src="libs/Proj4Leaflet-1.0.1/proj4leaflet.js"></script>
+<link href="libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet" />
+<script src="libs/leaflet-binding-2.1.1/leaflet.js"></script>
 
 
 <style type="text/css">
@@ -151,8 +159,68 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="1.1" data-path="keynote-la-última-versión-del-árbol-de-la-vida-y-la-metagenómica.html"><a href="keynote-la-última-versión-del-árbol-de-la-vida-y-la-metagenómica.html#diapositivas"><i class="fa fa-check"></i><b>1.1</b> Diapositivas</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="control-de-versiones-con-github-y-rstudio..html"><a href="control-de-versiones-con-github-y-rstudio..html"><i class="fa fa-check"></i><b>2</b> Control de versiones con GitHub y RStudio.</a></li>
-<li class="chapter" data-level="3" data-path="generación-de-reportes-con-r-markdown..html"><a href="generación-de-reportes-con-r-markdown..html"><i class="fa fa-check"></i><b>3</b> Generación de Reportes con R markdown.</a></li>
+<li class="chapter" data-level="2" data-path="control-de-versiones-con-github-y-rstudio.html"><a href="control-de-versiones-con-github-y-rstudio.html"><i class="fa fa-check"></i><b>2</b> Control de versiones con GitHub y RStudio</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="control-de-versiones-con-github-y-rstudio.html"><a href="control-de-versiones-con-github-y-rstudio.html#diapositivas-1"><i class="fa fa-check"></i><b>2.1</b> Diapositivas</a></li>
+<li class="chapter" data-level="2.2" data-path="control-de-versiones-con-github-y-rstudio.html"><a href="control-de-versiones-con-github-y-rstudio.html#por-qué-hacer-control-de-versiones-de-nuestros-proyectos"><i class="fa fa-check"></i><b>2.2</b> ¿Por qué hacer control de versiones de nuestros proyectos?</a></li>
+<li class="chapter" data-level="2.3" data-path="control-de-versiones-con-github-y-rstudio.html"><a href="control-de-versiones-con-github-y-rstudio.html#git"><i class="fa fa-check"></i><b>2.3</b> Git</a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="control-de-versiones-con-github-y-rstudio.html"><a href="control-de-versiones-con-github-y-rstudio.html#git-vs-controles-de-versión-a-mano"><i class="fa fa-check"></i><b>2.3.1</b> <strong>Git vs controles de versión a mano</strong></a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="control-de-versiones-con-github-y-rstudio.html"><a href="control-de-versiones-con-github-y-rstudio.html#github"><i class="fa fa-check"></i><b>2.4</b> GitHub</a></li>
+<li class="chapter" data-level="2.5" data-path="control-de-versiones-con-github-y-rstudio.html"><a href="control-de-versiones-con-github-y-rstudio.html#manual-de-sobreviviencia-con-git-y-github-en-rstudio-en-caso-de-ser-necesario"><i class="fa fa-check"></i><b>2.5</b> Manual de sobreviviencia con Git Y GitHub en RStudio (en caso de ser necesario)</a></li>
+<li class="chapter" data-level="2.6" data-path="control-de-versiones-con-github-y-rstudio.html"><a href="control-de-versiones-con-github-y-rstudio.html#credenciales-https-en-cache"><i class="fa fa-check"></i><b>2.6</b> Credenciales HTTPS en <strong>Cache</strong></a>
+<ul>
+<li class="chapter" data-level="2.6.1" data-path="control-de-versiones-con-github-y-rstudio.html"><a href="control-de-versiones-con-github-y-rstudio.html#actividad"><i class="fa fa-check"></i><b>2.6.1</b> Actividad</a></li>
+</ul></li>
+<li class="chapter" data-level="2.7" data-path="control-de-versiones-con-github-y-rstudio.html"><a href="control-de-versiones-con-github-y-rstudio.html#conectando-rstudio-con-git-y-github."><i class="fa fa-check"></i><b>2.7</b> Conectando RStudio con Git y Github.</a></li>
+<li class="chapter" data-level="2.8" data-path="control-de-versiones-con-github-y-rstudio.html"><a href="control-de-versiones-con-github-y-rstudio.html#github-primero-rstudio-después"><i class="fa fa-check"></i><b>2.8</b> GitHub primero, RStudio después…</a>
+<ul>
+<li class="chapter" data-level="2.8.1" data-path="control-de-versiones-con-github-y-rstudio.html"><a href="control-de-versiones-con-github-y-rstudio.html#actividad-1"><i class="fa fa-check"></i><b>2.8.1</b> Actividad</a></li>
+<li class="chapter" data-level="2.8.2" data-path="control-de-versiones-con-github-y-rstudio.html"><a href="control-de-versiones-con-github-y-rstudio.html#comentar-pull-y-push"><i class="fa fa-check"></i><b>2.8.2</b> Comentar, pull y push</a></li>
+<li class="chapter" data-level="2.8.3" data-path="control-de-versiones-con-github-y-rstudio.html"><a href="control-de-versiones-con-github-y-rstudio.html#actividad-2"><i class="fa fa-check"></i><b>2.8.3</b> Actividad</a></li>
+</ul></li>
+<li class="chapter" data-level="2.9" data-path="control-de-versiones-con-github-y-rstudio.html"><a href="control-de-versiones-con-github-y-rstudio.html#rstudio-primero-y-github-también"><i class="fa fa-check"></i><b>2.9</b> RStudio primero y GitHub también</a>
+<ul>
+<li class="chapter" data-level="2.9.1" data-path="control-de-versiones-con-github-y-rstudio.html"><a href="control-de-versiones-con-github-y-rstudio.html#actividad-3"><i class="fa fa-check"></i><b>2.9.1</b> Actividad</a></li>
+</ul></li>
+<li class="chapter" data-level="2.10" data-path="control-de-versiones-con-github-y-rstudio.html"><a href="control-de-versiones-con-github-y-rstudio.html#proyecto-existente-github-al-final"><i class="fa fa-check"></i><b>2.10</b> Proyecto existente, GitHub al final</a>
+<ul>
+<li class="chapter" data-level="2.10.1" data-path="control-de-versiones-con-github-y-rstudio.html"><a href="control-de-versiones-con-github-y-rstudio.html#breviario-cultural-con-los-pats"><i class="fa fa-check"></i><b>2.10.1</b> Breviario cultural con los PATs</a></li>
+<li class="chapter" data-level="2.10.2" data-path="control-de-versiones-con-github-y-rstudio.html"><a href="control-de-versiones-con-github-y-rstudio.html#actividad-4"><i class="fa fa-check"></i><b>2.10.2</b> Actividad</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="generación-de-reportes-con-r-markdown..html"><a href="generación-de-reportes-con-r-markdown..html"><i class="fa fa-check"></i><b>3</b> Generación de Reportes con R Markdown.</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="generación-de-reportes-con-r-markdown..html"><a href="generación-de-reportes-con-r-markdown..html#introducción-a-r-markdown"><i class="fa fa-check"></i><b>3.1</b> Introducción a R Markdown</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="generación-de-reportes-con-r-markdown..html"><a href="generación-de-reportes-con-r-markdown..html#diapositivas-2"><i class="fa fa-check"></i><b>3.1.1</b> Diapositivas</a></li>
+<li class="chapter" data-level="3.1.2" data-path="generación-de-reportes-con-r-markdown..html"><a href="generación-de-reportes-con-r-markdown..html#qué-es-y-para-que-sirve-r-markdown"><i class="fa fa-check"></i><b>3.1.2</b> ¿Qué es y para que sirve R Markdown?</a></li>
+<li class="chapter" data-level="3.1.3" data-path="generación-de-reportes-con-r-markdown..html"><a href="generación-de-reportes-con-r-markdown..html#ejemplos-de-uso"><i class="fa fa-check"></i><b>3.1.3</b> Ejemplos de uso</a></li>
+<li class="chapter" data-level="3.1.4" data-path="generación-de-reportes-con-r-markdown..html"><a href="generación-de-reportes-con-r-markdown..html#agregar-en-un-informe-la-información-de-una-localización"><i class="fa fa-check"></i><b>3.1.4</b> Agregar en un informe la información de una localización</a></li>
+<li class="chapter" data-level="3.1.5" data-path="generación-de-reportes-con-r-markdown..html"><a href="generación-de-reportes-con-r-markdown..html#poner-la-chicharronera-fórmula-cuadrática-en-un-texto"><i class="fa fa-check"></i><b>3.1.5</b> Poner la chicharronera (Fórmula cuadrática en un texto)</a></li>
+<li class="chapter" data-level="3.1.6" data-path="generación-de-reportes-con-r-markdown..html"><a href="generación-de-reportes-con-r-markdown..html#crear-un-archivo-.rmd"><i class="fa fa-check"></i><b>3.1.6</b> Crear un archivo <code>.Rmd</code></a></li>
+<li class="chapter" data-level="3.1.7" data-path="generación-de-reportes-con-r-markdown..html"><a href="generación-de-reportes-con-r-markdown..html#ejemplos"><i class="fa fa-check"></i><b>3.1.7</b> Ejemplos</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="generación-de-reportes-con-r-markdown..html"><a href="generación-de-reportes-con-r-markdown..html#creación-de-presentaciones-y-libros-con-r-markdown"><i class="fa fa-check"></i><b>3.2</b> Creación de presentaciones y libros con R Markdown</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="generación-de-reportes-con-r-markdown..html"><a href="generación-de-reportes-con-r-markdown..html#diapositivas-3"><i class="fa fa-check"></i><b>3.2.1</b> Diapositivas</a></li>
+<li class="chapter" data-level="3.2.2" data-path="generación-de-reportes-con-r-markdown..html"><a href="generación-de-reportes-con-r-markdown..html#el-paquete-xaringan"><i class="fa fa-check"></i><b>3.2.2</b> El paquete xaringan</a></li>
+<li class="chapter" data-level="3.2.3" data-path="generación-de-reportes-con-r-markdown..html"><a href="generación-de-reportes-con-r-markdown..html#previsualización-de-las-diapositivas"><i class="fa fa-check"></i><b>3.2.3</b> Previsualización de las diapositivas</a></li>
+<li class="chapter" data-level="3.2.4" data-path="generación-de-reportes-con-r-markdown..html"><a href="generación-de-reportes-con-r-markdown..html#la-diapositiva-de-título"><i class="fa fa-check"></i><b>3.2.4</b> La diapositiva de título</a></li>
+<li class="chapter" data-level="3.2.5" data-path="generación-de-reportes-con-r-markdown..html"><a href="generación-de-reportes-con-r-markdown..html#diapositivas-de-contenido"><i class="fa fa-check"></i><b>3.2.5</b> Diapositivas de contenido</a></li>
+<li class="chapter" data-level="3.2.6" data-path="generación-de-reportes-con-r-markdown..html"><a href="generación-de-reportes-con-r-markdown..html#incluyendo-imágenes"><i class="fa fa-check"></i><b>3.2.6</b> Incluyendo imágenes</a></li>
+<li class="chapter" data-level="3.2.7" data-path="generación-de-reportes-con-r-markdown..html"><a href="generación-de-reportes-con-r-markdown..html#alineación-del-contenido"><i class="fa fa-check"></i><b>3.2.7</b> Alineación del contenido</a></li>
+<li class="chapter" data-level="3.2.8" data-path="generación-de-reportes-con-r-markdown..html"><a href="generación-de-reportes-con-r-markdown..html#compartiendo-la-presentación"><i class="fa fa-check"></i><b>3.2.8</b> Compartiendo la presentación</a></li>
+<li class="chapter" data-level="3.2.9" data-path="generación-de-reportes-con-r-markdown..html"><a href="generación-de-reportes-con-r-markdown..html#información-adicional"><i class="fa fa-check"></i><b>3.2.9</b> Información adicional</a></li>
+<li class="chapter" data-level="3.2.10" data-path="generación-de-reportes-con-r-markdown..html"><a href="generación-de-reportes-con-r-markdown..html#creación-de-libros-con-bookdown"><i class="fa fa-check"></i><b>3.2.10</b> Creación de libros con bookdown</a></li>
+<li class="chapter" data-level="3.2.11" data-path="generación-de-reportes-con-r-markdown..html"><a href="generación-de-reportes-con-r-markdown..html#templado-a-utilizar"><i class="fa fa-check"></i><b>3.2.11</b> Templado a utilizar</a></li>
+<li class="chapter" data-level="3.2.12" data-path="generación-de-reportes-con-r-markdown..html"><a href="generación-de-reportes-con-r-markdown..html#agregando-contenido"><i class="fa fa-check"></i><b>3.2.12</b> Agregando contenido</a></li>
+<li class="chapter" data-level="3.2.13" data-path="generación-de-reportes-con-r-markdown..html"><a href="generación-de-reportes-con-r-markdown..html#publicando-el-libro"><i class="fa fa-check"></i><b>3.2.13</b> Publicando el libro</a></li>
+<li class="chapter" data-level="3.2.14" data-path="generación-de-reportes-con-r-markdown..html"><a href="generación-de-reportes-con-r-markdown..html#configuración-del-repositorio"><i class="fa fa-check"></i><b>3.2.14</b> Configuración del repositorio</a></li>
+<li class="chapter" data-level="3.2.15" data-path="generación-de-reportes-con-r-markdown..html"><a href="generación-de-reportes-con-r-markdown..html#información-adicional-1"><i class="fa fa-check"></i><b>3.2.15</b> Información adicional</a></li>
+</ul></li>
+</ul></li>
 <li class="chapter" data-level="4" data-path="keynote-convirtiendo-tu-flujo-de-análisis-en-un-paquete-de-rbioconductor..html"><a href="keynote-convirtiendo-tu-flujo-de-análisis-en-un-paquete-de-rbioconductor..html"><i class="fa fa-check"></i><b>4</b> Keynote: Convirtiendo tu flujo de análisis en un paquete de R/Bioconductor.</a></li>
 <li class="chapter" data-level="5" data-path="introducción-a-conda..html"><a href="introducción-a-conda..html"><i class="fa fa-check"></i><b>5</b> Introducción a Conda.</a></li>
 <li class="chapter" data-level="6" data-path="el-grupo-de-datos.html"><a href="el-grupo-de-datos.html"><i class="fa fa-check"></i><b>6</b> El grupo de datos</a>
@@ -161,40 +229,48 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="7" data-path="mapeo-y-binning.html"><a href="mapeo-y-binning.html"><i class="fa fa-check"></i><b>7</b> Mapeo y Binning</a>
 <ul>
-<li class="chapter" data-level="7.1" data-path="mapeo-y-binning.html"><a href="mapeo-y-binning.html#mapeo"><i class="fa fa-check"></i><b>7.1</b> Mapeo</a>
+<li class="chapter" data-level="7.1" data-path="mapeo-y-binning.html"><a href="mapeo-y-binning.html#secuenciación"><i class="fa fa-check"></i><b>7.1</b> Secuenciación</a></li>
+<li class="chapter" data-level="7.2" data-path="mapeo-y-binning.html"><a href="mapeo-y-binning.html#control-de-calidad"><i class="fa fa-check"></i><b>7.2</b> Control de calidad</a></li>
+<li class="chapter" data-level="7.3" data-path="mapeo-y-binning.html"><a href="mapeo-y-binning.html#ensamble"><i class="fa fa-check"></i><b>7.3</b> Ensamble</a>
 <ul>
-<li class="chapter" data-level="7.1.1" data-path="mapeo-y-binning.html"><a href="mapeo-y-binning.html#discutamos"><i class="fa fa-check"></i><b>7.1.1</b> Discutamos</a></li>
+<li class="chapter" data-level="7.3.1" data-path="mapeo-y-binning.html"><a href="mapeo-y-binning.html#discutamos"><i class="fa fa-check"></i><b>7.3.1</b> Discutamos</a></li>
 </ul></li>
-<li class="chapter" data-level="7.2" data-path="mapeo-y-binning.html"><a href="mapeo-y-binning.html#binning"><i class="fa fa-check"></i><b>7.2</b> Binning</a>
+<li class="chapter" data-level="7.4" data-path="mapeo-y-binning.html"><a href="mapeo-y-binning.html#mapeo"><i class="fa fa-check"></i><b>7.4</b> Mapeo</a>
 <ul>
-<li class="chapter" data-level="7.2.1" data-path="mapeo-y-binning.html"><a href="mapeo-y-binning.html#maxbin"><i class="fa fa-check"></i><b>7.2.1</b> <span>MaxBin</span></a></li>
-<li class="chapter" data-level="7.2.2" data-path="mapeo-y-binning.html"><a href="mapeo-y-binning.html#metabat"><i class="fa fa-check"></i><b>7.2.2</b> <span>MetaBat</span></a></li>
-<li class="chapter" data-level="7.2.3" data-path="mapeo-y-binning.html"><a href="mapeo-y-binning.html#concoct"><i class="fa fa-check"></i><b>7.2.3</b> <span>CONCOCT</span></a></li>
-<li class="chapter" data-level="7.2.4" data-path="mapeo-y-binning.html"><a href="mapeo-y-binning.html#discutamos-1"><i class="fa fa-check"></i><b>7.2.4</b> Discutamos</a></li>
+<li class="chapter" data-level="7.4.1" data-path="mapeo-y-binning.html"><a href="mapeo-y-binning.html#discutamos-1"><i class="fa fa-check"></i><b>7.4.1</b> Discutamos</a></li>
 </ul></li>
-<li class="chapter" data-level="7.3" data-path="mapeo-y-binning.html"><a href="mapeo-y-binning.html#refinamiento"><i class="fa fa-check"></i><b>7.3</b> Refinamiento</a>
+<li class="chapter" data-level="7.5" data-path="mapeo-y-binning.html"><a href="mapeo-y-binning.html#binning"><i class="fa fa-check"></i><b>7.5</b> Binning</a>
 <ul>
-<li class="chapter" data-level="7.3.1" data-path="mapeo-y-binning.html"><a href="mapeo-y-binning.html#dastool"><i class="fa fa-check"></i><b>7.3.1</b> <span>DASTool</span></a></li>
-<li class="chapter" data-level="7.3.2" data-path="mapeo-y-binning.html"><a href="mapeo-y-binning.html#checkm"><i class="fa fa-check"></i><b>7.3.2</b> <span>CheckM</span></a></li>
-<li class="chapter" data-level="7.3.3" data-path="mapeo-y-binning.html"><a href="mapeo-y-binning.html#mis-bins"><i class="fa fa-check"></i><b>7.3.3</b> Mis Bins</a></li>
+<li class="chapter" data-level="7.5.1" data-path="mapeo-y-binning.html"><a href="mapeo-y-binning.html#maxbin"><i class="fa fa-check"></i><b>7.5.1</b> <span>MaxBin</span></a></li>
+<li class="chapter" data-level="7.5.2" data-path="mapeo-y-binning.html"><a href="mapeo-y-binning.html#metabat"><i class="fa fa-check"></i><b>7.5.2</b> <span>MetaBat</span></a></li>
+<li class="chapter" data-level="7.5.3" data-path="mapeo-y-binning.html"><a href="mapeo-y-binning.html#concoct"><i class="fa fa-check"></i><b>7.5.3</b> <span>CONCOCT</span></a></li>
+<li class="chapter" data-level="7.5.4" data-path="mapeo-y-binning.html"><a href="mapeo-y-binning.html#discutamos-2"><i class="fa fa-check"></i><b>7.5.4</b> Discutamos</a></li>
+</ul></li>
+<li class="chapter" data-level="7.6" data-path="mapeo-y-binning.html"><a href="mapeo-y-binning.html#refinamiento"><i class="fa fa-check"></i><b>7.6</b> Refinamiento</a>
+<ul>
+<li class="chapter" data-level="7.6.1" data-path="mapeo-y-binning.html"><a href="mapeo-y-binning.html#dastool"><i class="fa fa-check"></i><b>7.6.1</b> <span>DASTool</span></a></li>
+<li class="chapter" data-level="7.6.2" data-path="mapeo-y-binning.html"><a href="mapeo-y-binning.html#checkm"><i class="fa fa-check"></i><b>7.6.2</b> <span>CheckM</span></a></li>
+<li class="chapter" data-level="7.6.3" data-path="mapeo-y-binning.html"><a href="mapeo-y-binning.html#mis-bins"><i class="fa fa-check"></i><b>7.6.3</b> Mis Bins</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="keynote-paquetes-de-bioconductor-relacionados-con-la-metagenómica.html"><a href="keynote-paquetes-de-bioconductor-relacionados-con-la-metagenómica.html"><i class="fa fa-check"></i><b>8</b> Keynote: Paquetes de bioconductor relacionados con la metagenómica</a></li>
-<li class="chapter" data-level="9" data-path="control-de-calidad-y-ensamble.html"><a href="control-de-calidad-y-ensamble.html"><i class="fa fa-check"></i><b>9</b> Control de Calidad y Ensamble</a>
+<li class="chapter" data-level="9" data-path="taxonomía.html"><a href="taxonomía.html"><i class="fa fa-check"></i><b>9</b> Taxonomía</a>
 <ul>
-<li class="chapter" data-level="9.1" data-path="control-de-calidad-y-ensamble.html"><a href="control-de-calidad-y-ensamble.html#preprocesamiento"><i class="fa fa-check"></i><b>9.1</b> Preprocesamiento</a></li>
+<li class="chapter" data-level="9.1" data-path="taxonomía.html"><a href="taxonomía.html#leamos-los-datos"><i class="fa fa-check"></i><b>9.1</b> Leamos los datos</a></li>
 </ul></li>
-<li class="chapter" data-level="10" data-path="taxonomía.html"><a href="taxonomía.html"><i class="fa fa-check"></i><b>10</b> Taxonomía</a>
+<li class="chapter" data-level="10" data-path="inferencia-metabólica.html"><a href="inferencia-metabólica.html"><i class="fa fa-check"></i><b>10</b> Inferencia metabólica</a>
 <ul>
-<li class="chapter" data-level="10.1" data-path="taxonomía.html"><a href="taxonomía.html#leamos-los-datos"><i class="fa fa-check"></i><b>10.1</b> Leamos los datos</a></li>
-</ul></li>
-<li class="chapter" data-level="11" data-path="inferencia-metabólica.html"><a href="inferencia-metabólica.html"><i class="fa fa-check"></i><b>11</b> Inferencia metabólica</a>
+<li class="chapter" data-level="10.1" data-path="inferencia-metabólica.html"><a href="inferencia-metabólica.html#keeg"><i class="fa fa-check"></i><b>10.1</b> KEEG</a></li>
+<li class="chapter" data-level="10.2" data-path="inferencia-metabólica.html"><a href="inferencia-metabólica.html#explorando-el-metabolismo-con-rbims."><i class="fa fa-check"></i><b>10.2</b> Explorando el metabolismo con rbims.</a></li>
+<li class="chapter" data-level="10.3" data-path="inferencia-metabólica.html"><a href="inferencia-metabólica.html#anotación-con-interproscan"><i class="fa fa-check"></i><b>10.3</b> Anotación con <span>InterproScan</span></a>
 <ul>
-<li class="chapter" data-level="11.1" data-path="inferencia-metabólica.html"><a href="inferencia-metabólica.html#keeg"><i class="fa fa-check"></i><b>11.1</b> KEEG</a></li>
-<li class="chapter" data-level="11.2" data-path="inferencia-metabólica.html"><a href="inferencia-metabólica.html#explorando-el-metabolismo-con-rbims."><i class="fa fa-check"></i><b>11.2</b> Explorando el metabolismo con rbims.</a></li>
-<li class="chapter" data-level="11.3" data-path="inferencia-metabólica.html"><a href="inferencia-metabólica.html#anotación-con-interproscan"><i class="fa fa-check"></i><b>11.3</b> Anotación con InterproScan</a></li>
+<li class="chapter" data-level="10.3.1" data-path="inferencia-metabólica.html"><a href="inferencia-metabólica.html#finalmente-podemos-escribir-esto-en-una-tabla."><i class="fa fa-check"></i><b>10.3.1</b> Finalmente podemos escribir esto en una tabla.</a></li>
 </ul></li>
-<li class="chapter" data-level="12" data-path="mebs.html"><a href="mebs.html"><i class="fa fa-check"></i><b>12</b> MEBs</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="un-vistazo-a-la-creación-de-paquetes-de-rbioconductor.html"><a href="un-vistazo-a-la-creación-de-paquetes-de-rbioconductor.html"><i class="fa fa-check"></i><b>11</b> Un vistazo a la creación de paquetes de R/Bioconductor</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="un-vistazo-a-la-creación-de-paquetes-de-rbioconductor.html"><a href="un-vistazo-a-la-creación-de-paquetes-de-rbioconductor.html#diapositivas-4"><i class="fa fa-check"></i><b>11.1</b> Diapositivas</a></li>
+</ul></li>
 </ul>
 
       </nav>
@@ -224,7 +300,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
         </div>
       </div>
 <a href="mapeo-y-binning.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="control-de-calidad-y-ensamble.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="taxonomía.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -278,6 +354,20 @@ gitbook.start({
 });
 </script>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 </body>
 
 </html>

@@ -3,3 +3,18 @@
 Dra. Joselyn Chávez
 
 04 de agosto de 2022
+
+<style>
+div.grey { 
+background-color: #bfbfbf;
+}
+</style>
+
+<style>
+div.center {
+text-align:center;
+}
+</style>
+
+## Diapositivas
+

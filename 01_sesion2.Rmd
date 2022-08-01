@@ -46,8 +46,7 @@ https://happygitwithr.com
 
 [
 ```{r,echo=FALSE}
-knitr::include_url("https://erickcufe.github.io/versiones_GitHub_RStudio/git_Rstudio.html", 
-                   height = "380px")
+knitr::include_url("https://erickcufe.github.io/versiones_GitHub_RStudio/git_Rstudio.html", height = "380px")
 ```
 ](https://erickcufe.github.io/versiones_GitHub_RStudio/git_Rstudio.html)
 
