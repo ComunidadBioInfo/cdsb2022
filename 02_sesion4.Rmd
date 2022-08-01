@@ -11,8 +11,6 @@ El ADN ambiental se secuencia utilizando alguna plataforma de secuenciacion o va
 - [PacBio](https://www.pacb.com/)
 - [Nanopore](https://nanoporetech.com/applications/dna-nanopore-sequencing)
 
-
-
 ## Control de calidad
 
 Del proceso de secuenciacion se recuperan lecturas de aproximadamente 300 bps. Las secuencias las recortamos para eliminar artefactos generados durante el proceso de secuenciación. Aquí algunas herramientas utilizadas: 
