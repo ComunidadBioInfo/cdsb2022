@@ -245,7 +245,7 @@ class: middle
 
 Generar el archivo html usando Knit > Publicar usando **GitHub pages**
 
-```{r, echo=FALSE, out.width='50%', fig.align='center'}
+```{r, echo=FALSE, out.width='80%', fig.align='center'}
 knitr::include_graphics("img/settings_1.png")
 ```
 
