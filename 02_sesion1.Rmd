@@ -4,3 +4,13 @@ Dr. Leonardo Collado Torres
 
 02 de agosto de 2022
 
+## Diapositivas
+
+[
+```{r,echo=FALSE}
+knitr::include_url("https://tinyurl.com/cdsb2021pkg", height = "380px")
+```
+](https://tinyurl.com/cdsb2021pkg)
+
+Puedes encontrar las diapositivas [aquí](https://tinyurl.com/cdsb2021pkg). 
+
