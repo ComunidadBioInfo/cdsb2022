@@ -8,7 +8,6 @@ Dr. Brett Baker
 
 [
 ```{r,echo=FALSE}
-knitr::include_url("https://codigo-legible-deck.netlify.app/", 
-                   height = "380px")
+knitr::include_url("https://comunidadbioinfo.github.io/cdsb2022/brett_talk.pdf", height = "380px")
 ```
-]()
+](https://comunidadbioinfo.github.io/cdsb2022/brett_talk.pdf)
