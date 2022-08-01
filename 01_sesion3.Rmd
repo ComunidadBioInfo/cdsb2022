@@ -169,7 +169,7 @@ infinite_moon_reader()
 xaringan::inf_mr()
 ```
 
-```{r, echo=FALSE, out.width='50%', fig.align='center'}
+```{r, echo=FALSE, out.width='60%', fig.align='center'}
 knitr::include_graphics("img/viewer.png")
 ```
 
@@ -212,7 +212,7 @@ knitr::include_graphics("img/code_2.png")
 
 ### Incluyendo imágenes
 
-```{r,echo=FALSE, out.width='50%', fig.align='center'}
+```{r,echo=FALSE, out.width='80%', fig.align='center'}
 knitr::include_graphics("img/graphics.png")
 ```
 
@@ -274,7 +274,7 @@ Nota: Es necesario mantener el ratio original de las diapositivas.
 
 https://bookdown.org/yihui/rmarkdown/xaringan.html
 
-```{r, echo=FALSE, out.width='50%', fig.align='center'}
+```{r, echo=FALSE, out.width='80%', fig.align='center'}
 knitr::include_graphics("img/xaringan_book.png")
 ```
 
@@ -298,7 +298,7 @@ Descarga alguno de los ejemplos:
 
 https://github.com/ComunidadBioInfo/templado_bookdown/
 
-```{r, echo=FALSE, out.width='50%', fig.align='center'}
+```{r, echo=FALSE, out.width='80%', fig.align='center'}
 knitr::include_graphics("img/templado.png")
 ```
 
@@ -326,7 +326,7 @@ El libro quedará disponible en https://comunidadbioinfo.github.io/templado_book
 
 ### Configuración del repositorio
 
-```{r, echo=FALSE, out.width='40%', fig.align='center'}
+```{r, echo=FALSE, out.width='50%', fig.align='center'}
 knitr::include_graphics("img/settings_4.png")
 ```
 
@@ -335,7 +335,7 @@ knitr::include_graphics("img/settings_4.png")
 
 https://bookdown.org/yihui/bookdown/
 
-```{r, echo=FALSE, out.width='25%', fig.align='center'}
+```{r, echo=FALSE, out.width='30%', fig.align='center'}
 knitr::include_graphics("img/bookdown.png")
 ```
 
