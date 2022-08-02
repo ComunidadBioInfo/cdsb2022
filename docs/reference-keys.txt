@@ -56,7 +56,10 @@ publicando-el-libro
 configuración-del-repositorio
 información-adicional-1
 keynote-convirtiendo-tu-flujo-de-análisis-en-un-paquete-de-rbioconductor.
+diapositivas-4
 introducción-a-conda.
+qué-es-conda
+conda-101
 el-grupo-de-datos
 datos
 htn
@@ -88,5 +91,4 @@ explorando-el-metabolismo-con-rbims.
 anotación-con-interproscan
 finalmente-podemos-escribir-esto-en-una-tabla.
 un-vistazo-a-la-creación-de-paquetes-de-rbioconductor
-diapositivas-4
 diapositivas-5

@@ -221,8 +221,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.2.15" data-path="generación-de-reportes-con-r-markdown..html"><a href="generación-de-reportes-con-r-markdown..html#información-adicional-1"><i class="fa fa-check"></i><b>3.2.15</b> Información adicional</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="keynote-convirtiendo-tu-flujo-de-análisis-en-un-paquete-de-rbioconductor..html"><a href="keynote-convirtiendo-tu-flujo-de-análisis-en-un-paquete-de-rbioconductor..html"><i class="fa fa-check"></i><b>4</b> Keynote: Convirtiendo tu flujo de análisis en un paquete de R/Bioconductor.</a></li>
-<li class="chapter" data-level="5" data-path="introducción-a-conda..html"><a href="introducción-a-conda..html"><i class="fa fa-check"></i><b>5</b> Introducción a Conda.</a></li>
+<li class="chapter" data-level="4" data-path="keynote-convirtiendo-tu-flujo-de-análisis-en-un-paquete-de-rbioconductor..html"><a href="keynote-convirtiendo-tu-flujo-de-análisis-en-un-paquete-de-rbioconductor..html"><i class="fa fa-check"></i><b>4</b> Keynote: Convirtiendo tu flujo de análisis en un paquete de R/Bioconductor.</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="keynote-convirtiendo-tu-flujo-de-análisis-en-un-paquete-de-rbioconductor..html"><a href="keynote-convirtiendo-tu-flujo-de-análisis-en-un-paquete-de-rbioconductor..html#diapositivas-4"><i class="fa fa-check"></i><b>4.1</b> Diapositivas</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="introducción-a-conda..html"><a href="introducción-a-conda..html"><i class="fa fa-check"></i><b>5</b> Introducción a Conda.</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="introducción-a-conda..html"><a href="introducción-a-conda..html#qué-es-conda"><i class="fa fa-check"></i><b>5.1</b> ¿Qué es conda?</a></li>
+<li class="chapter" data-level="5.2" data-path="introducción-a-conda..html"><a href="introducción-a-conda..html#conda-101"><i class="fa fa-check"></i><b>5.2</b> <code>conda</code> 101</a></li>
+</ul></li>
 <li class="chapter" data-level="6" data-path="el-grupo-de-datos.html"><a href="el-grupo-de-datos.html"><i class="fa fa-check"></i><b>6</b> El grupo de datos</a>
 <ul>
 <li class="chapter" data-level="6.0.1" data-path="el-grupo-de-datos.html"><a href="el-grupo-de-datos.html#datos"><i class="fa fa-check"></i><b>6.0.1</b> Datos</a></li>
@@ -269,7 +276,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="11" data-path="un-vistazo-a-la-creación-de-paquetes-de-rbioconductor.html"><a href="un-vistazo-a-la-creación-de-paquetes-de-rbioconductor.html"><i class="fa fa-check"></i><b>11</b> Un vistazo a la creación de paquetes de R/Bioconductor</a>
 <ul>
-<li class="chapter" data-level="11.1" data-path="un-vistazo-a-la-creación-de-paquetes-de-rbioconductor.html"><a href="un-vistazo-a-la-creación-de-paquetes-de-rbioconductor.html#diapositivas-4"><i class="fa fa-check"></i><b>11.1</b> Diapositivas</a></li>
+<li class="chapter" data-level="11.1" data-path="un-vistazo-a-la-creación-de-paquetes-de-rbioconductor.html"><a href="un-vistazo-a-la-creación-de-paquetes-de-rbioconductor.html#diapositivas-5"><i class="fa fa-check"></i><b>11.1</b> Diapositivas</a></li>
 </ul></li>
 </ul>
 
@@ -376,8 +383,8 @@ div.alert{color:#bd475d; background-color:transparent}
 <h3><span class="header-section-number">3.1.4</span> Agregar en un informe la información de una localización<a href="generación-de-reportes-con-r-markdown..html#agregar-en-un-informe-la-información-de-una-localización" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="generación-de-reportes-con-r-markdown..html#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(leaflet)</span>
 <span id="cb10-2"><a href="generación-de-reportes-con-r-markdown..html#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">leaflet</span>() <span class="sc">%&gt;%</span> <span class="fu">addTiles</span>() <span class="sc">%&gt;%</span> <span class="fu">setView</span>(<span class="at">lat =</span> <span class="fl">18.95</span>, <span class="at">lng =</span> <span class="sc">-</span><span class="fl">99.239</span>, <span class="at">zoom =</span> <span class="dv">13</span>)</span></code></pre></div>
-<div id="htmlwidget-ae89ad9560a379e78015" style="width:100%;height:576px;" class="leaflet html-widget"></div>
-<script type="application/json" data-for="htmlwidget-ae89ad9560a379e78015">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"https://openstreetmap.org\">OpenStreetMap<\/a> contributors, <a href=\"https://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA<\/a>"}]}],"setView":[[18.95,-99.239],13,[]]},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-f98c3b8059f2ffc74363" style="width:100%;height:576px;" class="leaflet html-widget"></div>
+<script type="application/json" data-for="htmlwidget-f98c3b8059f2ffc74363">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"https://openstreetmap.org\">OpenStreetMap<\/a> contributors, <a href=\"https://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA<\/a>"}]}],"setView":[[18.95,-99.239],13,[]]},"evals":[],"jsHooks":[]}</script>
 </div>
 <div id="poner-la-chicharronera-fórmula-cuadrática-en-un-texto" class="section level3 hasAnchor" number="3.1.5">
 <h3><span class="header-section-number">3.1.5</span> Poner la chicharronera (Fórmula cuadrática en un texto)<a href="generación-de-reportes-con-r-markdown..html#poner-la-chicharronera-fórmula-cuadrática-en-un-texto" class="anchor-section" aria-label="Anchor link to header"></a></h3>

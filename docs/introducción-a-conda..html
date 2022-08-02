@@ -221,8 +221,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.2.15" data-path="generación-de-reportes-con-r-markdown..html"><a href="generación-de-reportes-con-r-markdown..html#información-adicional-1"><i class="fa fa-check"></i><b>3.2.15</b> Información adicional</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="keynote-convirtiendo-tu-flujo-de-análisis-en-un-paquete-de-rbioconductor..html"><a href="keynote-convirtiendo-tu-flujo-de-análisis-en-un-paquete-de-rbioconductor..html"><i class="fa fa-check"></i><b>4</b> Keynote: Convirtiendo tu flujo de análisis en un paquete de R/Bioconductor.</a></li>
-<li class="chapter" data-level="5" data-path="introducción-a-conda..html"><a href="introducción-a-conda..html"><i class="fa fa-check"></i><b>5</b> Introducción a Conda.</a></li>
+<li class="chapter" data-level="4" data-path="keynote-convirtiendo-tu-flujo-de-análisis-en-un-paquete-de-rbioconductor..html"><a href="keynote-convirtiendo-tu-flujo-de-análisis-en-un-paquete-de-rbioconductor..html"><i class="fa fa-check"></i><b>4</b> Keynote: Convirtiendo tu flujo de análisis en un paquete de R/Bioconductor.</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="keynote-convirtiendo-tu-flujo-de-análisis-en-un-paquete-de-rbioconductor..html"><a href="keynote-convirtiendo-tu-flujo-de-análisis-en-un-paquete-de-rbioconductor..html#diapositivas-4"><i class="fa fa-check"></i><b>4.1</b> Diapositivas</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="introducción-a-conda..html"><a href="introducción-a-conda..html"><i class="fa fa-check"></i><b>5</b> Introducción a Conda.</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="introducción-a-conda..html"><a href="introducción-a-conda..html#qué-es-conda"><i class="fa fa-check"></i><b>5.1</b> ¿Qué es conda?</a></li>
+<li class="chapter" data-level="5.2" data-path="introducción-a-conda..html"><a href="introducción-a-conda..html#conda-101"><i class="fa fa-check"></i><b>5.2</b> <code>conda</code> 101</a></li>
+</ul></li>
 <li class="chapter" data-level="6" data-path="el-grupo-de-datos.html"><a href="el-grupo-de-datos.html"><i class="fa fa-check"></i><b>6</b> El grupo de datos</a>
 <ul>
 <li class="chapter" data-level="6.0.1" data-path="el-grupo-de-datos.html"><a href="el-grupo-de-datos.html#datos"><i class="fa fa-check"></i><b>6.0.1</b> Datos</a></li>
@@ -269,7 +276,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="11" data-path="un-vistazo-a-la-creación-de-paquetes-de-rbioconductor.html"><a href="un-vistazo-a-la-creación-de-paquetes-de-rbioconductor.html"><i class="fa fa-check"></i><b>11</b> Un vistazo a la creación de paquetes de R/Bioconductor</a>
 <ul>
-<li class="chapter" data-level="11.1" data-path="un-vistazo-a-la-creación-de-paquetes-de-rbioconductor.html"><a href="un-vistazo-a-la-creación-de-paquetes-de-rbioconductor.html#diapositivas-4"><i class="fa fa-check"></i><b>11.1</b> Diapositivas</a></li>
+<li class="chapter" data-level="11.1" data-path="un-vistazo-a-la-creación-de-paquetes-de-rbioconductor.html"><a href="un-vistazo-a-la-creación-de-paquetes-de-rbioconductor.html#diapositivas-5"><i class="fa fa-check"></i><b>11.1</b> Diapositivas</a></li>
 </ul></li>
 </ul>
 
@@ -290,9 +297,54 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="introducción-a-conda." class="section level1 hasAnchor" number="5">
 <h1><span class="header-section-number">5</span> Introducción a Conda.<a href="introducción-a-conda..html#introducción-a-conda." class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>Dr. Otoniel Maya Lucas</p>
+<p><span class="citation">@zorbax</span></p>
 <p>02 de agosto de 2022</p>
+<p><a href=""><iframe src="https://atgenomics.github.io/conda/conda.html" width="672" height="380px" data-external="1"></iframe></a></p>
+<div id="qué-es-conda" class="section level2 hasAnchor" number="5.1">
+<h2><span class="header-section-number">5.1</span> ¿Qué es conda?<a href="introducción-a-conda..html#qué-es-conda" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>De acuerdo a la definición oficial:</p>
+<blockquote>
+<p><strong><code>conda</code></strong>:
+A package manager helps you find and install packages.</p>
+</blockquote>
+<p>Entonces, es un gestor/instalador de paquetes. Se obtiene mediante <a href="https://www.anaconda.com/products/distribution">Anaconda</a> o <a href="https://docs.conda.io/en/latest/miniconda.html">Miniconda</a>.</p>
+<p>La <a href="https://conda.io/projects/conda/en/latest/user-guide/install/index.html">instalación</a> dependerá del sistema operativo a utilizar. Aunque conda está disponible para Windows, macOS y Linux, no todos los paquetes disponibles para bioinformática son compatibles entre los tres sistemas, siendo la prioridad de paquetes Linux &gt; macOS y en algunos casos, al final, Windows.</p>
+</div>
+<div id="conda-101" class="section level2 hasAnchor" number="5.2">
+<h2><span class="header-section-number">5.2</span> <code>conda</code> 101<a href="introducción-a-conda..html#conda-101" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="sourceCode" id="cb18"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb18-1"><a href="introducción-a-conda..html#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> info</span></code></pre></div>
+<p><strong>Actualizar conda</strong></p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb19-1"><a href="introducción-a-conda..html#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> update conda</span></code></pre></div>
+<p><strong>Listar todos los entornos de conda</strong></p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb20-1"><a href="introducción-a-conda..html#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> env list</span></code></pre></div>
+<p><strong>Actualizar todos los paquetes de conda (base)</strong></p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb21-1"><a href="introducción-a-conda..html#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> update conda <span class="at">--all</span></span></code></pre></div>
+<p><strong>Agregar canales</strong></p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb22-1"><a href="introducción-a-conda..html#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> config <span class="at">--add</span> channels r</span>
+<span id="cb22-2"><a href="introducción-a-conda..html#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> config <span class="at">--add</span> channels conda-forge</span>
+<span id="cb22-3"><a href="introducción-a-conda..html#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> config <span class="at">--add</span> channels bioconda</span></code></pre></div>
+<p><strong>Buscar un paquete</strong></p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb23-1"><a href="introducción-a-conda..html#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> search PACKAGE</span></code></pre></div>
+<p><strong>Instalar un paquete en el entorno base</strong></p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb24-1"><a href="introducción-a-conda..html#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> install PACKAGE</span></code></pre></div>
+<p><strong>Eliminar archivos temporales</strong></p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb25-1"><a href="introducción-a-conda..html#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> clean <span class="at">--all</span> <span class="at">-y</span></span></code></pre></div>
+<p><strong>Actualizar todos los paquetes del entorno actual</strong></p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb26-1"><a href="introducción-a-conda..html#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> update <span class="at">--all</span> <span class="at">-y</span></span></code></pre></div>
+<p><strong>Eliminar entorno</strong></p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb27-1"><a href="introducción-a-conda..html#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> remove <span class="at">-n</span> qiime2 <span class="at">--all</span></span></code></pre></div>
+<p><strong>Crear un entorno con versiones específicas</strong></p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb28-1"><a href="introducción-a-conda..html#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> create <span class="at">-y</span> <span class="at">-n</span> test3.6 python=3.6 pandas=1.0</span></code></pre></div>
+<p><strong>Crear entorno a partir de un archivo YAML</strong></p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb29-1"><a href="introducción-a-conda..html#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> env create <span class="at">-f</span> environment.yml</span></code></pre></div>
+<p><strong><code>conda</code> con vitaminas: <code>mamba</code></strong></p>
+<div class="sourceCode" id="cb30"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb30-1"><a href="introducción-a-conda..html#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> install <span class="at">-yc</span> conda-forge mamba</span>
+<span id="cb30-2"><a href="introducción-a-conda..html#cb30-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-3"><a href="introducción-a-conda..html#cb30-3" aria-hidden="true" tabindex="-1"></a><span class="ex">mamba</span> create <span class="at">-y</span> <span class="at">-n</span> testpy3.6 python=3.6 pandas=1.0</span>
+<span id="cb30-4"><a href="introducción-a-conda..html#cb30-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-5"><a href="introducción-a-conda..html#cb30-5" aria-hidden="true" tabindex="-1"></a><span class="ex">mamba</span> create <span class="at">-y</span> <span class="at">-n</span> testR3.6 r-base=3.6</span></code></pre></div>
 
+</div>
 </div>
             </section>
 
