@@ -1,6 +1,95 @@
 #  Introducción a Conda.
 
-Dr. Otoniel Maya Lucas
+@zorbax
 
 02 de agosto de 2022
 
+[
+```{r, echo=FALSE}
+knitr::include_url("https://atgenomics.github.io/conda/conda.html", height = "380px")
+```
+]()
+
+
+## ¿Qué es conda?
+
+De acuerdo a la definición oficial:
+
+> **`conda`**: 
+> A package manager helps you find and install packages.
+
+Entonces, es un gestor/instalador de paquetes. Se obtiene mediante [Anaconda](https://www.anaconda.com/products/distribution) o [Miniconda](https://docs.conda.io/en/latest/miniconda.html).
+
+La [instalación](https://conda.io/projects/conda/en/latest/user-guide/install/index.html) dependerá del sistema operativo a utilizar. Aunque conda está disponible para Windows, macOS y Linux, no todos los paquetes disponibles para bioinformática son compatibles entre los tres sistemas, siendo la prioridad de paquetes Linux > macOS y en algunos casos, al final, Windows. 
+
+## `conda` 101
+
+```{bash, eval=FALSE}
+conda info
+```
+
+**Actualizar conda**
+```{bash, eval=FALSE}
+conda update conda
+```
+
+**Listar todos los entornos de conda**
+```{bash, eval=FALSE}
+conda env list
+```
+
+**Actualizar todos los paquetes de conda (base)**
+```{bash, eval=FALSE}
+conda update conda --all
+```
+
+**Agregar canales**
+```{bash, eval=FALSE}
+conda config --add channels r
+conda config --add channels conda-forge
+conda config --add channels bioconda
+```
+
+**Buscar un paquete**
+```{bash, eval=FALSE}
+conda search PACKAGE
+```
+
+**Instalar un paquete en el entorno base**
+```{bash, eval=FALSE}
+conda install PACKAGE
+```
+
+**Eliminar archivos temporales**
+```{bash, eval=FALSE}
+conda clean --all -y
+```
+
+**Actualizar todos los paquetes del entorno actual**
+```{bash, eval=FALSE}
+conda update --all -y
+```
+
+**Eliminar entorno**
+```{bash, eval=FALSE}
+conda remove -n qiime2 --all
+```
+
+**Crear un entorno con versiones específicas**
+```{bash, eval=FALSE}
+conda create -y -n test3.6 python=3.6 pandas=1.0
+```
+
+**Crear entorno a partir de un archivo YAML**
+```{bash, eval=FALSE}
+conda env create -f environment.yml
+```
+
+**`conda` con vitaminas: `mamba`**
+```{bash, eval=FALSE}
+conda install -yc conda-forge mamba
+
+mamba create -y -n testpy3.6 python=3.6 pandas=1.0
+
+mamba create -y -n testR3.6 r-base=3.6
+```
