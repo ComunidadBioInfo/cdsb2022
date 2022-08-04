@@ -92,3 +92,13 @@ anotación-con-interproscan
 finalmente-podemos-escribir-esto-en-una-tabla.
 un-vistazo-a-la-creación-de-paquetes-de-rbioconductor
 diapositivas-5
+recapitulemos
+buenas-prácticas-para-escribir-funciones
+ejercicio
+actividad-5
+documentación
+actividad-6
+archivos-de-prueba
+crear-una-vignette
+creado-paquetes-de-forma-colaborativa
+actividad-7
