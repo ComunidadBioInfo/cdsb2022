@@ -224,8 +224,10 @@ subset_heatmap(expresion_genes,
 <div class = "orange color">
 
 Escribe una función que: 
+
 - Filtre la matriz de expresión y mantenga sólo los valores por encima de cierto valor.
-- Genere el heatmap filtrado
+
+- Genere el heatmap filtrado.
 
 Recuerda seguir las recomendaciones para escribir funciones.
 
